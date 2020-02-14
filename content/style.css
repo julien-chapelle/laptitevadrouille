@@ -1,0 +1,140 @@
+span[type=button] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+a[type=button] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+/* scrollUp button */
+#scrollUp {
+    position: fixed;
+    bottom: 1px;
+    right: -100px;
+    font-size: 35px;
+}
+
+.scrollUpColor {
+    color: #7ad19e;
+    opacity: 0.7;
+}
+
+/* scrollUp button */
+
+.butonEdit {
+    cursor:pointer;
+    color:#3fd57c;
+}
+
+#facebookLogoSize {
+    height: 35px;
+}
+
+#twitterLogoSize {
+    height: 35px;
+}
+
+.footerTextSize {
+    font-size: 12px;
+}
+
+.sizeFontUser {
+    font-size: 30px;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-right: 48px;
+}
+
+li {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 25px;
+}
+
+/* FONT COLOR DEBUT */
+.error {
+    color: red;
+}
+
+.mailOk {
+    color: rgb(58, 161, 27);
+}
+
+/* FONT COLOR FIN */
+/* PICTURE USER CHOICE */
+.preview {
+    width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+.previewSize {
+    font-size: 0.8rem;
+
+}
+
+.previewAvatar {
+    overflow:hidden;
+    -webkit-border-radius:200px;
+    -moz-border-radius:200px;
+    border-radius:200px;
+    width:200px;
+    height:200px;
+}
+
+/* PICTURE USER CHOICE */
+/* PICTURE USER NAVBAR */
+.avatarNav {
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:50px;
+    height:50px;
+}
+
+/* PICTURE USER NAVBAR */
+/* BORDER CONTACT ADMIN */
+.borderRadius {
+    border-radius: 20px;
+}
+/* BORDER CONTACT ADMIN */
+/* BOUTON FOOTER */
+.mentionButton {
+border: none;
+cursor:pointer;
+}
+/* BOUTON FOOTER */
+/* SIZE PICTO CATEGORIE DEBUT */
+.sizePictoCategory {
+    width: 3rem;
+}
+/* SIZE PICTO CATEGORIE FIN */
+/* SIZE PICTO PAIEMENT DEBUT */
+.sizePictoPayment {
+    width: 2.5rem;
+}
+/* SIZE PICTO PAIEMENT FIN */
