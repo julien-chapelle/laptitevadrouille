@@ -30,9 +30,15 @@
                         </li>
                     </ul>
                 </form>
+                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 shadow" type="search" placeholder="Recherche" aria-label="Search" name="searchTitle">
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 shadow" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search"></i></button>
+                </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link sizeFontUser avatarNavZone" href="#" data-toggle="modal" data-target="#signIn"><?= !empty($_SESSION) && file_exists($nameAvatarPics) && $value != '..' ? '<img src="' . $nameAvatarPics . '" class="avatarNav" />' : '<i class="far fa-user-circle"></i>' ?></a>
+                        <a class="nav-link sizeFontUser avatarNavZone" href="#" data-toggle="modal" data-target="#signIn">
+                            <?= !empty($_SESSION) && $AvatarUser[0]['avatar'] != null ? '<img src="assets/img_depot/' . $AvatarUser[0]['avatar'] . '" class="avatarNav" />' : '<i class="far fa-user-circle"></i>' ?>
+                        </a>
                     </li>
                 </ul>
             </div>

@@ -24,7 +24,7 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
     echo 'Ajout idée de sortie';
     return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail') {
-    echo 'Détail de la promenade';
+    echo 'Détail de la sortie';
     return;
 } elseif (isset($_GET['view']) && $_GET['view'] == 'contact') {
     echo 'Contactez-nous';

@@ -3,6 +3,7 @@ date_default_timezone_set('Europe/Paris');
 setlocale(LC_ALL, 'fra', 'fr_FR.utf8');
 session_start();
 
+require_once('controllers/home/lpv_homeUserLoginController.php');
 require_once('controllers/lpv_category/lpv_createCategoryController.php');
 require_once('controllers/lpv_category/lpv_deleteCategoryController.php');
 require_once('controllers/lpv_category/lpv_detailCategoryController.php');

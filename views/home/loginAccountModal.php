@@ -8,14 +8,14 @@
                 </button>
             </div>
             <?php if (isset($_SESSION) && count($_SESSION) != 0) { ?>
-                <form method="POST" action="user.php">
+                <form method="POST" action="">
                     <div class="modal-body mx-3">
                         <div class="mb-5 text-center">
                             <p class="font-weight-bold text-center"><?= 'Bonjour ' . $_SESSION['pseudo'] . ' !' ?></p>
-                            <img src="<?= file_exists($nameAvatarPics) && $value != '..' ? $nameAvatarPics : $avatarPicsDefault ?>" class="previewAvatar" />
+                            <img src="assets/<?= $AvatarUser[0]['avatar'] != null ? 'img_depot/' . $AvatarUser[0]['avatar'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
                         <div class="col-12 text-center p-0">
-                            <a href="user.php" type="button" class="btn btn-outline-success btn-sm btn-block m-0">Info profil</a>
+                            <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn btn-outline-success btn-sm btn-block m-0">Info profil</a>
                         </div>
                         <div class="col-12 text-center p-0">
                             <button class="btn btn-outline-danger btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
@@ -27,7 +27,7 @@
                     <div class="modal-body mx-3">
                         <div class="mb-5">
                             <label for="userMail"><i class="fas fa-user prefix colorIcon ml-1"></i></label>
-                            <input type="email" id="userMail" class="form-control validate" placeholder="Adresse email *" name="userMailConnexion" value="<?= count($arrayError) != 0 && isset($_POST['userMailConnexion']) || isset($userNoExistError) ? $_POST['userMailConnexion'] : '' ?>" />
+                            <input type="email" id="userMail" class="form-control validate" placeholder="Adresse email *" name="userMailConnexion" value="<?= !empty($arrayError) && isset($_POST['userMailConnexion']) || isset($userNoExistError) ? $_POST['userMailConnexion'] : '' ?>" />
                             <p class="error"><?= isset($arrayError['userMailConnexion']) ? $arrayError['userMailConnexion'] : '' ?></p>
                         </div>
                         <div class="mb-4">
