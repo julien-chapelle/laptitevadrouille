@@ -1,4 +1,4 @@
-<?php require_once('controllers/home/lpv_homeController.php') ?>
+<?php require_once('controllers/home/lpv_homeController.php'); ?>
 
 <head>
     <meta charset="UTF-8" />

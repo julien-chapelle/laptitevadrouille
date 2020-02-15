@@ -20,7 +20,7 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
     include('views/lpv_category/create.php');
     return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail') {
-    include('views/lpv_category/details.php');
+    include('views/lpv_category/detail.php');
     return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'edit') {
     include('views/lpv_category/edit.php');
