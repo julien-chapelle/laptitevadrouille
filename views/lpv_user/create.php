@@ -1,4 +1,3 @@
-<!-- formulaire début-->
 <form class="p-4" method="POST" action="">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
@@ -34,8 +33,8 @@
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
             <button class="btn btn-light btn-sm" role="button" type="submit" name="addUser">S'INSCRIRE</button>
+            <p class="valid shadow h4"><?= isset($_POST['addUser']) && empty($arrayError) ? 'Compte créé avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
         </div>
     </div>
 </form>
-<!-- formulaire fin-->

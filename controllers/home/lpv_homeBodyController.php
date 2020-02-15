@@ -34,8 +34,11 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['view']) && $_GET['view'] == 'contact') {
     include('views/home/contactAdmin.php');
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'edit') {
-    include('views/lpv_user/edit.php');
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editInfo') {
+    include('views/lpv_user/editInfo.php');
+    return;
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword') {
+    include('views/lpv_user/editPassword.php');
     return;
 } elseif (isset($_GET['legalNotice'])) {
     include('views/home/legalNotice.php');

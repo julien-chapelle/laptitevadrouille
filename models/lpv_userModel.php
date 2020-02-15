@@ -88,7 +88,7 @@ class Lpv_user extends Lpv_database
         $addUserResult = $this->db->prepare($addUserQuery);
         $addUserResult->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
         $addUserResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
-        $addUserResult->bindValue(':passwords', $this->getPassword());
+        $addUserResult->bindValue(':passwords', $this->getPassword(), PDO::PARAM_STR);
         $addUserResult->execute();
         $lastId = $this->db->lastInsertId();
         return $lastId;
@@ -122,7 +122,7 @@ class Lpv_user extends Lpv_database
     //COUNT ID DATABASE
     public function countUser()
     {
-        $countUserQuery = "SELECT count(`id`) AS `countId` FROM `lpv_user`";
+        $countUserQuery = "SELECT count(`id`) AS `countId` FROM `LPV_user`";
 
         $countUserResult = $this->db->prepare($countUserQuery);
         if ($countUserResult->execute()) {
@@ -156,5 +156,30 @@ class Lpv_user extends Lpv_database
             $AvatarUser = $AvatarUserResult->fetchAll(PDO::FETCH_ASSOC);
             return $AvatarUser;
         }
+    }
+    //EDIT USER INFO
+    public function editUserInfo()
+    {
+        $editUserInfoQuery = "UPDATE `LPV_user`
+        SET `pseudo` = :pseudo,`mail` = :mail
+        WHERE `id` = :currentId";
+
+        $editUserInfoResult = $this->db->prepare($editUserInfoQuery);
+        $editUserInfoResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editUserInfoResult->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
+        $editUserInfoResult->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
+        $editUserInfoResult->execute();
+    }
+    //EDIT USER PASSWORD
+    public function editUserPassword()
+    {
+        $editUserPasswordQuery = "UPDATE `LPV_user`
+        SET `password` = :passwords
+        WHERE `id` = :currentId";
+
+        $editUserPasswordResult = $this->db->prepare($editUserPasswordQuery);
+        $editUserPasswordResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editUserPasswordResult->bindValue(':passwords', $this->getPseudo(), PDO::PARAM_STR);
+        $editUserPasswordResult->execute();
     }
 }

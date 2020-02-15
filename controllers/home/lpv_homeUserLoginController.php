@@ -34,6 +34,7 @@ if (empty($arrayError) && isset($_POST['userConnection']) && !isset($e)) {
         if ($_POST['userMailConnexion'] == $row['mail'] && password_verify($_POST['passwordConnexion'], $row['password']) == 'true') {
             $_SESSION['id'] = $row['id'];
             $_SESSION['pseudo'] = $row['pseudo'];
+            $_SESSION['mail'] = $row['mail'];
             header('Location: http://laptitevadrouille/index.php?user=detail');
         } else {
             $userNoExistError = 'Ce compte n\'existe pas, veuillez vérifier vos données de connections ou créez un compte';

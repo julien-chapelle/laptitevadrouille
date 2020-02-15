@@ -63,7 +63,12 @@ if (isset($_POST['addUser']) && empty($arrayError)) {
     $user->setMail($mail);
     $user->setPassword($password);
     $lastId = $user->addUser();
+    $userList = $user->listUser();
 
+    foreach ($userList as $row) {
+        $_SESSION['pseudo'] = $row['pseudo'];
+        $_SESSION['mail'] = $row['mail'];
+    }
     $_SESSION['id'] = $lastId;
     header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
 }

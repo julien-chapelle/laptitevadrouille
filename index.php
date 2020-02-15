@@ -31,8 +31,8 @@
                     </ul>
                 </form>
                 <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 shadow" type="search" placeholder="Recherche" aria-label="Search" name="searchTitle">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0 shadow" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search"></i></button>
+                    <input class="form-control shadow mr-1" type="search" placeholder="Recherche" aria-label="Search" name="searchTitle">
+                    <button class="btn btn-outline-success my-1 shadow px-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search"></i></button>
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">

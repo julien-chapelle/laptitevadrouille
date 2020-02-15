@@ -78,7 +78,9 @@ p {
 .error {
     color: red;
 }
-
+.valid {
+    color: green;
+}
 .mailOk {
     color: rgb(58, 161, 27);
 }

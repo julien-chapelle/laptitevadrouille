@@ -19,7 +19,14 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <p class="card-title font-weight-bold">MES INFORMATIONS :</p>
+                <div class="row">
+                    <div class="col-10">
+                        <p class="card-title font-weight-bold">MES INFORMATIONS :</p>
+                    </div>
+                    <div class="col-2 mt-1 text-right">
+                        <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=editInfo" title="Modifier les informations"><i class="far fa-edit"></i></a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <p>STATUS : <?= $row['status'] ?></p>
@@ -29,20 +36,17 @@
                     <div class="col">
                         <p>PSEUDO : <?= isset($row['pseudo']) ? $row['pseudo'] : '' ?></p>
                     </div>
-                    <div class="col butonEdit">
-                        <a data-toggle="modal" data-target="#editPseudoModal" title="Modifier le pseudo"><i class="far fa-edit"></i></a>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <p>EMAIL : <?= isset($row['mail']) ? $row['mail'] : '' ?></p>
                     </div>
-                    <div class="col butonEdit">
-                        <a data-toggle="modal" data-target="#editMailModal" title="Modifier le mail"><i class="far fa-edit"></i></a>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=editPassword" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</a>
                     </div>
                 </div>
-
-                <button class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#editPasswordModal" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</button>
             </div>
         </div>
         <div class="card">

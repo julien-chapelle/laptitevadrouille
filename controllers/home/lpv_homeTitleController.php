@@ -17,8 +17,11 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['user']) && $_GET['user'] == 'detail') {
     echo 'Détail utilisateur';
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'edit') {
-    echo 'Editer utilisateur';
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editInfo') {
+    echo 'Modification des informations';
+    return;
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword') {
+    echo 'Modification du mot de passe';
     return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'add') {
     echo 'Ajout idée de sortie';
