@@ -7,7 +7,7 @@
             };
         ?>
             <div class="card mb-3">
-                <form method="GET" action="walkIdea.php">
+                <form method="GET" action="">
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img m-1" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">

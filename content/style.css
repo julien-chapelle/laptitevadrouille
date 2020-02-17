@@ -135,6 +135,11 @@ cursor:pointer;
     width: 3rem;
 }
 /* SIZE PICTO CATEGORIE FIN */
+/* SIZE PICTO ADMIN DEBUT */
+.sizePictoAdmin {
+    width: 2rem;
+}
+/* SIZE PICTO ADMIN FIN */
 /* SIZE PICTO PAIEMENT DEBUT */
 .sizePictoPayment {
     width: 2.5rem;

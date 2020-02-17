@@ -244,6 +244,28 @@ class Lpv_category extends Lpv_database
     }
 
     //Méthodes////////////////////////////////////////////////////////
+    //CLASSIC LIST
+    public function classicListWalk()
+    {
+        $classicListWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        FROM `LPV_category`
+        LEFT JOIN `LPV_locationPicto`
+        ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
+        LEFT JOIN `LPV_outputTypePicto`
+        ON `LPV_outputTypePicto`.`id` = `LPV_category`.`id_LPV_outputTypePicto`
+        LEFT JOIN `LPV_ageAdvisePicto`
+        ON `LPV_ageAdvisePicto`.`id` = `LPV_category`.`id_LPV_ageAdvisePicto`
+        LEFT JOIN `LPV_practicabilityPicto`
+        ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
+        LEFT JOIN `LPV_equipmentPicto`
+        ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`";
+
+        $classicListWalkResult = $this->db->prepare($classicListWalkQuery);
+        if ($classicListWalkResult->execute()) {
+            $dataClassicListWalk = $classicListWalkResult->fetchAll();
+            return $dataClassicListWalk;
+        }
+    }
     //LIST WALK + PAGING
     public function listWalk($limite, $debut)
     {

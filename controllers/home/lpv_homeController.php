@@ -7,6 +7,7 @@ require_once('controllers/home/lpv_homeUserLoginController.php');
 require_once('controllers/lpv_category/lpv_createCategoryController.php');
 require_once('controllers/lpv_category/lpv_deleteCategoryController.php');
 require_once('controllers/lpv_category/lpv_detailCategoryController.php');
+require_once('controllers/lpv_category/lpv_detailUnvalidateCategoryController.php');
 require_once('controllers/lpv_category/lpv_editCategoryController.php');
 require_once('controllers/lpv_category/lpv_listCategoryController.php');
 require_once('controllers/lpv_category/lpv_searchCategoryController.php');

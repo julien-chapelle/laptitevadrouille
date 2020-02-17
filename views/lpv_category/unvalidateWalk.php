@@ -1,9 +1,9 @@
 <div class="card-columns px-3 mt-4">
     <?php foreach ($detailWalk as $row) {
-        if ($row['walkValidate'] != 'Validate') {
+        if ($row['walkValidate'] == 'validate') {
             continue;
         };
-        if ($_GET['moreInfo'] != $row['id']) {
+        if ($_GET['unvalidateWalk'] != $row['id']) {
             continue;
         }
     ?>
@@ -49,7 +49,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <a href="<?= $row['googleMapAddress'] ?>"><img src="assets/img_map/<?= $row['map'] ?>" class="img-fluid" alt="Image carte <?= strtolower($row['title']) ?>" title="Image carte <?= strtolower($row['title']) ?>" /></a>
+                <a href="<?= $row['googleMapAddress'] ?>"><img src="assets/img_map/<?= $row['map'] ?>" class="img-fluid" alt="Image illustration <?= strtolower($row['title']) ?>" title="Image illustration <?= strtolower($row['title']) ?>" /></a>
                 <a class="btn btn-outline-secondary btn-sm btn-block mx-0 mt-4" href="<?= $row['officialSite'] ?>" title="Site officiel <?= strtolower($row['title']) ?>">SITE OFFICIEL</a>
             </div>
         </div>
@@ -57,7 +57,7 @@
             <div class="card-body">
                 <p class="card-title font-weight-bold">MOYENS DE PAIEMENTS ACCEPTES :</p>
                 <?php foreach ($detailWalkPayment as $row) {
-                    if ($row['id'] != $_GET['moreInfo']) {
+                    if ($row['id'] != $_GET['unvalidateWalk']) {
                         continue;
                     } ?>
                     <img src="assets/img_picto/<?= $row['paymentPicto'] ?>" class="card-img m-1 sizePictoPayment" alt="<?= $row['paymentAlt'] ?>" title="<?= $row['paymentTitle'] ?>">

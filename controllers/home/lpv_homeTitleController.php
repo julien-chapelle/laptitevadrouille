@@ -29,8 +29,11 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'add') {
     echo 'Ajout idée de sortie';
     return;
-} elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail') {
+} elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail' && isset($_GET['moreInfo'])) {
     echo 'Détail de la sortie';
+    return;
+} elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail' && isset($_GET['unvalidateWalk']) && isset($detailUser) && $detailUser[0]['status'] == 'admin') {
+    echo 'Détail de la sortie non validée';
     return;
 } elseif (isset($_GET['view']) && $_GET['view'] == 'contact') {
     echo 'Contactez-nous';
