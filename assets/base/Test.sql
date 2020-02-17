@@ -43,10 +43,12 @@ USE `laptitevadrouille`;
 -- LEFT JOIN `LPV_paymentPicto`
 -- ON `LPV_paymentPicto`.`id` = `avoir`.`id`;
 
-SELECT `status`
-FROM `LPV_user`
-WHERE `pseudo` = 'Paul'
-;
+-- SELECT `status`
+-- FROM `LPV_user`
+-- WHERE `pseudo` = 'Paul'
+-- ;
+
+
 
 
 

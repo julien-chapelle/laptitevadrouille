@@ -23,6 +23,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword') {
     echo 'Modification du mot de passe';
     return;
+} elseif (isset($_GET['user']) && $_GET['user'] == 'delete') {
+    echo 'Suppression du compte';
+    return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'add') {
     echo 'Ajout idée de sortie';
     return;

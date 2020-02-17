@@ -1,23 +1,24 @@
 <form class="p-4" method="POST" action="">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <label class="font-weight-bold text-dark" for="password"><i class="fas fa-unlock-alt"></i> MOT
+            <label class="font-weight-bold text-dark" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT
                 DE PASSE ACTUEL</label>
-            <input title="Choisissez un mot de passe" type="password" class="form-control text-center" name="password" id="password" />
-            <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
+            <input title="Saisissez le mot de passe actuel" type="password" class="form-control text-center" name="currentPassword" id="currentPassword" />
+            <p class="error"><?= isset($arrayError['currentPassword']) ? $arrayError['currentPassword'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <label class="font-weight-bold text-dark" for="confirmPassword"><i class="fas fa-unlock-alt"></i> NOUVEAU MOT DE PASSE</label>
-            <input title="Confirmez le mot de passe" type="password" class="form-control text-center" name="passwordConfirm" id="confirmPassword" />
-            <p class="error"><?= isset($arrayError['passwordConfirm']) ? $arrayError['passwordConfirm'] : '' ?></p>
+            <label class="font-weight-bold text-dark" for="newPassword"><i class="fas fa-unlock-alt"></i> NOUVEAU MOT DE PASSE</label>
+            <input title="Saisissez le nouveau mot de passe" type="password" class="form-control text-center" name="newPassword" id="newPassword" />
+            <p class="error"><?= isset($arrayError['newPassword']) ? $arrayError['newPassword'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <button class="btn btn-light btn-sm" role="button" type="submit" name="editUserPassword">MODIFIER</button>
-            <p class="valid shadow h5"><?= isset($_POST['editUserInfo']) && empty($arrayError) ? 'Mot de passe modifié avec succès !' : '' ?></p>
+        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+            <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="editUserPassword">MODIFIER</button>
+            <p class="valid h5 my-3"><?= isset($_POST['editUserPassword']) && empty($arrayError) ? 'Mot de passe modifié avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
         </div>
     </div>

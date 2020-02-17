@@ -11,7 +11,8 @@ if (isset($_SESSION) && !empty($_SESSION)) {
     //Hydratation
     $user->setId($currentId);
     $userDetail = $user->detailUser();
-}
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 // ERROR PSEUDO
 $regexPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,20}$/';
 
@@ -45,26 +46,11 @@ if (isset($_POST['password'])) {
         $arrayError['password'] = 'Veuillez remplir le champ';
     };
 };
-// ERROR PASSWORD CONFIRM
-$regexPasswordConfirm = '/^[a-z0-9A-Z]{1,15}$/';
-
-if (isset($_POST['passwordConfirm'])) {
-    if (preg_match($regexPasswordConfirm, $_POST['passwordConfirm']) == 0) {
-        $arrayError['passwordConfirm'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
-    };
-    if (empty($_POST['passwordConfirm'])) {
-        $arrayError['passwordConfirm'] = 'Veuillez remplir le champ';
-    };
-    if ($_POST['password'] != $_POST['passwordConfirm']) {
-        $arrayError['passwordConfirm'] = 'Les mots de passes ne sont pas identiques !';
-    };
-};
-
+// USER INFO UPDATE
 if (isset($_POST['editUserInfo']) && empty($arrayError)) {
     if (password_verify($_POST['password'], $userDetail[0]['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
-
         //Hydratation
         $user->setId($currentId);
         $user->setPseudo($pseudo);
@@ -74,16 +60,40 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
     } else {
         $arrayError['password'] = 'Le mot de passe est faux';
     };
-}
+};
+//////////////////////////////////////////////////////////////////////////////////////////////
+// ERROR CURRENT PASSWORD
+$regexCurrentPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
+if (isset($_POST['currentPassword'])) {
+    if (preg_match($regexCurrentPassword, $_POST['currentPassword']) == 0) {
+        $arrayError['currentPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+    };
+    if (empty($_POST['currentPassword'])) {
+        $arrayError['currentPassword'] = 'Veuillez remplir le champ';
+    };
+};
+// ERROR NEW PASSWORD
+$regexNewPassword = '/^[a-z0-9A-Z]{1,15}$/';
+
+if (isset($_POST['newPassword'])) {
+    if (preg_match($regexNewPassword, $_POST['newPassword']) == 0) {
+        $arrayError['newPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+    };
+    if (empty($_POST['newPassword'])) {
+        $arrayError['newPassword'] = 'Veuillez remplir le champ';
+    };
+};
+// USER PASSWORD UPDATE
 if (isset($_POST['editUserPassword']) && empty($arrayError)) {
-    $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
-    $mail = htmlspecialchars($_POST['mail']);
-    $password = htmlspecialchars(password_hash($_POST['password'], PASSWORD_DEFAULT));
-
-    //Hydratation
-    $user->setPassword($password);
-    $user->editUserPassword();
-
-    header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
-}
+    if (password_verify($_POST['currentPassword'], $userDetail[0]['password']) == 'true') {
+        $password = htmlspecialchars(password_hash($_POST['newPassword'], PASSWORD_DEFAULT));
+        //Hydratation
+        $user->setId($currentId);
+        $user->setPassword($password);
+        $user->editUserPassword();
+        header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
+    } else {
+        $arrayError['currentPassword'] = 'Le mot de passe actuel saisi est faux';
+    };
+};

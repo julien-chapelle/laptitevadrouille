@@ -1,7 +1,7 @@
 <?php foreach ($detailUser as $row) { ?>
     <div class="card-columns mx-auto mt-3 p-3">
         <div class="card text-center">
-            <form action="user.php" method="post">
+            <form action="" method="POST">
                 <div class="row d-flex justify-content-center mx-auto mt-3">
                     <div class="col p-1">
                         <div class="card-body p-2">
@@ -57,7 +57,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="walkCreate.php">
+                <form method="POST" action="">
                     <button class="btn btn-outline-danger btn-sm btn-block" type="submit" name="proposalOutSubmit">PROPOSER UNE SORTIE</button>
                 </form>
             </div>
@@ -71,7 +71,7 @@
                         </form>
                     </div>
                     <div class="col">
-                        <button class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteAccountModal">SUPPRIMER LE COMPTE</button>
+                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=delete" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>
             </div>

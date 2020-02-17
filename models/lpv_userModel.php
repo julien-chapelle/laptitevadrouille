@@ -179,7 +179,17 @@ class Lpv_user extends Lpv_database
 
         $editUserPasswordResult = $this->db->prepare($editUserPasswordQuery);
         $editUserPasswordResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
-        $editUserPasswordResult->bindValue(':passwords', $this->getPseudo(), PDO::PARAM_STR);
+        $editUserPasswordResult->bindValue(':passwords', $this->getPassword(), PDO::PARAM_STR);
         $editUserPasswordResult->execute();
+    }
+    //DELETE USER
+    public function deleteUser()
+    {
+        $deleteUserQuery = "DELETE FROM `LPV_user` 
+        WHERE `id` = :currentId";
+
+        $deleteUser = $this->db->prepare($deleteUserQuery);
+        $deleteUser->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $deleteUser->execute();
     }
 }

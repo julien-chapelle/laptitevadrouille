@@ -1,5 +1,4 @@
 <?php
-include('views/lpv_user/delete.php');
 include('views/lpv_category/delete.php');
 include('views/home/loginAccountModal.php');
 include('views/home/aboutModal.php');
@@ -39,6 +38,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
     return;
 } elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword') {
     include('views/lpv_user/editPassword.php');
+    return;
+} elseif (isset($_GET['user']) && $_GET['user'] == 'delete') {
+    include('views/lpv_user/delete.php');
     return;
 } elseif (isset($_GET['legalNotice'])) {
     include('views/home/legalNotice.php');
