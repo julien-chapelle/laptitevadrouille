@@ -5,7 +5,7 @@ require_once('models/lpv_userModel.php');
 $arrayError = [];
 $user = new Lpv_user();
 
-//DETAIL INPUT
+//DETAIL USER
 if (isset($_SESSION) && !empty($_SESSION)) {
     $currentId = intval($_SESSION['id']);
     //Hydratation
