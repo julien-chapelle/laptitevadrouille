@@ -10,7 +10,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
     $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);
-    $userDetail = $user->detailUser();
+    $detailUser = $user->detailUser();
 };
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // ERROR PSEUDO
@@ -48,7 +48,7 @@ if (isset($_POST['password'])) {
 };
 // USER INFO UPDATE
 if (isset($_POST['editUserInfo']) && empty($arrayError)) {
-    if (password_verify($_POST['password'], $userDetail[0]['password']) == 'true') {
+    if ($_SESSION['status'] == 'admin' || password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         //Hydratation

@@ -1,4 +1,4 @@
-<?php foreach ($userDetail as $row) { ?>
+<?php foreach ($detailUser as $row) { ?>
     <form class="p-4" method="POST" action="">
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">
@@ -16,14 +16,18 @@
                 <p class="error"><?= isset($arrayError['mail']) ? $arrayError['mail'] : '' ?></p>
             </div>
         </div>
-        <div class="row text-center m-0 mt-1 justify-content-center">
-            <div class="col-12">
-                <label class="font-weight-bold text-dark" for="password"><i class="fas fa-unlock-alt"></i> MOT
-                    DE PASSE</label>
-                <input title="Choisissez un mot de passe" type="password" class="form-control text-center" name="password" id="password" />
-                <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
+        <?php if ($_SESSION['id'] == $row['id']) { ?>
+            <div class="row text-center m-0 mt-1 justify-content-center">
+                <div class="col-12">
+                    <label class="font-weight-bold text-dark" for="password"><i class="fas fa-unlock-alt"></i> MOT
+                        DE PASSE</label>
+                    <input title="Choisissez un mot de passe" type="password" class="form-control text-center" name="password" id="password" />
+                    <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
+                </div>
             </div>
-        </div>
+        <?php } else {
+            '';
+        } ?>
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">
                 <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
