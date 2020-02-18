@@ -11,19 +11,19 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['search'])) {
     echo 'Résultats recherche';
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'add') {
+} elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     echo 'Ajout utilisateur';
     return;
 } elseif (isset($_GET['user']) && $_GET['user'] == 'detail') {
     echo 'Détail utilisateur';
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'editInfo') {
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editInfo' && isset($_GET['id'])) {
     echo 'Modification des informations';
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword') {
+} elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword' && isset($_GET['id'])) {
     echo 'Modification du mot de passe';
     return;
-} elseif (isset($_GET['user']) && $_GET['user'] == 'delete') {
+} elseif (isset($_GET['user']) && $_GET['user'] == 'delete' && isset($_GET['id'])) {
     echo 'Suppression du compte';
     return;
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'add') {

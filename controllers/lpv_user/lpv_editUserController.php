@@ -6,8 +6,8 @@ $arrayError = [];
 $user = new Lpv_user();
 
 //DETAIL USER
-if (isset($_SESSION) && !empty($_SESSION)) {
-    $currentId = intval($_SESSION['id']);
+if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
+    $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);
     $userDetail = $user->detailUser();

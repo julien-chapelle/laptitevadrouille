@@ -22,7 +22,7 @@
                         <p class="card-title font-weight-bold">MES INFORMATIONS :</p>
                     </div>
                     <div class="col-2 mt-1 text-right">
-                        <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=editInfo" title="Modifier les informations"><i class="far fa-edit"></i></a>
+                        <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=editInfo&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                     </div>
                 </div>
                 <div class="row">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=editPassword" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</a>
+                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=editPassword&amp;id=<?= $row['id'] ?>" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</a>
                     </div>
                 </div>
             </div>
@@ -199,10 +199,10 @@
                                             </div>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=editInfo" title="Modifier les informations"><i class="far fa-edit"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=editInfo&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=delete" title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </form>

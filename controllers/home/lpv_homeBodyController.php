@@ -27,7 +27,7 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'edit') {
     include('views/lpv_category/edit.php');
     return;
-} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
+} elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     include('views/lpv_user/create.php');
     return;
 } elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'detail') {
@@ -36,13 +36,13 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['view']) && $_GET['view'] == 'contact') {
     include('views/home/contactAdmin.php');
     return;
-} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'editInfo') {
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'editInfo' && isset($_GET['id'])) {
     include('views/lpv_user/editInfo.php');
     return;
-} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'editPassword') {
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'editPassword' && isset($_GET['id'])) {
     include('views/lpv_user/editPassword.php');
     return;
-} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'delete') {
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'delete' && isset($_GET['id'])) {
     include('views/lpv_user/delete.php');
     return;
 } elseif (isset($_GET['legalNotice'])) {
