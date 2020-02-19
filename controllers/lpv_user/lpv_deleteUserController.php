@@ -5,11 +5,11 @@ $arrayError = [];
 $user = new Lpv_user();
 
 //DETAIL USER
-if (isset($_SESSION) && !empty($_SESSION)) {
-    $currentId = intval($_SESSION['id']);
+if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
+    $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);
-    $userDetail = $user->detailUser();
+    $detailUser = $user->detailUser();
 };
 // ERROR PSEUDO
 $regexCheckPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,20}$/';
@@ -35,13 +35,17 @@ if (isset($_POST['checkPassword'])) {
 };
 // USER DELETE
 if (isset($_POST['deleteUser']) && empty($arrayError)) {
-    if ($_POST['checkPseudo'] == $userDetail[0]['pseudo'] && password_verify($_POST['checkPassword'], $userDetail[0]['password']) == 'true') {
+    if ($_POST['checkPseudo'] == $detailUser[0]['pseudo'] && password_verify($_POST['checkPassword'], $detailUser[0]['password']) == 'true') {
         //Hydratation
         $user->setId($currentId);
         $user->deleteUser();
-        session_reset();
-        session_destroy();
-        header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
+        if ($_SESSION['status'] == 'user') {
+            session_reset();
+            session_destroy();
+            header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
+        } else {
+            header('Refresh: 0');
+        }
     } else {
         $arrayError['checkPassword'] = 'Le mot de passe ou le pseudo actuel saisi est faux';
     };

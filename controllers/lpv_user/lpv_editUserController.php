@@ -86,7 +86,7 @@ if (isset($_POST['newPassword'])) {
 };
 // USER PASSWORD UPDATE
 if (isset($_POST['editUserPassword']) && empty($arrayError)) {
-    if (password_verify($_POST['currentPassword'], $userDetail[0]['password']) == 'true') {
+    if (password_verify($_POST['currentPassword'], $detailUser[0]['password']) == 'true') {
         $password = htmlspecialchars(password_hash($_POST['newPassword'], PASSWORD_DEFAULT));
         //Hydratation
         $user->setId($currentId);

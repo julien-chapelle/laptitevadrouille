@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <label class="font-weight-bold text-dark" for="checkPseudo"><i class="fas fa-user"></i>
                         PRENOM OU PSEUDO</label>
-                    <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center" name="checkPseudo" id="checkPseudo" value="<?= !empty($arrayError) && isset($_POST['checkPseudo']) ? $_POST['checkPseudo'] : $_SESSION['pseudo'] ?>" />
+                    <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center" name="checkPseudo" id="checkPseudo" value="<?= !empty($arrayError) && isset($_POST['checkPseudo']) ? $_POST['checkPseudo'] : $detailUser[0]['pseudo'] ?>" />
                     <p class="error"><?= isset($arrayError['checkPseudo']) ? $arrayError['checkPseudo'] : '' ?></p>
                 </div>
             </div>
