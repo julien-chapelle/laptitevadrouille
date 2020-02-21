@@ -23,14 +23,18 @@
                     <p class="error"><?= isset($arrayError['checkPseudo']) ? $arrayError['checkPseudo'] : '' ?></p>
                 </div>
             </div>
-            <div class="row text-center m-0 mt-1 justify-content-center">
-                <div class="col-12">
-                    <label class="font-weight-bold text-dark" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
-                        DE PASSE</label>
-                    <input title="Saisissez votre mot de passe" type="password" class="form-control text-center" name="checkPassword" id="checkPassword" />
-                    <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>
+            <?php if ($_SESSION['id'] == $detailUser[0]['id']) { ?>
+                <div class="row text-center m-0 mt-1 justify-content-center">
+                    <div class="col-12">
+                        <label class="font-weight-bold text-dark" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
+                            DE PASSE</label>
+                        <input title="Saisissez votre mot de passe" type="password" class="form-control text-center" name="checkPassword" id="checkPassword" />
+                        <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>
+                    </div>
                 </div>
-            </div>
+            <?php } else {
+                '';
+            } ?>
         </div>
         <!-- formulaire fin-->
     </div>

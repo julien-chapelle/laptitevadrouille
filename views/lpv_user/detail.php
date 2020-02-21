@@ -42,7 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=editPassword&amp;id=<?= $row['id'] ?>" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</a>
+                        <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=editPassword&amp;id=<?= $row['id'] ?>" title="Modifier le mot de passe">MODIFIER MON MOT DE PASSE</a>
                     </div>
                 </div>
             </div>
@@ -57,21 +57,21 @@
         <?php }; ?>
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="">
-                    <button class="btn btn-outline-danger btn-sm btn-block" type="submit" name="proposalOutSubmit">PROPOSER UNE SORTIE</button>
+                <form method="POST" action="" class="mb-0">
+                    <button class="btn btn-outline-danger btn-sm btn-block mx-0" type="submit" name="proposalOutSubmit">PROPOSER UNE SORTIE</button>
                 </form>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <form method="POST" action="">
-                            <button class="btn btn-outline-danger btn-sm" type="submit" name="logout">DECONNECTION</button>
+                <div class="row m-0">
+                    <div class="col-6">
+                        <form method="POST" action="" class="mb-0">
+                            <button class="btn btn-outline-danger btn-sm mx-0" type="submit" name="logout">DECONNECTION</button>
                         </form>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-outline-danger btn-sm btn-block" href="http://laptitevadrouille/index.php?user=delete" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
+                    <div class="col-6">
+                        <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $detailUser[0]['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>
             </div>
@@ -79,9 +79,9 @@
     <?php };
     if ($detailUser[0]['status'] == 'admin') { ?>
         <div class="card text-center">
-            <div class="card-body px-1">
-                <p class="card-title font-weight-bold">SORTIES EN ATTENTE DE VALIDATION :</p>
-                <div class="row d-flex justify-content-end p-3 m-0">
+            <div class="card-body p-1">
+                <p class="card-title font-weight-bold mb-0">SORTIES EN ATTENTE DE VALIDATION :</p>
+                <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
                         foreach ($listWalk as $row) {
@@ -94,7 +94,7 @@
                                     <div class="row no-gutters">
                                         <div class="col">
                                             <div class="card-body p-1">
-                                                <p class="card-title"><?= $row['title'] ?></p>
+                                                <p class="card-title mb-1"><?= $row['title'] ?></p>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -126,9 +126,9 @@
             </div>
         </div>
         <div class="card text-center">
-            <div class="card-body px-1">
-                <p class="card-title font-weight-bold">SORTIES VALIDEES :</p>
-                <div class="row d-flex justify-content-end p-3 m-0">
+            <div class="card-body p-1">
+                <p class="card-title font-weight-bold mb-0">SORTIES VALIDEES :</p>
+                <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
                         foreach ($listWalk as $row) {
@@ -141,7 +141,7 @@
                                     <div class="row no-gutters">
                                         <div class="col">
                                             <div class="card-body p-1">
-                                                <p class="card-title"><?= $row['title'] ?></p>
+                                                <p class="card-title mb-1"><?= $row['title'] ?></p>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -173,9 +173,9 @@
             </div>
         </div>
         <div class="card text-center">
-            <div class="card-body px-1">
-                <p class="card-title font-weight-bold">LISTE DES UTILISATEURS :</p>
-                <div class="row d-flex justify-content-end p-3 m-0">
+            <div class="card-body p-1">
+                <p class="card-title font-weight-bold mb-0">LISTE DES UTILISATEURS :</p>
+                <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
                         foreach ($listUser as $row) {
@@ -190,7 +190,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="card-body p-0">
-                                                <p class="m-0"><a href="mailto:<?= $row['mail'] ?>"><?= $row['mail'] ?></a></p>
+                                                <p class="m-0"><small><a href="mailto:<?= $row['mail'] ?>"><?= $row['mail'] ?></a></small></p>
                                             </div>
                                         </div>
                                         <div class="col-2">
