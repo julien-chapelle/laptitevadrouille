@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <?php if ($detailUser[0]['status'] == 'user') { ?>
+        <?php if ($row['status'] == 'user') { ?>
             <div class="card">
                 <div class="card-body">
                     <p class="card-title font-weight-bold">VOS FAVORIS :</p>
@@ -71,13 +71,13 @@
                         </form>
                     </div>
                     <div class="col-6">
-                        <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $detailUser[0]['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
+                        <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>
             </div>
         </div>
     <?php };
-    if ($detailUser[0]['status'] == 'admin') { ?>
+    if ($row['status'] == 'admin') { ?>
         <div class="card text-center">
             <div class="card-body p-1">
                 <p class="card-title font-weight-bold mb-0">SORTIES EN ATTENTE DE VALIDATION :</p>
@@ -208,6 +208,22 @@
                                 </form>
                             </div>
                         <?php }; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-body p-1">
+                <p class="card-title font-weight-bold mb-0">AJOUT AVATAR EN BDD :</p>
+                <div class="row d-flex justify-content-end px-3 py-1 m-0">
+                    <div class="col p-0">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <img class="preview my-1 mx-auto" />
+                                <input type="file" data-preview=".preview" class="form-control-file btn btn-outline-success btn-sm previewSize" name="fileUpload" id="fileUpload" title="choisissez une image" />
+                                <button type="submit" class="btn btn-outline-success btn-sm btn-block" name="addAvatarBdd"><i class="fas fa-cloud-upload-alt"></i> AJOUTER</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

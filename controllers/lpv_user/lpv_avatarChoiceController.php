@@ -17,4 +17,23 @@ if (isset($_POST['choiceAvatar'])) {
     $avatarSelect = $avatar->editAvatar();
     header('Location: http://laptitevadrouille/index.php?user=detail');
 }
-?>
+//DELETE AVATAR AND REDIRECTION
+if (isset($_POST['removeAvatarPics'])) {
+    $currentId = intval($_SESSION['id']);
+    //Hydratation
+    $avatar->setId($currentId);
+    $avatarDelete = $avatar->deleteAvatar();
+    header('Location: http://laptitevadrouille/index.php?user=detail');
+}
+//ADD AVATAR ON BDD
+$target_dir = 'assets/img_avatar_choice';
+if (isset($_POST['addAvatarBdd'])) {
+    $addAvatar = htmlspecialchars($_FILES["fileUpload"]["name"]);
+    //Hydratation
+    $avatar->setAvatar($addAvatar);
+    $addAvatarOnBdd = $avatar->addAvatarOnBdd();
+    $tmp_name = $_FILES["fileUpload"]["tmp_name"];
+    $name = basename($_FILES["fileUpload"]["name"]);
+    move_uploaded_file($tmp_name, "$target_dir/$name");
+    header('Location: http://laptitevadrouille/index.php?user=detail');
+}

@@ -54,10 +54,15 @@ USE `laptitevadrouille`;
 --         LEFT JOIN `LPV_avatar`
 --         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`;
 
-SELECT * FROM `LPV_user`
+-- SELECT * FROM `LPV_user`
+--         LEFT JOIN `LPV_avatar`
+--         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
+--         WHERE `LPV_user`.`id` = 19;
+
+SELECT `LPV_user`.`id`,`LPV_user`.`pseudo`,`LPV_user`.`mail`,`LPV_user`.`password`,`LPV_user`.`status`,`LPV_user`.`id_LPV_avatar`,`LPV_avatar`.`avatarName`,`LPV_avatar`.`avatarTitle`,`LPV_avatar`.`avatarAlt` FROM `LPV_user`
         LEFT JOIN `LPV_avatar`
         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
-        WHERE `LPV_user`.`id` = 19;
+        WHERE `LPV_user`.`id` = 12;
 
 
 

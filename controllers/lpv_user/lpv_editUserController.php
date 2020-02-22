@@ -48,7 +48,7 @@ if (isset($_POST['password'])) {
 };
 // USER INFO UPDATE
 if (isset($_POST['editUserInfo']) && empty($arrayError)) {
-    if ($_SESSION['status'] == 'admin' || password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
+    if ($_SESSION['status'] == 'admin' && $detailUser[0]['id'] != $_SESSION['id']) {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         $status = htmlspecialchars(mb_strtolower($_POST['status']));
@@ -59,6 +59,24 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->setStatus($status);
         $user->editUserInfo();
         $user->changeStatus();
+        header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
+    } elseif ($_SESSION['status'] == 'admin' && $detailUser[0]['id'] == $_SESSION['id'] && password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
+        $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
+        $mail = htmlspecialchars($_POST['mail']);
+        //Hydratation
+        $user->setId($currentId);
+        $user->setPseudo($pseudo);
+        $user->setMail($mail);
+        $user->editUserInfo();
+        header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
+    } elseif ($_SESSION['status'] == 'user' && password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
+        $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
+        $mail = htmlspecialchars($_POST['mail']);
+        //Hydratation
+        $user->setId($currentId);
+        $user->setPseudo($pseudo);
+        $user->setMail($mail);
+        $user->editUserInfo();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
     } else {
         $arrayError['password'] = 'Le mot de passe est faux';

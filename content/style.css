@@ -145,3 +145,15 @@ cursor:pointer;
     width: 2.5rem;
 }
 /* SIZE PICTO PAIEMENT FIN */
+/* PICTURE AVATAR USER PREVIEW */
+.preview {
+    width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+.previewSize {
+    font-size: 0.8rem;
+
+}
+/* PICTURE AVATAR USER PREVIEW */

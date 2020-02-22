@@ -12,7 +12,7 @@
                     <div class="modal-body mx-3">
                         <div class="mb-5 text-center">
                             <p class="font-weight-bold text-center"><?= 'Bonjour ' . $_SESSION['pseudo'] . ' !' ?></p>
-                            <img src="assets/<?= $AvatarUser[0]['avatar'] != null ? 'img_depot/' . $AvatarUser[0]['avatar'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
+                            <img src="assets/<?= $AvatarUser[0]['avatarName'] != null ? 'img_avatar_choice/' . $AvatarUser[0]['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
                         <div class="col-12 text-center p-0">
                             <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn btn-outline-success btn-sm btn-block m-0">Info profil</a>

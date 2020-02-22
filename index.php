@@ -37,7 +37,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link sizeFontUser avatarNavZone" href="#" data-toggle="modal" data-target="#signIn">
-                            <?= !empty($_SESSION) && $AvatarUser[0]['avatar'] != null ? '<img src="assets/img_depot/' . $AvatarUser[0]['avatar'] . '" class="avatarNav" />' : '<i class="far fa-user-circle"></i>' ?>
+                            <?= !empty($_SESSION) && $AvatarUser[0]['avatarName'] != null ? '<img src="assets/img_avatar_choice/' . $AvatarUser[0]['avatarName'] . '" class="avatarNav" />' : '<i class="far fa-user-circle"></i>' ?>
                         </a>
                     </li>
                 </ul>

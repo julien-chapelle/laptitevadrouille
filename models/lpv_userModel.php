@@ -82,8 +82,8 @@ class Lpv_user extends Lpv_database
     //ADD USER
     public function addUser()
     {
-        $addUserQuery = "INSERT INTO `LPV_user`(`pseudo`,`mail`,`password`,`avatar`,`status`) 
-        VALUES (:pseudo,:mail,:passwords,null,'user')";
+        $addUserQuery = "INSERT INTO `LPV_user`(`pseudo`,`mail`,`password`,`status`,`id_LPV_avatar`) 
+        VALUES (:pseudo,:mail,:passwords,'user',null)";
 
         $addUserResult = $this->db->prepare($addUserQuery);
         $addUserResult->bindValue(':pseudo', $this->getPseudo(), PDO::PARAM_STR);
@@ -132,7 +132,7 @@ class Lpv_user extends Lpv_database
     //USER DETAIL
     public function detailUser()
     {
-        $detailUserQuery = "SELECT * FROM `LPV_user`
+        $detailUserQuery = "SELECT `LPV_user`.`id`,`LPV_user`.`pseudo`,`LPV_user`.`mail`,`LPV_user`.`password`,`LPV_user`.`status`,`LPV_user`.`id_LPV_avatar`,`LPV_avatar`.`avatarName` FROM `LPV_user`
         LEFT JOIN `LPV_avatar`
         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
         WHERE `LPV_user`.`id` = :currentId";
@@ -143,20 +143,6 @@ class Lpv_user extends Lpv_database
             $detailUser = $detailUserResult->fetchAll(PDO::FETCH_ASSOC);
             return $detailUser;
         };
-    }
-    //USER AVATAR
-    public function avatarUser()
-    {
-        $avatarUserQuery = "SELECT `id`,`avatar`
-        FROM `LPV_user`
-        WHERE `LPV_user`.`id` = :currentId";
-
-        $AvatarUserResult = $this->db->prepare($avatarUserQuery);
-        $AvatarUserResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
-        if ($AvatarUserResult->execute()) {
-            $AvatarUser = $AvatarUserResult->fetchAll(PDO::FETCH_ASSOC);
-            return $AvatarUser;
-        }
     }
     //EDIT USER INFO
     public function editUserInfo()
@@ -205,6 +191,31 @@ class Lpv_user extends Lpv_database
         $changeStatusResult->bindValue(':statusAdmin', $this->getStatus(), PDO::PARAM_STR);
         $changeStatusResult->execute();
     }
+    //ADD AVATAR IMAGE ON BDD
+    public function addAvatarOnBdd()
+    {
+        $avatarAddBddQuery = "INSERT INTO `lpv_avatar`(`avatarName`) 
+        VALUES (:avatarName)";
+
+        $avatarAddBddResult = $this->db->prepare($avatarAddBddQuery);
+        $avatarAddBddResult->bindValue(':avatarName', $this->getAvatar(), PDO::PARAM_STR);
+        $avatarAddBddResult->execute();
+    }
+    //DISPLAY USER AVATAR
+    public function avatarUser()
+    {
+        $avatarUserQuery = "SELECT * FROM `LPV_user`
+        LEFT JOIN `LPV_avatar`
+        ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
+        WHERE `LPV_user`.`id` = :currentId";
+
+        $AvatarUserResult = $this->db->prepare($avatarUserQuery);
+        $AvatarUserResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        if ($AvatarUserResult->execute()) {
+            $AvatarUser = $AvatarUserResult->fetchAll(PDO::FETCH_ASSOC);
+            return $AvatarUser;
+        }
+    }
     //USER AVATAR CHOICE LIST
     public function listAvatar()
     {
@@ -227,6 +238,17 @@ class Lpv_user extends Lpv_database
         $editAvatarResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
         $editAvatarResult->bindValue(':avatarId', $this->getAvatar(), PDO::PARAM_INT);
         $editAvatarResult->execute();
+    }
+    //DELETE USER AVATAR
+    public function deleteAvatar()
+    {
+        $deleteAvatarQuery = "UPDATE `LPV_user`
+        SET `id_LPV_avatar` = null
+        WHERE `id` = :currentId";
+
+        $deleteAvatarResult = $this->db->prepare($deleteAvatarQuery);
+        $deleteAvatarResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $deleteAvatarResult->execute();
     }
 }
 ?>
