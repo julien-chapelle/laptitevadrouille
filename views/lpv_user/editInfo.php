@@ -25,9 +25,19 @@
                     <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
                 </div>
             </div>
-        <?php } else {
-            '';
-        } ?>
+        <?php } else { ?>
+            <div class="row text-center m-0 mt-1 justify-content-center">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" for="changeStatusSelect"><i class="fas fa-crown"></i> CHANGEMENT DE STATUS</label>
+                        <select class="form-control text-center" id="changeStatusSelect" name="status">
+                            <option>Admin</option>
+                            <option>User</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <?php }; ?>
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">
                 <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>

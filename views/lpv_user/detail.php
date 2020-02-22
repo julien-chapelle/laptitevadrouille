@@ -5,9 +5,9 @@
                 <div class="col p-1">
                     <div class="card-body p-2">
                         <div class="m-2">
-                            <img src="assets/<?= $AvatarUser[0]['avatar'] != null ? 'img_depot/' . $AvatarUser[0]['avatar'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
+                            <img src="assets/<?= $row['id_LPV_avatar'] != null ? 'img_avatar_choice/' . $row['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
-                        <button class="btn btn-outline-success btn-sm" type="button" data-toggle="modal" data-target="#avatarChoiceModal">Choisir avatar</button>
+                        <a class="btn btn-outline-success btn-sm" href="http://laptitevadrouille/index.php?avatarChoice=user<?= $row['id'] ?>">Choisir avatar</a>
                         <form method="POST" action="">
                             <button class="btn btn-outline-success btn-sm" type="submit" name="removeAvatarPics">Supprimer avatar</button>
                         </form>

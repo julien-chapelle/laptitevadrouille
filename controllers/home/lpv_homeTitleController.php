@@ -14,6 +14,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     echo 'Ajout utilisateur';
     return;
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['avatarChoice'])) {
+    echo 'Selection avatar';
+    return;
 } elseif (isset($_GET['user']) && $_GET['user'] == 'detail') {
     echo 'Détail utilisateur';
     return;

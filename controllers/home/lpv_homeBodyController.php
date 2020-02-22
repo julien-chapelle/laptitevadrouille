@@ -48,6 +48,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'delete' && isset($_GET['id'])) {
     include('views/lpv_user/delete.php');
     return;
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['avatarChoice'])) {
+    include('views/lpv_user/avatarChoice.php');
+    return;
 } elseif (isset($_GET['legalNotice'])) {
     include('views/home/legalNotice.php');
     return;

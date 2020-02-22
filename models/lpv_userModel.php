@@ -7,8 +7,8 @@ class Lpv_user extends Lpv_database
     private $_pseudo;
     private $_mail;
     private $_password;
-    private $_avatar;
     private $_status;
+    private $_avatar;
 
     //Méthodes d'appels Get/set//////////////////////////
     //ID
@@ -51,16 +51,6 @@ class Lpv_user extends Lpv_database
     {
         $this->_password = $password;
     }
-    //AVATAR
-    public function getAvatar()
-    {
-        return $this->_avatar;
-    }
-
-    public function setAvatar($avatar)
-    {
-        $this->_avatar = $avatar;
-    }
     //STATUS
     public function getStatus()
     {
@@ -70,6 +60,16 @@ class Lpv_user extends Lpv_database
     public function setStatus($status)
     {
         $this->_status = $status;
+    }
+    //AVATAR
+    public function getAvatar()
+    {
+        return $this->_avatar;
+    }
+
+    public function setAvatar($avatar)
+    {
+        $this->_avatar = $avatar;
     }
 
     //Constructeur
@@ -92,7 +92,6 @@ class Lpv_user extends Lpv_database
         $addUserResult->execute();
         $lastId = $this->db->lastInsertId();
         return $lastId;
-
     }
     //LIST USER
     public function listUser()
@@ -134,6 +133,8 @@ class Lpv_user extends Lpv_database
     public function detailUser()
     {
         $detailUserQuery = "SELECT * FROM `LPV_user`
+        LEFT JOIN `LPV_avatar`
+        ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
         WHERE `LPV_user`.`id` = :currentId";
 
         $detailUserResult = $this->db->prepare($detailUserQuery);
@@ -146,7 +147,7 @@ class Lpv_user extends Lpv_database
     //USER AVATAR
     public function avatarUser()
     {
-        $avatarUserQuery ="SELECT `id`,`avatar`
+        $avatarUserQuery = "SELECT `id`,`avatar`
         FROM `LPV_user`
         WHERE `LPV_user`.`id` = :currentId";
 
@@ -192,4 +193,40 @@ class Lpv_user extends Lpv_database
         $deleteUser->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
         $deleteUser->execute();
     }
+    //CHANGE STATUS
+    public function changeStatus()
+    {
+        $changeStatusQuery = "UPDATE `LPV_user`
+        SET `status` = :statusAdmin
+        WHERE `id` = :currentId";
+
+        $changeStatusResult = $this->db->prepare($changeStatusQuery);
+        $changeStatusResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $changeStatusResult->bindValue(':statusAdmin', $this->getStatus(), PDO::PARAM_STR);
+        $changeStatusResult->execute();
+    }
+    //USER AVATAR CHOICE LIST
+    public function listAvatar()
+    {
+        $avatarChoiceListQuery = "SELECT * FROM `LPV_avatar`";
+
+        $avatarChoiceListResult = $this->db->prepare($avatarChoiceListQuery);
+        if ($avatarChoiceListResult->execute()) {
+            $avatarChoiceList = $avatarChoiceListResult->fetchAll();
+            return $avatarChoiceList;
+        }
+    }
+    //CHANGE USER AVATAR
+    public function editAvatar()
+    {
+        $editAvatarQuery = "UPDATE `LPV_user`
+        SET `id_LPV_avatar` = :avatarId
+        WHERE `id` = :currentId";
+
+        $editAvatarResult = $this->db->prepare($editAvatarQuery);
+        $editAvatarResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editAvatarResult->bindValue(':avatarId', $this->getAvatar(), PDO::PARAM_INT);
+        $editAvatarResult->execute();
+    }
 }
+?>

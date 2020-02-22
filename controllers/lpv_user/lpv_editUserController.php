@@ -51,11 +51,14 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
     if ($_SESSION['status'] == 'admin' || password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
+        $status = htmlspecialchars(mb_strtolower($_POST['status']));
         //Hydratation
         $user->setId($currentId);
         $user->setPseudo($pseudo);
         $user->setMail($mail);
+        $user->setStatus($status);
         $user->editUserInfo();
+        $user->changeStatus();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
     } else {
         $arrayError['password'] = 'Le mot de passe est faux';

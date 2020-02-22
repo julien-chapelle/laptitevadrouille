@@ -48,6 +48,16 @@ USE `laptitevadrouille`;
 -- WHERE `pseudo` = 'Paul'
 -- ;
 
+-- SELECT `LPV_user`.`pseudo`,`LPV_user`.`id_LPV_avatar`,`LPV_avatar`.`avatarName`,`LPV_avatar`.`avatarTitle
+-- `,`LPV_avatar`.`avatarAlt`
+--         FROM `LPV_user`
+--         LEFT JOIN `LPV_avatar`
+--         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`;
+
+SELECT * FROM `LPV_user`
+        LEFT JOIN `LPV_avatar`
+        ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
+        WHERE `LPV_user`.`id` = 19;
 
 
 
