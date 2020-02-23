@@ -1,9 +1,14 @@
-<div class="row m-0 mt-1 p-2 d-flex justify-content-center">
+<div class="row m-0 mt-1 p-2">
+    <div class="col p-0 text-left">
+        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+    </div>
+</div>
+<div class="row m-0 mt-1 p-2">
     <?php foreach ($avatarList as $value) { ?>
         <div class="col-2 p-0 text-center">
             <form class="p-0 m-0" method="POST" action="">
                 <button class="btn p-0 my-2 mx-0 bg-transparent shadow-none" type="submit" name="choiceAvatar">
-                    <img src="assets/img_avatar_choice/<?= $value['avatarName'] ?>" class="card-img-top previewAvatar img-fluid shadow" alt="<?= 'Avatar_' . $value['avatarName'] ?>" title="<?= 'Image avatar ' . $value['avatarName'] ?>" />
+                    <img src="assets/img_avatar_choice/<?= $value['avatarName'] ?>" class="previewAvatar img-fluid shadow" alt="<?= 'Avatar_' . $value['avatarName'] ?>" title="<?= 'Image avatar ' . $value['avatarName'] ?>" />
                     <input type="text" name="avatar" value="<?= $value['id'] ?>" hidden />
                 </button>
             </form>

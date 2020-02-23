@@ -37,3 +37,11 @@ if (isset($_POST['addAvatarBdd'])) {
     move_uploaded_file($tmp_name, "$target_dir/$name");
     header('Location: http://laptitevadrouille/index.php?user=detail');
 }
+//DELETE AVATAR ON BDD
+if (isset($_POST['deleteAvatarOnBdd'])) {
+    $currentId = intval($_POST['avatar']);
+    //Hydratation
+    $avatar->setId($currentId);
+    $avatarDelete = $avatar->deleteAvatarOnBdd();
+    header('Refresh: 0');
+}
