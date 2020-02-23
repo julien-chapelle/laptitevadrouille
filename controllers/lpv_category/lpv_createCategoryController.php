@@ -5,7 +5,7 @@ require_once('models/lpv_categoryModel.php');
 $walk = new Lpv_category();
 
 // ERROR TITRE
-$regexTitleOfWalk = '/^[\w]+$/';
+$regexTitleOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
 
 if (isset($_POST['titleOfWalk'])) {
     if (preg_match($regexTitleOfWalk, $_POST['titleOfWalk']) == 0) {
@@ -16,7 +16,7 @@ if (isset($_POST['titleOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COURTE
-$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
+$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\']{1,}+$/';
 
 if (isset($_POST['shortDescriptionOfWalk'])) {
     if (preg_match($regexShortDescriptionOfWalk, $_POST['shortDescriptionOfWalk']) == 0) {
@@ -27,7 +27,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COMPLETE
-$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
+$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\']{1,}+$/';
 
 if (isset($_POST['completeDescriptionOfWalk'])) {
     if (preg_match($regexCompleteDescriptionOfWalk, $_POST['completeDescriptionOfWalk']) == 0) {
@@ -82,7 +82,7 @@ if (isset($_POST['rate_child_disabledOfWalk'])) {
     };
 };
 // ERROR HEURES & PERIODES D'OUVERTURES
-$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]+$/';
+$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:]+$/';
 
 if (isset($_POST['openedHoursOfWalk1'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk1']) == 0) {
@@ -109,7 +109,7 @@ if (isset($_POST['openedHoursOfWalk4'])) {
 };
 // ERROR SITE OFFICIEL
 if (isset($_POST['officialSiteOfWalk'])) {
-    if ((filter_var($_POST['officialSiteOfWalk'], FILTER_VALIDATE_URL)) !== false) {
+    if ((filter_var($_POST['officialSiteOfWalk'], FILTER_VALIDATE_URL)) == false) {
         $arrayError['officialSiteOfWalk'] = 'Veuillez respecter le format';
     };
     if (empty($_POST['officialSiteOfWalk'])) {
@@ -117,37 +117,37 @@ if (isset($_POST['officialSiteOfWalk'])) {
     };
 };
 
-if (isset($_POST['addUser']) && empty($arrayError)) {
-    $walkTitle = $_POST['titleOfWalk'];
-    $walkShortDescription = $_POST['shortDescriptionOfWalk'];
-    $walkCompleteDescription = $_POST['completeDescriptionOfWalk'];
-    $walkRate_0_3OfWalk = $_POST['rate_0_3OfWalk'];
-    $walkRate_3_11OfWalk = $_POST['rate_3_11OfWalk'];
-    $walkRate_12_plusOfWalk = $_POST['rate_12_plusOfWalk'];
-    $walkRate_child_disabledOfWalk = $_POST['rate_child_disabledOfWalk'];
-    $walkOpenedHoursOfWalk = $_POST['openedHoursOfWalk1'] . '<br />' . $_POST['openedHoursOfWalk2'] . '<br />' . $_POST['openedHoursOfWalk3'] . '<br />' . $_POST['openedHoursOfWalk4'];
-    $walkPublicationDate = strftime("%d-%m-%Y");
-    $walkOfficialSiteOfWalk = $_POST['officialSiteOfWalk'];
-    $walkLocationPictoOfWalk = $_POST['locationPictoOfWalk'];
-    $walkOutputTypePictoOfWalk = $_POST['outputTypePictoOfWalk'];
-    $walkAgeAdvisePictoOfWalk = $_POST['ageAdvisePictoOfWalk'];
-    $walkPracticabilityPictoOfWalk = $_POST['practicabilityPictoOfWalk'];
-    $walkBabyDiaperPictoOfWalk = $_POST['babyDiaperPictoOfWalk'];
+if (isset($_POST['validateWalk']) && empty($arrayError)) {
+    $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
+    $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);
+    $walkCompleteDescription = htmlspecialchars($_POST['completeDescriptionOfWalk']);
+    $walkRate_0_3OfWalk = htmlspecialchars($_POST['rate_0_3OfWalk']);
+    $walkRate_3_11OfWalk = htmlspecialchars($_POST['rate_3_11OfWalk']);
+    $walkRate_12_plusOfWalk = htmlspecialchars($_POST['rate_12_plusOfWalk']);
+    $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
+    $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1'] . '<br />' . $_POST['openedHoursOfWalk2'] . '<br />' . $_POST['openedHoursOfWalk3'] . '<br />' . $_POST['openedHoursOfWalk4']);
+    $walkPublicationDate = htmlspecialchars(strftime("%d-%m-%Y"));
+    $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
+    $walkLocationPictoOfWalk = htmlspecialchars($_POST['locationPictoOfWalk']);
+    $walkOutputTypePictoOfWalk = htmlspecialchars($_POST['outputTypePictoOfWalk']);
+    $walkAgeAdvisePictoOfWalk = htmlspecialchars($_POST['ageAdvisePictoOfWalk']);
+    $walkPracticabilityPictoOfWalk = htmlspecialchars($_POST['practicabilityPictoOfWalk']);
+    $walkBabyDiaperPictoOfWalk = htmlspecialchars($_POST['babyDiaperPictoOfWalk']);
     //Hydratation
-    $user->setPseudo($walkTitle);
-    $user->setMail($walkShortDescription);
-    $user->setPassword($walkCompleteDescription);
-    $user->setPseudo($walkRate_0_3OfWalk);
-    $user->setMail($walkRate_3_11OfWalk);
-    $user->setPassword($walkRate_12_plusOfWalk);
-    $user->setPseudo($walkRate_child_disabledOfWalk);
-    $user->setMail($walkOpenedHoursOfWalk);
-    $user->setPassword($walkPublicationDate);
-    $user->setPseudo($walkOfficialSiteOfWalk);
-    $user->setMail($walkLocationPictoOfWalk);
-    $user->setPassword($walkOutputTypePictoOfWalk);
-    $user->setPseudo($walkAgeAdvisePictoOfWalk);
-    $user->setMail($walkPracticabilityPictoOfWalk);
-    $user->setPassword($walkBabyDiaperPictoOfWalk);
-    $lastWalkId = $user->addUser();
+    $walk->setPseudo($walkTitle);
+    $walk->setMail($walkShortDescription);
+    $walk->setPassword($walkCompleteDescription);
+    $walk->setPseudo($walkRate_0_3OfWalk);
+    $walk->setMail($walkRate_3_11OfWalk);
+    $walk->setPassword($walkRate_12_plusOfWalk);
+    $walk->setPseudo($walkRate_child_disabledOfWalk);
+    $walk->setMail($walkOpenedHoursOfWalk);
+    $walk->setPassword($walkPublicationDate);
+    $walk->setPseudo($walkOfficialSiteOfWalk);
+    $walk->setMail($walkLocationPictoOfWalk);
+    $walk->setPassword($walkOutputTypePictoOfWalk);
+    $walk->setPseudo($walkAgeAdvisePictoOfWalk);
+    $walk->setMail($walkPracticabilityPictoOfWalk);
+    $walk->setPassword($walkBabyDiaperPictoOfWalk);
+    $lastWalkId = $walk->addUser();
 }
