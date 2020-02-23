@@ -4,16 +4,15 @@
         foreach ($listWalk as $row) {
             if ($row['walkValidate'] != 'Validate') {
                 continue;
-            };
-        ?>
+            }; ?>
             <div class="card mb-3">
-                <form method="GET" action="">
+                <form method="GET" action="" class="mb-0">
                     <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img m-1" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">
+                        <div class="col-md-4 p-2">
+                            <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body">
+                            <div class="card-body pb-0">
                                 <p class="card-title h5"><?= $row['title'] ?></p>
                                 <div class="row pb-3">
                                     <div class="col px-2">

@@ -1,8 +1,6 @@
-<div class="row text-center justify-content-center m-5">
-    <div class="col my-auto text-center">
-        <form method="GET" action="">
-            <a class="btn btn-outline-danger shadow" href="http://laptitevadrouille/index.php?list=walk&amp;page=1" title="Retour liste des patient">Retour liste des sorties</a>
-        </form>
+<div class="row m-0 mt-1 p-2">
+    <div class="col p-0 text-left">
+        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?list=walk&amp;page=1" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
     </div>
 </div>
 <div class="row d-flex justify-content-end p-3 m-0">
@@ -12,13 +10,12 @@
             foreach ($searchWalk as $row) {
                 if ($row['walkValidate'] != 'Validate') {
                     continue;
-                };
-        ?>
+                }; ?>
                 <div class="card mb-3">
-                    <form method="GET" action="walkIdea.php">
+                    <form method="GET" action="walkIdea.php" class="mb-0">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img m-1" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">
+                            <div class="col-md-4 p-2">
+                                <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

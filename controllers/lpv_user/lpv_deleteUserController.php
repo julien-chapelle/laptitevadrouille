@@ -1,7 +1,6 @@
 <?php
 require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
-$arrayError = [];
 $user = new Lpv_user();
 
 //DETAIL USER

@@ -244,6 +244,32 @@ class Lpv_category extends Lpv_database
     }
 
     //Méthodes////////////////////////////////////////////////////////
+    //ADD WALK
+    public function addWalk()
+    {
+        $createWalkQuery = "INSERT INTO `lpv_category`
+        VALUES (':walkTitle', ':walkShortDescription', ':walkCompleteDescription', ':walkRate_0_3OfWalk', ':walkRate_3_11OfWalk',':walkRate_12_plusOfWalk',':walkRate_child_disabledOfWalk',':walkOpenedHoursOfWalk',':walkPublicationDate', NULL, NULL, NULL,0,':walkOfficialSiteOfWalk',NULL,':walkLocationPictoOfWalk',':walkOutputTypePictoOfWalk',':walkAgeAdvisePictoOfWalk',':walkPracticabilityPictoOfWalk',':walkBabyDiaperPictoOfWalk')";
+
+        $createWalkResult = $this->db->prepare($createWalkQuery);
+        $createWalkResult->bindValue(':walkTitle', $this->getTitle(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkShortDescription', $this->getDescription(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkCompleteDescription', $this->getMoreInfoDescription(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkRate_0_3OfWalk', $this->getRate03(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkRate_3_11OfWalk', $this->getRate311(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkRate_12_plusOfWalk', $this->getRate12Plus(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkRate_child_disabledOfWalk', $this->getRateChildDisabled(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkOpenedHoursOfWalk', $this->getOpenedHour(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkPublicationDate', $this->getPublicationDate(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkOfficialSiteOfWalk', $this->getOfficialSite(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkLocationPictoOfWalk', $this->getIdLpvLocationPicto(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkOutputTypePictoOfWalk', $this->getIdLpvOutputTypePicto(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkPracticabilityPictoOfWalk', $this->getIdLpvPracticabilityPicto(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_STR);
+        $createWalkResult->execute();
+        $lastWalkId = $this->db->lastInsertId();
+        return $lastWalkId;
+    }
     //CLASSIC LIST
     public function classicListWalk()
     {

@@ -1,3 +1,8 @@
+<div class="row m-0 mt-1 p-2">
+    <div class="col p-0 text-left">
+        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?list=walk&amp;page=1" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
+    </div>
+</div>
 <div class="card-columns px-3 mt-4">
     <?php foreach ($detailWalk as $row) {
         if ($row['walkValidate'] != 'Validate') {

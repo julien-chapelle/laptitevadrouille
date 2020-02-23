@@ -57,20 +57,19 @@
         <?php }; ?>
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="" class="mb-0">
-                    <button class="btn btn-outline-danger btn-sm btn-block mx-0" type="submit" name="proposalOutSubmit">PROPOSER UNE SORTIE</button>
-                </form>
+                <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?walk=create">PROPOSER UNE SORTIE</button>
+                </a>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
                 <div class="row m-0">
-                    <div class="col-6">
+                    <div class="col-6 p-0">
                         <form method="POST" action="" class="mb-0">
                             <button class="btn btn-outline-danger btn-sm mx-0" type="submit" name="logout">DECONNECTION</button>
                         </form>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 p-0">
                         <a class="btn btn-outline-danger btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>

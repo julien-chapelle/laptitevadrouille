@@ -10,4 +10,13 @@ jQuery(function () {
         });
     });
 
+    // $(function () {
+    //     $('.crossJs1').mouseover(function () {
+    //         $('.crossJs1').css('border', '2px solid red');
+    //     });
+    //     $('.crossJs1').mouseout(function () {
+    //         $('.crossJs1').css('border', 'none');
+    //     });
+    // });
+
 });
