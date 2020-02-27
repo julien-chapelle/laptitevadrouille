@@ -2,6 +2,7 @@
 
 require_once('models/lpv_database.php');
 require_once('models/lpv_categoryModel.php');
+require_once('models/lpv_avoirModel.php');
 $walk = new Lpv_category();
 
 // ERROR TITRE
@@ -16,7 +17,7 @@ if (isset($_POST['titleOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COURTE
-$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\']{1,}+$/';
+$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:]{1,}+$/';
 
 if (isset($_POST['shortDescriptionOfWalk'])) {
     if (preg_match($regexShortDescriptionOfWalk, $_POST['shortDescriptionOfWalk']) == 0) {
@@ -27,7 +28,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COMPLETE
-$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\']{1,}+$/';
+$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:]{1,}+$/';
 
 if (isset($_POST['completeDescriptionOfWalk'])) {
     if (preg_match($regexCompleteDescriptionOfWalk, $_POST['completeDescriptionOfWalk']) == 0) {
@@ -92,17 +93,17 @@ if (isset($_POST['openedHoursOfWalk1'])) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez remplir le champ';
     };
 };
-if (isset($_POST['openedHoursOfWalk2'])) {
+if (isset($_POST['openedHoursOfWalk2']) && !empty($_POST['openedHoursOfWalk2'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk2']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
 };
-if (isset($_POST['openedHoursOfWalk3'])) {
+if (isset($_POST['openedHoursOfWalk3']) && !empty($_POST['openedHoursOfWalk3'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk3']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
 };
-if (isset($_POST['openedHoursOfWalk4'])) {
+if (isset($_POST['openedHoursOfWalk4']) && !empty($_POST['openedHoursOfWalk4'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk4']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
@@ -133,6 +134,22 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
     $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+
+    if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
+        $walkFreePictoOfWalk = htmlspecialchars(intval($_POST['freePictoOfWalk']));
+    };
+    if (isset($_POST['cardPictoOfWalk']) && !empty($_POST['cardPictoOfWalk'])) {
+        $walkCardPictoOfWalk = htmlspecialchars(intval($_POST['cardPictoOfWalk']));
+    };
+    if (isset($_POST['checkPictoOfWalk']) && !empty($_POST['checkPictoOfWalk'])) {
+        $walkCheckPictoOfWalk = htmlspecialchars(intval($_POST['checkPictoOfWalk']));
+    };
+    if (isset($_POST['cashPictoOfWalk']) && !empty($_POST['cashPictoOfWalk'])) {
+        $walkCashPictoOfWalk = htmlspecialchars(intval($_POST['cashPictoOfWalk']));
+    };
+    if (isset($_POST['vacancyChecksPictoOfWalk']) && !empty($_POST['vacancyChecksPictoOfWalk'])) {
+        $walkVacancyChecksPictoOfWalk = htmlspecialchars(intval($_POST['vacancyChecksPictoOfWalk']));
+    };
     //Hydratation
     $walk->setTitle($walkTitle);
     $walk->setDescription($walkShortDescription);
@@ -149,6 +166,41 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walk->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
     $walk->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
     $walk->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
-    $walk->addWalk();
+    $lastWalkId = $walk->addWalk();
+
+    if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
+        $paymentFree = new Lpv_avoir();
+        $paymentFree->setId($walkFreePictoOfWalk);
+        $paymentFree->setIdWalk($lastWalkId);
+        $paymentFree->addPayment();
+    };
+
+    if (isset($_POST['cardPictoOfWalk']) && !empty($_POST['cardPictoOfWalk'])) {
+        $paymentCard = new Lpv_avoir();
+        $paymentCard->setId($walkCardPictoOfWalk);
+        $paymentCard->setIdWalk($lastWalkId);
+        $paymentCard->addPayment();
+    };
+
+    if (isset($_POST['checkPictoOfWalk']) && !empty($_POST['checkPictoOfWalk'])) {
+        $paymentCheck = new Lpv_avoir();
+        $paymentCheck->setId($walkCheckPictoOfWalk);
+        $paymentCheck->setIdWalk($lastWalkId);
+        $paymentCheck->addPayment();
+    };
+
+    if (isset($_POST['cashPictoOfWalk']) && !empty($_POST['cashPictoOfWalk'])) {
+        $paymentCash = new Lpv_avoir();
+        $paymentCash->setId($walkCashPictoOfWalk);
+        $paymentCash->setIdWalk($lastWalkId);
+        $paymentCash->addPayment();
+    };
+
+    if (isset($_POST['vacancyChecksPictoOfWalk']) && !empty($_POST['vacancyChecksPictoOfWalk'])) {
+        $paymentVacancyChecks = new Lpv_avoir();
+        $paymentVacancyChecks->setId($walkVacancyChecksPictoOfWalk);
+        $paymentVacancyChecks->setIdWalk($lastWalkId);
+        $paymentVacancyChecks->addPayment();
+    };
     header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
 }
