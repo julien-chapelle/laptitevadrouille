@@ -59,10 +59,11 @@ USE `laptitevadrouille`;
 --         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
 --         WHERE `LPV_user`.`id` = 19;
 
-SELECT `LPV_user`.`id`,`LPV_user`.`pseudo`,`LPV_user`.`mail`,`LPV_user`.`password`,`LPV_user`.`status`,`LPV_user`.`id_LPV_avatar`,`LPV_avatar`.`avatarName`,`LPV_avatar`.`avatarTitle`,`LPV_avatar`.`avatarAlt` FROM `LPV_user`
-        LEFT JOIN `LPV_avatar`
-        ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
-        WHERE `LPV_user`.`id` = 12;
+-- SELECT `LPV_user`.`id`,`LPV_user`.`pseudo`,`LPV_user`.`mail`,`LPV_user`.`password`,`LPV_user`.`status`,`LPV_user`.`id_LPV_avatar`,`LPV_avatar`.`avatarName`,`LPV_avatar`.`avatarTitle`,`LPV_avatar`.`avatarAlt` FROM `LPV_user`
+--         LEFT JOIN `LPV_avatar`
+--         ON `LPV_user`.`id_LPV_avatar` = `LPV_avatar`.`id`
+--         WHERE `LPV_user`.`id` = 12;
+SELECT count(`id`) AS `countId` FROM `lpv_category` WHERE `walkValidate` = 'Validate';
 
 
 

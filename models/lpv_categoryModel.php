@@ -247,8 +247,8 @@ class Lpv_category extends Lpv_database
     //ADD WALK
     public function addWalk()
     {
-        $createWalkQuery = "INSERT INTO `lpv_category`
-        VALUES (':walkTitle', ':walkShortDescription', ':walkCompleteDescription', ':walkRate_0_3OfWalk', ':walkRate_3_11OfWalk',':walkRate_12_plusOfWalk',':walkRate_child_disabledOfWalk',':walkOpenedHoursOfWalk',':walkPublicationDate', NULL, NULL, NULL,0,':walkOfficialSiteOfWalk',NULL,':walkLocationPictoOfWalk',':walkOutputTypePictoOfWalk',':walkAgeAdvisePictoOfWalk',':walkPracticabilityPictoOfWalk',':walkBabyDiaperPictoOfWalk')";
+        $createWalkQuery = "INSERT INTO `LPV_category`(`id`, `title`, `description`, `moreInfoDescription`, `rate_0_3`, `rate_3_11`, `rate_12_plus`, `rate_child_disabled`, `openedHours`, `publication_date`, `pics`, `map`, `googleMapAddress`, `likes`, `officialSite`, `walkValidate`, `id_LPV_locationPicto`, `id_LPV_outputTypePicto`, `id_LPV_ageAdvisePicto`, `id_LPV_practicabilityPicto`, `id_LPV_equipmentPicto`)
+        VALUES (null,:walkTitle, :walkShortDescription, :walkCompleteDescription, :walkRate_0_3OfWalk, :walkRate_3_11OfWalk,:walkRate_12_plusOfWalk,:walkRate_child_disabledOfWalk,:walkOpenedHoursOfWalk,:walkPublicationDate, null, null, null,0,:walkOfficialSiteOfWalk,null,:walkLocationPictoOfWalk,:walkOutputTypePictoOfWalk,:walkAgeAdvisePictoOfWalk,:walkPracticabilityPictoOfWalk,:walkBabyDiaperPictoOfWalk)";
 
         $createWalkResult = $this->db->prepare($createWalkQuery);
         $createWalkResult->bindValue(':walkTitle', $this->getTitle(), PDO::PARAM_STR);
@@ -261,11 +261,11 @@ class Lpv_category extends Lpv_database
         $createWalkResult->bindValue(':walkOpenedHoursOfWalk', $this->getOpenedHour(), PDO::PARAM_STR);
         $createWalkResult->bindValue(':walkPublicationDate', $this->getPublicationDate(), PDO::PARAM_STR);
         $createWalkResult->bindValue(':walkOfficialSiteOfWalk', $this->getOfficialSite(), PDO::PARAM_STR);
-        $createWalkResult->bindValue(':walkLocationPictoOfWalk', $this->getIdLpvLocationPicto(), PDO::PARAM_STR);
-        $createWalkResult->bindValue(':walkOutputTypePictoOfWalk', $this->getIdLpvOutputTypePicto(), PDO::PARAM_STR);
-        $createWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_STR);
-        $createWalkResult->bindValue(':walkPracticabilityPictoOfWalk', $this->getIdLpvPracticabilityPicto(), PDO::PARAM_STR);
-        $createWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':walkLocationPictoOfWalk', $this->getIdLpvLocationPicto(), PDO::PARAM_INT);
+        $createWalkResult->bindValue(':walkOutputTypePictoOfWalk', $this->getIdLpvOutputTypePicto(), PDO::PARAM_INT);
+        $createWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_INT);
+        $createWalkResult->bindValue(':walkPracticabilityPictoOfWalk', $this->getIdLpvPracticabilityPicto(), PDO::PARAM_INT);
+        $createWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_INT);
         $createWalkResult->execute();
         $lastWalkId = $this->db->lastInsertId();
         return $lastWalkId;
@@ -320,7 +320,9 @@ class Lpv_category extends Lpv_database
     //COUNT ID DATABASE
     public function countWalk()
     {
-        $countWalkQuery = "SELECT count(`id`) AS `countId` FROM `lpv_category`";
+        $countWalkQuery = "SELECT count(`id`) AS `countId` 
+        FROM `lpv_category` 
+        WHERE `walkValidate` = 'Validate'";
 
         $countWalkResult = $this->db->prepare($countWalkQuery);
         if ($countWalkResult->execute()) {
