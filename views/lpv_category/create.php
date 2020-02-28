@@ -17,7 +17,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="shortDescriptionOfWalk">
                 DESCRIPTION COURTE</label>
-            <input title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk" value="<?= !empty($arrayError) && isset($_POST['validateWalk']) ? $_POST['shortDescriptionOfWalk'] : '' ?>" />
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['validateWalk']) ? $_POST['shortDescriptionOfWalk'] : '' ?></textarea>
             <p class="error"><?= isset($arrayError['shortDescriptionOfWalk']) ? $arrayError['shortDescriptionOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="completeDescriptionOfWalk">
                 DESCRIPTION COMPLETE</label>
-            <input title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk" value="<?= !empty($arrayError) && isset($_POST['validateWalk']) ? $_POST['completeDescriptionOfWalk'] : '' ?>" />
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['validateWalk']) ? $_POST['completeDescriptionOfWalk'] : '' ?></textarea>
             <p class="error"><?= isset($arrayError['completeDescriptionOfWalk']) ? $arrayError['completeDescriptionOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -307,7 +307,8 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <button class="btn btn-outline-success" role="button" type="submit" name="validateWalk">ENVOYER</button>
+            <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+            <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="validateWalk">ENVOYER</button>
             <p class="valid h5"><?= isset($_POST['validateWalk']) && isset($arrayError) && empty($arrayError) ? 'Sortie créé avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
         </div>

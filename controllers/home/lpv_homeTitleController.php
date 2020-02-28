@@ -44,6 +44,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && $_GET['walk'] == 'create') {
     echo 'Proposer idée de sortie';
     return;
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'edit') {
+    echo 'Editer une sortie';
+    return;
 } elseif (isset($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'edit') {
     echo 'Modification idée de sortie';
     return;

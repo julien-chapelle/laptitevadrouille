@@ -254,10 +254,10 @@ class Lpv_user extends Lpv_database
     public function deleteAvatarOnBdd()
     {
         $deleteAvatarOnBddQuery = "DELETE FROM `LPV_avatar`
-        WHERE `id` = :currentId";
+        WHERE `avatarName` = :currentAvatarName";
 
         $deleteAvatarOnBddResult = $this->db->prepare($deleteAvatarOnBddQuery);
-        $deleteAvatarOnBddResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $deleteAvatarOnBddResult->bindValue(':currentAvatarName', $this->getAvatar(), PDO::PARAM_STR);
         $deleteAvatarOnBddResult->execute();
     }
 }

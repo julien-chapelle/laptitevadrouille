@@ -17,7 +17,7 @@ if (isset($_POST['choiceAvatar'])) {
     $avatarSelect = $avatar->editAvatar();
     header('Location: http://laptitevadrouille/index.php?user=detail');
 }
-//DELETE AVATAR AND REDIRECTION
+//DELETE AVATAR CHOICE AND REDIRECTION
 if (isset($_POST['removeAvatarPics'])) {
     $currentId = intval($_SESSION['id']);
     //Hydratation
@@ -39,9 +39,10 @@ if (isset($_POST['addAvatarBdd'])) {
 }
 //DELETE AVATAR ON BDD
 if (isset($_POST['deleteAvatarOnBdd'])) {
-    $currentId = intval($_POST['avatar']);
+    $currentAvatarName = $_POST['avatar'];
     //Hydratation
-    $avatar->setId($currentId);
+    $avatar->setAvatar($currentAvatarName);
     $avatarDelete = $avatar->deleteAvatarOnBdd();
+    unlink('assets/img_avatar_choice/' . $currentAvatarName);
     header('Refresh: 0');
 }

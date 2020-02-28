@@ -4,7 +4,7 @@ require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
 $user = new Lpv_user();
 //DETAIL USER
-if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
+if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && isset($_GET['id'])) {
     $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);

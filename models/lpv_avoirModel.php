@@ -46,5 +46,17 @@ class Lpv_avoir extends Lpv_database
         $createPaymentResult->bindValue(':idWalk', $this->getIdWalk(), PDO::PARAM_INT);
         $createPaymentResult->execute();
     }
+    //EDIT PAYMENT
+    public function editPayment()
+    {
+        $editPaymentQuery = "UPDATE `avoir`
+        SET `ìd` = :idPayment, `id_LPV_category` = :currentId
+        WHERE  `id_LPV_category` = :currentId";
+        
+        $editPaymentResult = $this->db->prepare($editPaymentQuery);
+        $editPaymentResult->bindValue(':idPayment', $this->getId(), PDO::PARAM_INT);
+        $editPaymentResult->bindValue(':currentId', $this->getIdWalk(), PDO::PARAM_INT);
+        $editPaymentResult->execute();
+    }
 }
 ?>

@@ -24,6 +24,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['walk']) && $_GET['walk'] == 'detail' && isset($_GET['unvalidateWalk']) && isset($detailUser) && $detailUser[0]['status'] == 'admin') {
     include('views/lpv_category/unvalidateWalk.php');
     return;
+} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'edit') {
+    include('views/lpv_category/edit.php');
+    return;
 } elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && $_GET['walk'] == 'create') {
     include('views/lpv_category/create.php');
     return;

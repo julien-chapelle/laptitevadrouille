@@ -108,13 +108,13 @@
                                     </div>
                                     <div class="row no-gutters justify-content-end">
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&unvalidateWalk=<?= $row['id'] ?>" title="Plus d'informations"><i class="fas fa-search"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&amp;unvalidateWalk=<?= $row['id'] ?>" title="Plus d'informations"><i class="fas fa-search"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=edit" title="Modifier les informations"><i class="far fa-edit"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=edit&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete" title="Supprimer la sortie"><i class="far fa-trash-alt"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Supprimer la sortie"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </form>
@@ -155,13 +155,13 @@
                                     </div>
                                     <div class="row no-gutters justify-content-end">
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&moreInfo=<?= $row['id'] ?>" title="Modifier les informations"><i class="fas fa-search"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>" title="Modifier les informations"><i class="fas fa-search"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=edit" title="Modifier les informations"><i class="far fa-edit"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=edit&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete" title="Modifier les informations"><i class="far fa-trash-alt"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </form>
@@ -235,7 +235,7 @@
                             <form class="p-0 m-0" method="POST" action="">
                                 <button class="btn p-0 my-2 mx-0 bg-transparent shadow-none" type="submit" name="deleteAvatarOnBdd" title="supprimer l'avatar">
                                     <img src="assets/img_avatar_choice/<?= $value['avatarName'] ?>" class="card-img-top previewAvatarDetailAdmin img-fluid shadow" alt="<?= 'Avatar_' . $value['avatarName'] ?>" />
-                                    <input type="text" name="avatar" value="<?= $value['id'] ?>" hidden />
+                                    <input type="text" name="avatar" value="<?= $value['avatarName'] ?>" hidden />
                                 </button>
                             </form>
                         </div>

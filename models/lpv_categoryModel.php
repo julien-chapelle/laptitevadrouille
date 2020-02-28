@@ -362,7 +362,8 @@ class Lpv_category extends Lpv_database
         LEFT JOIN `avoir`
         ON `avoir`.`id_LPV_category` = `LPV_category`.`id`
         LEFT JOIN `LPV_paymentPicto`
-        ON `LPV_paymentPicto`.`id` = `avoir`.`id`";
+        ON `LPV_paymentPicto`.`id` = `avoir`.`id`
+        WHERE `LPV_category`.`id` = :currentId";
 
         $detailPaymentWalkResult = $this->db->prepare($detailPaymentWalkQuery);
         $detailPaymentWalkResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
@@ -402,10 +403,39 @@ class Lpv_category extends Lpv_database
         WHERE `title` LIKE :searchTitle";
 
         $countSearchWalkResult = $this->db->prepare($countSearchWalkQuery);
-        $countSearchWalkResult->bindValue(':searchTitle', $this->getTitle() . '%', PDO::PARAM_STR);
+        $countSearchWalkResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
         if ($countSearchWalkResult->execute()) {
             $dataCountSearchWalk = $countSearchWalkResult->fetchAll();
             return $dataCountSearchWalk;
         }
+    }
+    //EDIT WALK
+    public function editWalk()
+    {
+        $editWalkQuery = "UPDATE `lpv_category`
+        SET `title` = :walkTitle, `description` = :walkShortDescription,`moreInfoDescription` = :walkCompleteDescription,`rate_0_3` = :walkRate_0_3OfWalk, `rate_3_11` = :walkRate_3_11OfWalk, `rate_12_plus` = :walkRate_12_plusOfWalk, `rate_child_disabled` = :walkRate_child_disabledOfWalk, `openedHours` = :walkOpenedHoursOfWalk, `pics` = :walkPics, `map` = :walkMap, `googleMapAddress` = :walkGoogleMapAddress, `officialSite` = :walkOfficialSiteOfWalk, `walkValidate` = :walkValidate, `id_LPV_locationPicto` = :walkLocationPictoOfWalk, `id_LPV_outputTypePicto` = :walkOutputTypePictoOfWalk, `id_LPV_ageAdvisePicto` = :walkAgeAdvisePictoOfWalk, `id_LPV_practicabilityPicto` = :walkPracticabilityPictoOfWalk, `id_LPV_equipmentPicto` = :walkBabyDiaperPictoOfWalk
+        WHERE `id` = :currentId";
+
+        $editWalkResult = $this->db->prepare($editWalkQuery);
+        $editWalkResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $editWalkResult->bindValue(':walkTitle', $this->getTitle(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkShortDescription', $this->getDescription(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkCompleteDescription', $this->getMoreInfoDescription(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkRate_0_3OfWalk', $this->getRate03(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkRate_3_11OfWalk', $this->getRate311(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkRate_12_plusOfWalk', $this->getRate12Plus(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkRate_child_disabledOfWalk', $this->getRateChildDisabled(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkOpenedHoursOfWalk', $this->getOpenedHour(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkPics', $this->getPics(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkMap', $this->getMap(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkGoogleMapAddress', $this->getGoogleMapAddress(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkOfficialSiteOfWalk', $this->getOfficialSite(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkValidate', $this->getWalkValidate(), PDO::PARAM_STR);
+        $editWalkResult->bindValue(':walkLocationPictoOfWalk', $this->getIdLpvLocationPicto(), PDO::PARAM_INT);
+        $editWalkResult->bindValue(':walkOutputTypePictoOfWalk', $this->getIdLpvOutputTypePicto(), PDO::PARAM_INT);
+        $editWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_INT);
+        $editWalkResult->bindValue(':walkPracticabilityPictoOfWalk', $this->getIdLpvPracticabilityPicto(), PDO::PARAM_INT);
+        $editWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_INT);
+        $editWalkResult->execute();
     }
 }
