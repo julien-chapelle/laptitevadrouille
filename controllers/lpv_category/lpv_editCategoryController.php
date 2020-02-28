@@ -11,11 +11,11 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET
     $walk->setId($currentId);
     $detailWalk = $walk->detailWalk();
     $detailPaymentWalk = $walk->detailPaymentWalk();
-    $arrayDateHour = explode('<br />',$detailWalk[0]['openedHours']);
+    $arrayDateHour = explode('<br />', $detailWalk[0]['openedHours']);
     return $arrayDateHour;
 };
 // ERROR GOOGLE MAP ADDRESS
-$regexGoogleMapOfWalk = '/^[https://www.google.com/maps/place/]{1}[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
+$regexGoogleMapOfWalk = '/^(https:\/\/www\.google\.com\/maps\/place\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%]{1,}+$/';
 
 if (isset($_POST['googleMapOfWalk'])) {
     if (preg_match($regexGoogleMapOfWalk, $_POST['googleMapOfWalk']) == 0) {
@@ -138,7 +138,11 @@ if (isset($_POST['officialSiteOfWalk'])) {
     };
 };
 
-if (isset($_POST['validateWalk']) && empty($arrayError)) {
+$target_dir_pics = 'assets/img_walk';
+$target_dir_map = 'assets/img_map';
+
+if (isset($_POST['editWalk']) && empty($arrayError)) {
+    $currentId = htmlspecialchars(intval($_GET['id']));
     $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
     $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);
     $walkCompleteDescription = htmlspecialchars($_POST['completeDescriptionOfWalk']);
@@ -147,7 +151,11 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkRate_12_plusOfWalk = htmlspecialchars($_POST['rate_12_plusOfWalk']);
     $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
     $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']);
+    $walkFileUploadPicsOfWalk = htmlspecialchars($_FILES['fileUploadPics']['name']);
+    $walkFileUploadMapOfWalk = htmlspecialchars($_FILES['fileUploadMap']['name']);
+    $walkGoogleMapOfWalk = htmlspecialchars($_POST['googleMapOfWalk']);
     $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
+    $walkValidateStatusChoiceOfWalk = htmlspecialchars($_POST['validateStatusChoice']);
     $walkLocationPictoOfWalk = htmlspecialchars(intval($_POST['locationPictoOfWalk']));
     $walkOutputTypePictoOfWalk = htmlspecialchars(intval($_POST['outputTypePictoOfWalk']));
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
@@ -170,6 +178,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
         $walkVacancyChecksPictoOfWalk = htmlspecialchars(intval($_POST['vacancyChecksPictoOfWalk']));
     };
     //Hydratation
+    $walk->setId($currentId);
     $walk->setTitle($walkTitle);
     $walk->setDescription($walkShortDescription);
     $walk->setMoreInfoDescription($walkCompleteDescription);
@@ -178,7 +187,11 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walk->setRate12Plus($walkRate_12_plusOfWalk);
     $walk->setRateChildDisabled($walkRate_child_disabledOfWalk);
     $walk->setOpenedHour($walkOpenedHoursOfWalk);
+    $walk->setPics($walkFileUploadPicsOfWalk);
+    $walk->setMap($walkFileUploadMapOfWalk);
+    $walk->setGoogleMapAddress($walkGoogleMapOfWalk);
     $walk->setOfficialSite($walkOfficialSiteOfWalk);
+    $walk->setWalkValidate($walkValidateStatusChoiceOfWalk);
     $walk->setIdLpvLocationPicto($walkLocationPictoOfWalk);
     $walk->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
     $walk->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
@@ -186,39 +199,52 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walk->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
     $walk->editWalk();
 
+    $paymentDelete = new Lpv_avoir();
+    $paymentDelete->setIdWalk($currentId);
+    $paymentDelete->deletePayment();
+
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
         $paymentFree = new Lpv_avoir();
         $paymentFree->setId($walkFreePictoOfWalk);
-        $paymentFree->setIdWalk($lastWalkId);
-        $paymentFree->editPayment();
+        $paymentFree->setIdWalk($currentId);
+        $paymentFree->addPayment();
     };
 
     if (isset($_POST['cardPictoOfWalk']) && !empty($_POST['cardPictoOfWalk'])) {
         $paymentCard = new Lpv_avoir();
         $paymentCard->setId($walkCardPictoOfWalk);
-        $paymentCard->setIdWalk($lastWalkId);
-        $paymentCard->editPayment();
+        $paymentCard->setIdWalk($currentId);
+        $paymentCard->addPayment();
     };
 
     if (isset($_POST['checkPictoOfWalk']) && !empty($_POST['checkPictoOfWalk'])) {
         $paymentCheck = new Lpv_avoir();
         $paymentCheck->setId($walkCheckPictoOfWalk);
-        $paymentCheck->setIdWalk($lastWalkId);
-        $paymentCheck->editPayment();
+        $paymentCheck->setIdWalk($currentId);
+        $paymentCheck->addPayment();
     };
 
     if (isset($_POST['cashPictoOfWalk']) && !empty($_POST['cashPictoOfWalk'])) {
         $paymentCash = new Lpv_avoir();
         $paymentCash->setId($walkCashPictoOfWalk);
-        $paymentCash->setIdWalk($lastWalkId);
-        $paymentCash->editPayment();
+        $paymentCash->setIdWalk($currentId);
+        $paymentCash->addPayment();
     };
 
     if (isset($_POST['vacancyChecksPictoOfWalk']) && !empty($_POST['vacancyChecksPictoOfWalk'])) {
         $paymentVacancyChecks = new Lpv_avoir();
         $paymentVacancyChecks->setId($walkVacancyChecksPictoOfWalk);
-        $paymentVacancyChecks->setIdWalk($lastWalkId);
-        $paymentVacancyChecks->editPayment();
+        $paymentVacancyChecks->setIdWalk($currentId);
+        $paymentVacancyChecks->addPayment();
     };
+    //MOVE MAP PICS ON SERVER FIELD
+    $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];
+    $nameMap = basename($_FILES["fileUploadMap"]["name"]);
+    move_uploaded_file($tmp_name_map, "$target_dir_map/$nameMap");
+    //MOVE WALK PICS ON SERVER FIELD
+    $tmp_name_pics = $_FILES["fileUploadPics"]["tmp_name"];
+    $namePics = basename($_FILES["fileUploadPics"]["name"]);
+    move_uploaded_file($tmp_name_pics, "$target_dir_pics/$namePics");
+
     header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
 }
