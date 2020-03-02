@@ -1,4 +1,4 @@
-<?php require_once('controllers/home/lpv_homeController.php'); var_dump($_POST); var_dump($_FILES) ?>
+<?php require_once('controllers/home/lpv_homeController.php'); ?>
 
 <head>
     <meta charset="UTF-8" />

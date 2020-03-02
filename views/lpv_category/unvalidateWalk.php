@@ -5,7 +5,7 @@
 </div>
 <div class="card-columns px-3 mt-4">
     <?php foreach ($detailWalk as $row) {
-        if ($row['walkValidate'] == 'validate') {
+        if ($row['walkValidate'] == 'Validate') {
             continue;
         };
         if ($_GET['unvalidateWalk'] != $row['id']) {

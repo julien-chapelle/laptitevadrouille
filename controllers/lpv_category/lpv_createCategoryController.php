@@ -3,7 +3,7 @@
 require_once('models/lpv_database.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
-$walk = new Lpv_category();
+$walkCreate = new Lpv_category();
 
 // ERROR TITRE
 $regexTitleOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
@@ -151,22 +151,22 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
         $walkVacancyChecksPictoOfWalk = htmlspecialchars(intval($_POST['vacancyChecksPictoOfWalk']));
     };
     //Hydratation
-    $walk->setTitle($walkTitle);
-    $walk->setDescription($walkShortDescription);
-    $walk->setMoreInfoDescription($walkCompleteDescription);
-    $walk->setRate03($walkRate_0_3OfWalk);
-    $walk->setRate311($walkRate_3_11OfWalk);
-    $walk->setRate12Plus($walkRate_12_plusOfWalk);
-    $walk->setRateChildDisabled($walkRate_child_disabledOfWalk);
-    $walk->setOpenedHour($walkOpenedHoursOfWalk);
-    $walk->setPublicationDate($walkPublicationDate);
-    $walk->setOfficialSite($walkOfficialSiteOfWalk);
-    $walk->setIdLpvLocationPicto($walkLocationPictoOfWalk);
-    $walk->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
-    $walk->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
-    $walk->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
-    $walk->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
-    $lastWalkId = $walk->addWalk();
+    $walkCreate->setTitle($walkTitle);
+    $walkCreate->setDescription($walkShortDescription);
+    $walkCreate->setMoreInfoDescription($walkCompleteDescription);
+    $walkCreate->setRate03($walkRate_0_3OfWalk);
+    $walkCreate->setRate311($walkRate_3_11OfWalk);
+    $walkCreate->setRate12Plus($walkRate_12_plusOfWalk);
+    $walkCreate->setRateChildDisabled($walkRate_child_disabledOfWalk);
+    $walkCreate->setOpenedHour($walkOpenedHoursOfWalk);
+    $walkCreate->setPublicationDate($walkPublicationDate);
+    $walkCreate->setOfficialSite($walkOfficialSiteOfWalk);
+    $walkCreate->setIdLpvLocationPicto($walkLocationPictoOfWalk);
+    $walkCreate->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
+    $walkCreate->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
+    $walkCreate->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
+    $walkCreate->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    $lastWalkId = $walkCreate->addWalk();
 
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
         $paymentFree = new Lpv_avoir();

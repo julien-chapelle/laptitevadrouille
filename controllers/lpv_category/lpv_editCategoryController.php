@@ -3,23 +3,24 @@
 require_once('models/lpv_database.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
-$walk = new Lpv_category();
+$walkEdit = new Lpv_category();
+
 //DETAIL USER
 if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET['id'])) {
     $currentId = intval($_GET['id']);
     //Hydratation
-    $walk->setId($currentId);
-    $detailWalk = $walk->detailWalk();
-    $detailPaymentWalk = $walk->detailPaymentWalk();
+    $walkEdit->setId($currentId);
+    $detailWalk = $walkEdit->detailWalk();
+    $detailPaymentWalk = $walkEdit->detailPaymentWalk();
     $arrayDateHour = explode('<br />', $detailWalk[0]['openedHours']);
-    return $arrayDateHour;
 };
+
 // ERROR GOOGLE MAP ADDRESS
 $regexGoogleMapOfWalk = '/^(https:\/\/www\.google\.com\/maps\/place\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%]{1,}+$/';
 
 if (isset($_POST['googleMapOfWalk'])) {
     if (preg_match($regexGoogleMapOfWalk, $_POST['googleMapOfWalk']) == 0) {
-        $arrayError['googleMapOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['googleMapOfWalk'] = 'Veuillez respecter le format (URL Google Map)';
     };
     if (empty($_POST['googleMapOfWalk'])) {
         $arrayError['googleMapOfWalk'] = 'Veuillez remplir le champ';
@@ -137,11 +138,11 @@ if (isset($_POST['officialSiteOfWalk'])) {
         $arrayError['officialSiteOfWalk'] = 'Veuillez remplir le champ';
     };
 };
-
 $target_dir_pics = 'assets/img_walk';
 $target_dir_map = 'assets/img_map';
 
 if (isset($_POST['editWalk']) && empty($arrayError)) {
+
     $currentId = htmlspecialchars(intval($_GET['id']));
     $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
     $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);
@@ -161,6 +162,32 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
     $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+    //Hydratation
+    $walkEdit->setId($currentId);
+    $walkEdit->setTitle($walkTitle);
+    $walkEdit->setDescription($walkShortDescription);
+    $walkEdit->setMoreInfoDescription($walkCompleteDescription);
+    $walkEdit->setRate03($walkRate_0_3OfWalk);
+    $walkEdit->setRate311($walkRate_3_11OfWalk);
+    $walkEdit->setRate12Plus($walkRate_12_plusOfWalk);
+    $walkEdit->setRateChildDisabled($walkRate_child_disabledOfWalk);
+    $walkEdit->setOpenedHour($walkOpenedHoursOfWalk);
+    if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && $_FILES['fileUploadMap']['name'] != '') {
+        $walkEdit->setPics($walkFileUploadPicsOfWalk);
+        $walkEdit->setMap($walkFileUploadMapOfWalk);
+    } else {
+        $walkEdit->setPics($detailWalk[0]['pics']);
+        $walkEdit->setMap($detailWalk[0]['map']);
+    };
+    $walkEdit->setGoogleMapAddress($walkGoogleMapOfWalk);
+    $walkEdit->setOfficialSite($walkOfficialSiteOfWalk);
+    $walkEdit->setWalkValidate($walkValidateStatusChoiceOfWalk);
+    $walkEdit->setIdLpvLocationPicto($walkLocationPictoOfWalk);
+    $walkEdit->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
+    $walkEdit->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
+    $walkEdit->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
+    $walkEdit->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    $walkEdit->editWalk();
 
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
         $walkFreePictoOfWalk = htmlspecialchars(intval($_POST['freePictoOfWalk']));
@@ -177,27 +204,6 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     if (isset($_POST['vacancyChecksPictoOfWalk']) && !empty($_POST['vacancyChecksPictoOfWalk'])) {
         $walkVacancyChecksPictoOfWalk = htmlspecialchars(intval($_POST['vacancyChecksPictoOfWalk']));
     };
-    //Hydratation
-    $walk->setId($currentId);
-    $walk->setTitle($walkTitle);
-    $walk->setDescription($walkShortDescription);
-    $walk->setMoreInfoDescription($walkCompleteDescription);
-    $walk->setRate03($walkRate_0_3OfWalk);
-    $walk->setRate311($walkRate_3_11OfWalk);
-    $walk->setRate12Plus($walkRate_12_plusOfWalk);
-    $walk->setRateChildDisabled($walkRate_child_disabledOfWalk);
-    $walk->setOpenedHour($walkOpenedHoursOfWalk);
-    $walk->setPics($walkFileUploadPicsOfWalk);
-    $walk->setMap($walkFileUploadMapOfWalk);
-    $walk->setGoogleMapAddress($walkGoogleMapOfWalk);
-    $walk->setOfficialSite($walkOfficialSiteOfWalk);
-    $walk->setWalkValidate($walkValidateStatusChoiceOfWalk);
-    $walk->setIdLpvLocationPicto($walkLocationPictoOfWalk);
-    $walk->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
-    $walk->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
-    $walk->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
-    $walk->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
-    $walk->editWalk();
 
     $paymentDelete = new Lpv_avoir();
     $paymentDelete->setIdWalk($currentId);

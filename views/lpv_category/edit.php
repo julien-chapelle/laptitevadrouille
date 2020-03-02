@@ -7,13 +7,13 @@
 <form class="px-4" method="POST" action="" enctype="multipart/form-data">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/<?= isset($detailWalk[0]['pics']) ? 'img_walk/' . $detailWalk[0]['pics'] : 'img/emptyPicsWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
+            <img src="assets/<?= isset($detailWalk[0]['pics']) && $detailWalk[0]['pics'] != '' && $detailWalk[0]['pics'] != 'null' ? 'img_walk/' . $detailWalk[0]['pics'] : 'img/emptyPicsWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
             <label class="font-weight-bold text-dark" for="fileUploadPics">
                 CHOISIR PHOTO ILLUSTRATION</label>
             <input type="file" class="form-control-file btn btn-outline-success btn-sm mb-3" name="fileUploadPics" id="fileUploadPics" title="choisissez une photo d'illustration" />
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/<?= isset($detailWalk[0]['map']) ? 'img_map/' . $detailWalk[0]['map'] : 'img/emptyMapWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
+            <img src="assets/<?= isset($detailWalk[0]['map']) && $detailWalk[0]['map'] != '' && $detailWalk[0]['map'] != 'null'  ? 'img_map/' . $detailWalk[0]['map'] : 'img/emptyMapWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
             <label class="font-weight-bold text-dark" for="fileUploadMap">
                 CHOISIR IMAGE GOOGLE MAP</label>
             <input type="file" class="form-control-file btn btn-outline-success btn-sm mb-3" name="fileUploadMap" id="fileUploadMap" title="choisissez une image Google Map" />
@@ -332,7 +332,7 @@
             <label for="validateStatusChoice" class="font-weight-bold text-dark">CHOIX DE LA VISIBILITE</label>
             <select class="form-control text-center" id="validateStatusChoice" name="validateStatusChoice">
                 <option value="Validate" <?= $detailWalk[0]['walkValidate'] == 'Validate' ? 'selected' : '' ?>>Status validé (Sortie visible sur le site)</option>
-                <option value="null" <?= empty($detailWalk[0]['walkValidate']) || $detailWalk[0]['walkValidate'] == 'null' ? 'selected' : '' ?>>Status non validé (Sortie invisible sur le site)</option>
+                <option value="" <?= empty($detailWalk[0]['walkValidate']) || $detailWalk[0]['walkValidate'] == 'null' ? 'selected' : '' ?>>Status non validé (Sortie invisible sur le site)</option>
             </select>
         </div>
     </div>

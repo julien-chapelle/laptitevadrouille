@@ -399,7 +399,7 @@ class Lpv_category extends Lpv_database
     //COUNT ID SEARCH DATABASE
     public function countSearchWalk()
     {
-        $countSearchWalkQuery = "SELECT count(`id`) AS `countSearchId` FROM `lpv_category`
+        $countSearchWalkQuery = "SELECT count(`id`) AS `countSearchId` FROM `LPV_category`
         WHERE `title` LIKE :searchTitle";
 
         $countSearchWalkResult = $this->db->prepare($countSearchWalkQuery);
@@ -412,7 +412,7 @@ class Lpv_category extends Lpv_database
     //EDIT WALK
     public function editWalk()
     {
-        $editWalkQuery = "UPDATE `lpv_category`
+        $editWalkQuery = "UPDATE `LPV_category`
         SET `title` = :walkTitle, `description` = :walkShortDescription,`moreInfoDescription` = :walkCompleteDescription,`rate_0_3` = :walkRate_0_3OfWalk, `rate_3_11` = :walkRate_3_11OfWalk, `rate_12_plus` = :walkRate_12_plusOfWalk, `rate_child_disabled` = :walkRate_child_disabledOfWalk, `openedHours` = :walkOpenedHoursOfWalk, `pics` = :walkPics, `map` = :walkMap, `googleMapAddress` = :walkGoogleMapAddress, `officialSite` = :walkOfficialSiteOfWalk, `walkValidate` = :walkValidate, `id_LPV_locationPicto` = :walkLocationPictoOfWalk, `id_LPV_outputTypePicto` = :walkOutputTypePictoOfWalk, `id_LPV_ageAdvisePicto` = :walkAgeAdvisePictoOfWalk, `id_LPV_practicabilityPicto` = :walkPracticabilityPictoOfWalk, `id_LPV_equipmentPicto` = :walkBabyDiaperPictoOfWalk
         WHERE `id` = :currentId";
 
