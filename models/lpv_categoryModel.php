@@ -438,4 +438,14 @@ class Lpv_category extends Lpv_database
         $editWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_INT);
         $editWalkResult->execute();
     }
+    //DELETE WALK
+    public function deleteWalk()
+    {
+        $deleteWalkQuery = "DELETE FROM `LPV_category`
+        WHERE `id` = :currentId";
+
+        $deleteWaltResult = $this->db->prepare($deleteWalkQuery);
+        $deleteWaltResult->bindvalue(':currentId', $this->getId(), PDO::PARAM_INT);
+        $deleteWaltResult->execute();
+    }
 }

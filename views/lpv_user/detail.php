@@ -155,13 +155,13 @@
                                     </div>
                                     <div class="row no-gutters justify-content-end">
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>" title="Modifier les informations"><i class="fas fa-search"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>" title="Plus d'informations"><i class="fas fa-search"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
                                             <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=edit&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
                                         <div class="col-1 mt-1 text-center">
-                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-trash-alt"></i></a>
+                                            <a class="butonEdit text-success" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Supprimer la sortie"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </form>

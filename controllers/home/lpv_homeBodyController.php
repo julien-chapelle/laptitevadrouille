@@ -1,5 +1,4 @@
 <?php
-include('views/lpv_category/delete.php');
 include('views/home/loginAccountModal.php');
 include('views/home/aboutModal.php');
 
@@ -32,6 +31,9 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
     return;
 } elseif (isset($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'edit') {
     include('views/lpv_category/edit.php');
+    return;
+} elseif (isset($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'delete') {
+    include('views/lpv_category/delete.php');
     return;
 } elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     include('views/lpv_user/create.php');
