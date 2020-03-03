@@ -23,7 +23,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="googleMapOfWalk">
                 ADRESSE GOOGLE MAP</label>
-            <textarea title="Renseignez l'adresse Google Map'" placeholder="ex: https://www.google.com/maps/place/zoo..." type="text" class="form-control text-center" name="googleMapOfWalk" id="googleMapOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['googleMapOfWalk'] : $detailWalk[0]['googleMapAddress'] ?></textarea>
+            <textarea title="Renseignez l'adresse Google Map'" placeholder="ex: https://www.google.com/maps/place/zoo..." type="text" class="form-control text-center borderInput" name="googleMapOfWalk" id="googleMapOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['googleMapOfWalk'] : $detailWalk[0]['googleMapAddress'] ?></textarea>
             <p class="error"><?= isset($arrayError['googleMapOfWalk']) ? $arrayError['googleMapOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="titleOfWalk">
                 TITRE</label>
-            <input title="Renseignez le nom du lieu de sortie" placeholder="ex: Zoo des animaux" type="text" class="form-control text-center" name="titleOfWalk" id="titleOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['titleOfWalk'] : $detailWalk[0]['title'] ?>" />
+            <input title="Renseignez le nom du lieu de sortie" placeholder="ex: Zoo des animaux" type="text" class="form-control text-center borderInput" name="titleOfWalk" id="titleOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['titleOfWalk'] : $detailWalk[0]['title'] ?>" />
             <p class="error"><?= isset($arrayError['titleOfWalk']) ? $arrayError['titleOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="shortDescriptionOfWalk">
                 DESCRIPTION COURTE</label>
-            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['shortDescriptionOfWalk'] : $detailWalk[0]['description'] ?></textarea>
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['shortDescriptionOfWalk'] : $detailWalk[0]['description'] ?></textarea>
             <p class="error"><?= isset($arrayError['shortDescriptionOfWalk']) ? $arrayError['shortDescriptionOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -47,7 +47,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="completeDescriptionOfWalk">
                 DESCRIPTION COMPLETE</label>
-            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['completeDescriptionOfWalk'] : $detailWalk[0]['moreInfoDescription'] ?></textarea>
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['completeDescriptionOfWalk'] : $detailWalk[0]['moreInfoDescription'] ?></textarea>
             <p class="error"><?= isset($arrayError['completeDescriptionOfWalk']) ? $arrayError['completeDescriptionOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -55,7 +55,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="rate_0_3OfWalk">
                 PRIX AGE 0-3 ANS</label>
-            <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_0_3OfWalk'] : $detailWalk[0]['rate_0_3'] ?>" />
+            <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_0_3OfWalk'] : $detailWalk[0]['rate_0_3'] ?>" />
             <p class="error"><?= isset($arrayError['rate_0_3OfWalk']) ? $arrayError['rate_0_3OfWalk'] : '' ?></p>
         </div>
     </div>
@@ -63,7 +63,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="rate_3_11OfWalk">
                 PRIX AGE 3-11 ANS</label>
-            <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_3_11OfWalk'] : $detailWalk[0]['rate_3_11'] ?>" />
+            <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_3_11OfWalk'] : $detailWalk[0]['rate_3_11'] ?>" />
             <p class="error"><?= isset($arrayError['rate_3_11OfWalk']) ? $arrayError['rate_3_11OfWalk'] : '' ?></p>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="rate_12_plusOfWalk">
                 PRIX AGE 12 ANS ET PLUS</label>
-            <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_12_plusOfWalk'] : $detailWalk[0]['rate_12_plus'] ?>" />
+            <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_12_plusOfWalk'] : $detailWalk[0]['rate_12_plus'] ?>" />
             <p class="error"><?= isset($arrayError['rate_12_plusOfWalk']) ? $arrayError['rate_12_plusOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -79,7 +79,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="rate_child_disabledOfWalk">
                 PRIX ENFANT EN SITUATION DE HANDICAPE</label>
-            <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_child_disabledOfWalk'] : $detailWalk[0]['rate_child_disabled'] ?>" />
+            <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_child_disabledOfWalk'] : $detailWalk[0]['rate_child_disabled'] ?>" />
             <p class="error"><?= isset($arrayError['rate_child_disabledOfWalk']) ? $arrayError['rate_child_disabledOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -87,16 +87,16 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="openedHoursOfWalk">
                 HEURES & PERIODES D'OUVERTURES</label>
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk1'] : $arrayDateHour[0] ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk1'] : $arrayDateHour[0] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
 
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center" name="openedHoursOfWalk2" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk2'] : $arrayDateHour[1] ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk2" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk2'] : $arrayDateHour[1] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
 
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center" name="openedHoursOfWalk3" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk3'] : $arrayDateHour[2] ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk3" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk3'] : $arrayDateHour[2] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
 
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk4'] : $arrayDateHour[3] ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk4'] : $arrayDateHour[3] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -104,7 +104,7 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="officialSiteOfWalk">
                 SITE OFFICIEL</label>
-            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['officialSiteOfWalk'] : $detailWalk[0]['officialSite'] ?>" />
+            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['officialSiteOfWalk'] : $detailWalk[0]['officialSite'] ?>" />
             <p class="error"><?= isset($arrayError['officialSiteOfWalk']) ? $arrayError['officialSiteOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -330,7 +330,7 @@
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-3 col-md-3 col-sm-12 my-4">
             <label for="validateStatusChoice" class="font-weight-bold text-dark">CHOIX DE LA VISIBILITE</label>
-            <select class="form-control text-center" id="validateStatusChoice" name="validateStatusChoice">
+            <select class="form-control text-center borderInput" id="validateStatusChoice" name="validateStatusChoice">
                 <option value="Validate" <?= $detailWalk[0]['walkValidate'] == 'Validate' ? 'selected' : '' ?>>Status validé (Sortie visible sur le site)</option>
                 <option value="" <?= empty($detailWalk[0]['walkValidate']) || $detailWalk[0]['walkValidate'] == 'null' ? 'selected' : '' ?>>Status non validé (Sortie invisible sur le site)</option>
             </select>

@@ -17,20 +17,20 @@ a[type=button] {
 }
 
 .scrollUpColor {
-    color: rgb(255, 184, 53);
+    color: rgb(255, 136, 0);
     opacity: 0.7;
 }
 
 /* scrollUp button */
 .navBarColor {
-    background-color: rgba(255, 184, 53, 0.733);
+    background-color: rgba(255, 136, 0, 0.733);
 }
 .footerColor {
     background-color: rgba(70, 59, 40);
 }
 .butonEdit {
     cursor:pointer;
-    color:rgb(255, 184, 53);
+    color:rgb(255, 136, 0);
 }
 .buttonColor1 {
     background-color: transparent;
@@ -43,15 +43,18 @@ a[type=button] {
 }
 .buttonColor2 {
     background-color: transparent;
-    border: 2px solid rgb(255, 184, 53);
-    color: rgb(255, 184, 53);
+    border: 2px solid rgb(255, 136, 0);
+    color: rgb(255, 136, 0);
     font-size: 15px;
 }
 .buttonColor2:hover {
-    color: rgb(255, 184, 53);
+    color: rgb(255, 136, 0);
 }
 .textColor1 {
-    color: rgb(255, 184, 53);
+    color: rgb(255, 136, 0);
+}
+.textColor2 {
+    color: rgb(70, 59, 40);
 }
 #facebookLogoSize {
     height: 35px;
@@ -60,7 +63,13 @@ a[type=button] {
 #twitterLogoSize {
     height: 35px;
 }
-
+.borderInput {
+    border-top: none;
+    border-right: none;
+    border-left: 1px solid rgba(70, 59, 40, 0.466);
+    border-bottom: 1px solid rgb(70, 59, 40, 0.466);
+    border-radius: 0;
+}
 .footerTextSize {
     font-size: 12px;
 }

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <label class="font-weight-bold text-dark" for="pseudo"><i class="fas fa-user"></i>
                     NOUVEAU PRENOM OU PSEUDO</label>
-                <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center" name="pseudo" id="pseudo" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['pseudo'] : $row['pseudo'] ?>" />
+                <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput" name="pseudo" id="pseudo" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['pseudo'] : $row['pseudo'] ?>" />
                 <p class="error"><?= isset($arrayError['pseudo']) ? $arrayError['pseudo'] : '' ?></p>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <div class="col-12">
                 <label class="font-weight-bold text-dark" for="email"><i class="fas fa-at"></i>
                     NOUVEL EMAIL</label>
-                <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center" name="mail" id="email" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['mail'] : $row['mail'] ?>" />
+                <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center borderInput" name="mail" id="email" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['mail'] : $row['mail'] ?>" />
                 <p class="error"><?= isset($arrayError['mail']) ? $arrayError['mail'] : '' ?></p>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <label class="font-weight-bold text-dark" for="password"><i class="fas fa-unlock-alt"></i> MOT
                         DE PASSE</label>
-                    <input title="Choisissez un mot de passe" type="password" class="form-control text-center" name="password" id="password" />
+                    <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput" name="password" id="password" />
                     <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                         <label class="font-weight-bold text-dark" for="changeStatusSelect"><i class="fas fa-crown"></i> CHANGEMENT DE STATUS</label>
-                        <select class="form-control text-center" id="changeStatusSelect" name="status">
+                        <select class="form-control text-center borderInput" id="changeStatusSelect" name="status">
                             <option <?= $row['status'] == 'admin' ? 'selected' : '' ?>>Admin</option>
                             <option <?= $row['status'] == 'user' ? 'selected' : '' ?>>User</option>
                         </select>

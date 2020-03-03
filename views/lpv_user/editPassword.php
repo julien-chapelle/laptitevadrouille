@@ -3,14 +3,14 @@
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT
                 DE PASSE ACTUEL</label>
-            <input title="Saisissez le mot de passe actuel" type="password" class="form-control text-center" name="currentPassword" id="currentPassword" />
+            <input title="Saisissez le mot de passe actuel" type="password" class="form-control text-center borderInput" name="currentPassword" id="currentPassword" />
             <p class="error"><?= isset($arrayError['currentPassword']) ? $arrayError['currentPassword'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
             <label class="font-weight-bold text-dark" for="newPassword"><i class="fas fa-unlock-alt"></i> NOUVEAU MOT DE PASSE</label>
-            <input title="Saisissez le nouveau mot de passe" type="password" class="form-control text-center" name="newPassword" id="newPassword" />
+            <input title="Saisissez le nouveau mot de passe" type="password" class="form-control text-center borderInput" name="newPassword" id="newPassword" />
             <p class="error"><?= isset($arrayError['newPassword']) ? $arrayError['newPassword'] : '' ?></p>
         </div>
     </div>

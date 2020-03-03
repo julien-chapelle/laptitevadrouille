@@ -54,21 +54,21 @@
     </div>
 </div>
 <div class="row text-center justify-content-center m-0">
-    <div class="col-5 text-right">
+    <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-right px-0">
         <?php if ($page > 1) { ?>
-            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?search=title&page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?search=title&page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
         <?php } else {
             '';
         } ?>
     </div>
-    <div class="col-2">
-        <p class="textColor1 mx-2 h4 mt-2"><?= $page . '/' . $pageCount ?></p>
+    <div class="col-lg-1 col-md-2 col-sm-2 col-2 px-0">
+        <p class="textColor1 mx-2 h5 mt-2"><?= $page . '/' . $pageCount ?></p>
     </div>
-    <div class="col-5 text-left">
+    <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
         <?php if ($page < $pageCount) { ?>
-            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
-            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?search=title&page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
         <?php } else {
             '';
         } ?>
