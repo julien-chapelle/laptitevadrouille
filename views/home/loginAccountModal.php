@@ -15,10 +15,10 @@
                             <img src="assets/<?= $AvatarUser[0]['avatarName'] != null ? 'img_avatar_choice/' . $AvatarUser[0]['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
                         <div class="col-12 text-center p-0">
-                            <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn btn-outline-success btn-sm btn-block m-0">Info profil</a>
+                            <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn buttonColor1 btn-sm btn-block m-0">Info profil</a>
                         </div>
                         <div class="col-12 text-center p-0">
-                            <button class="btn btn-outline-danger btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
+                            <button class="btn buttonColor2 btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
                         </div>
                     </div>
                 </form>
@@ -36,7 +36,7 @@
                             <p class="error"><?= isset($arrayError['passwordConnexion']) ? $arrayError['passwordConnexion'] : '' ?></p>
                         </div>
                         <div class="col-12 text-center p-0">
-                            <button type="submit" class="btn btn-outline-success btn-sm btn-block m-0" name="userConnection">Connexion</button>
+                            <button type="submit" class="btn buttonColor1 btn-sm btn-block m-0" name="userConnection">Connexion</button>
                             <p class="error pt-2"><?= isset($_POST['userConnection']) && !empty($_POST['userMailConnexion']) && !empty($_POST['passwordConnexion']) ? $userNoExistError : '' ?></p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="row mx-auto">
                         <label class="col-12 text-center">Vous n'avez pas de compte ?</label>
                         <div class="col-12 text-center">
-                            <a href="http://laptitevadrouille/index.php?user=add"><button type="button" class="btn btn-outline-secondary btn-sm btn-block m-0">Inscrivez-Vous</button></a>
+                            <a href="http://laptitevadrouille/index.php?user=add"><button type="button" class="btn buttonColor2 btn-sm btn-block m-0">Inscrivez-Vous</button></a>
                         </div>
                     </div>
                 </div>

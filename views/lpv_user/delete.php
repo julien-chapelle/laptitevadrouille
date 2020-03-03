@@ -40,8 +40,8 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
-            <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="deleteUser">SUPPRIMER</button>
+            <a class="btn buttonColor2 py-2 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply py-1"></i></a>
+            <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="deleteUser">SUPPRIMER</button>
             <p class="valid h5 my-3"><?= isset($_POST['deleteUser']) && empty($arrayError) ? 'Compte supprimé avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : '' ?></p>
         </div>

@@ -31,8 +31,8 @@
                     <div class="form-group">
                         <label class="font-weight-bold text-dark" for="changeStatusSelect"><i class="fas fa-crown"></i> CHANGEMENT DE STATUS</label>
                         <select class="form-control text-center" id="changeStatusSelect" name="status">
-                            <option>Admin</option>
-                            <option>User</option>
+                            <option <?= $row['status'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                            <option <?= $row['status'] == 'user' ? 'selected' : '' ?>>User</option>
                         </select>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
         <?php }; ?>
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">
-                <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
-                <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="editUserInfo">MODIFIER</button>
+                <a class="btn buttonColor2 py-2 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply py-1"></i></a>
+                <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="editUserInfo">MODIFIER</button>
                 <p class="valid h5 my-3"><?= isset($_POST['editUserInfo']) && empty($arrayError) ? 'Infos modifiées avec succès !' : '' ?></p>
                 <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
             </div>

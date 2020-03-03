@@ -1,6 +1,6 @@
 <div class="row m-0 mt-1 p-2">
     <div class="col p-0 text-left">
-        <a class="btn btn-outline-success px-3 shadow" href="<?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'http://laptitevadrouille/index.php?user=detail' : 'http://laptitevadrouille/index.php?list=walk&amp;page=1'?>" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
+        <a class="btn buttonColor2 px-3 shadow" href="<?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'http://laptitevadrouille/index.php?user=detail' : 'http://laptitevadrouille/index.php?list=walk&amp;page=1'?>" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
     </div>
 </div>
 <div class="card-columns px-3 mt-4">
@@ -31,7 +31,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <a class="btn btn-outline-secondary btn-sm btn-block" data-toggle="collapse" href="#collapseDescription" role="button" aria-expanded="false" aria-controls="collapseCookie">
+                <a class="btn buttonColor2 btn-sm btn-block" data-toggle="collapse" href="#collapseDescription" role="button" aria-expanded="false" aria-controls="collapseCookie">
                     DESCRIPTION
                 </a>
                 <div class="collapse text-left mt-3" id="collapseDescription">
@@ -59,7 +59,7 @@
         <div class="card">
             <div class="card-body">
                 <a href="<?= $row['googleMapAddress'] ?>"><img src="assets/img_map/<?= $row['map'] ?>" class="img-fluid" alt="Image carte <?= strtolower($row['title']) ?>" title="Image carte <?= strtolower($row['title']) ?>" /></a>
-                <a class="btn btn-outline-secondary btn-sm btn-block mx-0 mt-4" href="<?= $row['officialSite'] ?>" title="Site officiel <?= strtolower($row['title']) ?>">SITE OFFICIEL</a>
+                <a class="btn buttonColor2 btn-sm btn-block mx-0 mt-4" href="<?= $row['officialSite'] ?>" title="Site officiel <?= strtolower($row['title']) ?>">SITE OFFICIEL</a>
             </div>
         </div>
         <div class="card">

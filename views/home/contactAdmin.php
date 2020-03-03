@@ -39,7 +39,7 @@
             </div>
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col">
-                    <button class="btn btn-light btn-sm" role="button" type="submit" name="send">ENVOYER</button>
+                    <button class="btn buttonColor2 py-2" role="button" type="submit" name="send">ENVOYER</button>
                     <p class="mailOk font-weight_bold"><?= count($arrayError) == 0 && isset($_POST['send']) ? $mailSendMessaheOk : '' ?></p>
                 </div>
             </div>

@@ -14,7 +14,7 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light navBarColor sticky-top">
             <a class="navbar-brand" href="http://laptitevadrouille/index.php?view=accueil">LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fas fa-baby-carriage"></i></span>
@@ -32,7 +32,7 @@
                 </form>
                 <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0">
                     <input class="form-control shadow mr-1" type="search" placeholder="Recherche" aria-label="Search" name="searchTitle">
-                    <button class="btn btn-outline-success my-1 shadow px-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search"></i></button>
+                    <button class="btn buttonColor1 my-1 shadow p-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -46,7 +46,7 @@
         <div class="container-fluid p-0 pb-5">
             <?= include('controllers/home/lpv_homeBodyController.php') ?>
         </div>
-        <footer class="row text-center bg-dark px-3 py-2 m-0 footerTextSize justify-content-around">
+        <footer class="row text-center footerColor px-3 py-2 m-0 footerTextSize justify-content-around">
             <div class="col-3 p-0">
                 <p><a href="http://laptitevadrouille/index.php?view=accueil" class="text-light">Accueil</a></p>
                 <p><a class="text-light" data-toggle="modal" data-target="#about">A propos</a></p>
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </footer>
-        <footer class="row text-center bg-dark text-light px-3 py-2 m-0 footerTextSize border-top border-light">
+        <footer class="row text-center footerColor text-light px-3 py-2 m-0 footerTextSize border-top border-light">
             <p class="col-12 p-0"><?= 'Tout droits réservés© La P\'tite Vadrouille - 2019 - ' . date('Y') . '.' ?></p>
         </footer>
         <div id="scrollUp">

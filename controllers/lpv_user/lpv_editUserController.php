@@ -46,7 +46,7 @@ if (isset($_POST['password'])) {
 };
 // USER INFO UPDATE
 if (isset($_POST['editUserInfo']) && empty($arrayError)) {
-    if ($_SESSION['status'] == 'admin' && $detailUser[0]['id'] != $_SESSION['id']) {
+    if ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] != $_SESSION['id']) {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         $status = htmlspecialchars(mb_strtolower($_POST['status']));
@@ -58,7 +58,7 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->editUserInfo();
         $user->changeStatus();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } elseif ($_SESSION['status'] == 'admin' && $detailUser[0]['id'] == $_SESSION['id'] && password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
+    } elseif ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] == $_SESSION['id'] && password_verify($_POST['password'], $detailEditUser[0]['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         //Hydratation
@@ -67,7 +67,7 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->setMail($mail);
         $user->editUserInfo();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } elseif ($_SESSION['status'] == 'user' && password_verify($_POST['password'], $detailUser[0]['password']) == 'true') {
+    } elseif ($_SESSION['status'] == 'user' && password_verify($_POST['password'], $detailEditUser[0]['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         //Hydratation
@@ -105,7 +105,7 @@ if (isset($_POST['newPassword'])) {
 };
 // USER PASSWORD UPDATE
 if (isset($_POST['editUserPassword']) && empty($arrayError)) {
-    if (password_verify($_POST['currentPassword'], $detailUser[0]['password']) == 'true') {
+    if (password_verify($_POST['currentPassword'], $detailEditUser[0]['password']) == 'true') {
         $password = htmlspecialchars(password_hash($_POST['newPassword'], PASSWORD_DEFAULT));
         //Hydratation
         $user->setId($currentId);

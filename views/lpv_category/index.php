@@ -26,7 +26,7 @@
                                     Tarif à partir de 12 ans : <?= $row['rate_12_plus'] ?><?= $row['rate_12_plus'] == 'GRATUIT' ? "" : "€" ?><br />
                                     Enfant en situation de Handicap : <?= $row['rate_child_disabled'] ?><?= $row['rate_child_disabled'] == 'GRATUIT' ? "" : "€" ?>
                                 </p>
-                                <a class="btn btn-outline-danger btn-sm" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>">+ d'info</a>
+                                <a class="btn buttonColor2 btn-sm" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>">+ d'info</a>
                                 <p class="card-text"><small class="text-muted">Ajouté le <?= $row['publication_date'] ?></small></p>
                             </div>
                         </div>
@@ -39,19 +39,19 @@
 <div class="row text-center justify-content-center m-0">
     <div class="col-5 text-right">
         <?php if ($page > 1) { ?>
-            <a class="btn btn-outline-danger mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-            <a class="btn btn-outline-danger mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
+            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
         <?php } else {
             '';
         } ?>
     </div>
     <div class="col-2">
-        <p class="text-danger mx-2 h4 mt-2"><?= $page . '/' . $pageCount ?></p>
+        <p class="textColor1 mx-2 h4 mt-2"><?= $page . '/' . $pageCount ?></p>
     </div>
     <div class="col-5 text-left">
         <?php if ($page < $pageCount) { ?>
-            <a class="btn btn-outline-danger mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
-            <a class="btn btn-outline-danger mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
+            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
+            <a class="btn buttonColor2 mx-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
         <?php } else {
             '';
         } ?>

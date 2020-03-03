@@ -1,6 +1,6 @@
 <div class="row m-0 mt-1 p-2">
     <div class="col p-0 text-left">
-        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+        <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
     </div>
 </div>
 <!-- formulaire début-->
@@ -307,8 +307,8 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
-            <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="validateWalk">ENVOYER</button>
+            <a class="btn buttonColor2 py-2 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply py-1"></i></a>
+            <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="validateWalk">ENVOYER</button>
             <p class="valid h5"><?= isset($_POST['validateWalk']) && isset($arrayError) && empty($arrayError) ? 'Sortie créé avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
         </div>

@@ -7,7 +7,7 @@
 <div class="row justify-content-around m-0">
     <div class="col text-center">
         <p>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapseMention" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 mx-0 btn-block" data-toggle="collapse" href="#collapseMention" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Mentions légales
             </a>
         </p>
@@ -42,7 +42,7 @@
 <div class="row justify-content-around m-0">
     <div class="col text-center">
         <p>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapseCookie" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 mx-0 btn-block" data-toggle="collapse" href="#collapseCookie" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Cookies - données personnelles
             </a>
         </p>
@@ -75,7 +75,7 @@
 <div class="row justify-content-around mb-4 m-0">
     <div class="col text-center">
         <p>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapseUse" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 mx-0 btn-block" data-toggle="collapse" href="#collapseUse" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Conditions générales d'utilisation
             </a>
         </p>

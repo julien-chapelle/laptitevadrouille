@@ -7,7 +7,7 @@
 <div class="row justify-content-around m-0">
     <div class="col text-center">
         <h2>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapsehelp1" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 btn-block mx-0" data-toggle="collapse" href="#collapsehelp1" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Inscription
             </a>
         </h2>
@@ -21,7 +21,7 @@
 <div class="row justify-content-around m-0">
     <div class="col text-center">
         <h2>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapsehelp2" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 btn-block mx-0" data-toggle="collapse" href="#collapsehelp2" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Gérer le compte
             </a>
         </h2>
@@ -35,7 +35,7 @@
 <div class="row justify-content-around mb-4 m-0">
     <div class="col text-center">
         <h2>
-            <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapsehelp3" role="button" aria-expanded="false" aria-controls="collapseCookie">
+            <a class="btn buttonColor2 btn-block mx-0" data-toggle="collapse" href="#collapsehelp3" role="button" aria-expanded="false" aria-controls="collapseCookie">
                 Déposer une annonce
             </a>
         </h2>

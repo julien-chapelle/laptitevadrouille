@@ -1,6 +1,6 @@
 <div class="row m-0 mt-1 p-2">
     <div class="col p-0 text-left">
-        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+        <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
     </div>
 </div>
 <!-- formulaire début-->
@@ -10,13 +10,13 @@
             <img src="assets/<?= isset($detailWalk[0]['pics']) && $detailWalk[0]['pics'] != '' && $detailWalk[0]['pics'] != 'null' ? 'img_walk/' . $detailWalk[0]['pics'] : 'img/emptyPicsWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['pics']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
             <label class="font-weight-bold text-dark" for="fileUploadPics">
                 CHOISIR PHOTO ILLUSTRATION</label>
-            <input type="file" class="form-control-file btn btn-outline-success btn-sm mb-3" name="fileUploadPics" id="fileUploadPics" title="choisissez une photo d'illustration" />
+            <input type="file" class="form-control-file btn buttonColor2 btn-sm mb-3" name="fileUploadPics" id="fileUploadPics" title="choisissez une photo d'illustration" />
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <img src="assets/<?= isset($detailWalk[0]['map']) && $detailWalk[0]['map'] != '' && $detailWalk[0]['map'] != 'null'  ? 'img_map/' . $detailWalk[0]['map'] : 'img/emptyMapWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
             <label class="font-weight-bold text-dark" for="fileUploadMap">
                 CHOISIR IMAGE GOOGLE MAP</label>
-            <input type="file" class="form-control-file btn btn-outline-success btn-sm mb-3" name="fileUploadMap" id="fileUploadMap" title="choisissez une image Google Map" />
+            <input type="file" class="form-control-file btn buttonColor2 btn-sm mb-3" name="fileUploadMap" id="fileUploadMap" title="choisissez une image Google Map" />
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
@@ -338,8 +338,8 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
-            <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="editWalk">MODIFIER</button>
+            <a class="btn buttonColor2 py-2 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply py-1"></i></a>
+            <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="editWalk">MODIFIER</button>
             <p class="valid h5"><?= isset($_POST['editWalk']) && isset($arrayError) && empty($arrayError) ? 'Sortie créé avec succès !' : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
         </div>
