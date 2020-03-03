@@ -133,8 +133,10 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkOutputTypePictoOfWalk = htmlspecialchars(intval($_POST['outputTypePictoOfWalk']));
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
-    $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
 
+    if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
+    $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+    };
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
         $walkFreePictoOfWalk = htmlspecialchars(intval($_POST['freePictoOfWalk']));
     };

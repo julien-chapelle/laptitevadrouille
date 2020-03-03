@@ -1,6 +1,6 @@
 <div class="row m-0 mt-1 p-2">
     <div class="col p-0 text-left">
-        <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/index.php?list=walk&amp;page=1" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
+        <a class="btn btn-outline-success px-3 shadow" href="<?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'http://laptitevadrouille/index.php?user=detail' : 'http://laptitevadrouille/index.php?list=walk&amp;page=1'?>" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
     </div>
 </div>
 <div class="card-columns px-3 mt-4">
@@ -22,7 +22,11 @@
                 <img src="assets/img_picto/<?= $row['outputTypePicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['outputTypeAlt'] ?>" title="<?= $row['outputTypeTitle'] ?>">
                 <img src="assets/img_picto/<?= $row['ageAdvisePicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['ageAdviseAlt'] ?>" title="<?= $row['ageAdviseTitle'] ?>">
                 <img src="assets/img_picto/<?= $row['practicabilityPicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['practicabilityAlt'] ?>" title="<?= $row['practicabilityTitle'] ?>">
-                <img src="assets/img_picto/<?= $row['equipmentPicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['equipmentAlt'] ?>" title="<?= $row['equipmentTitle'] ?>">
+                <?php if (!empty($row['id_LPV_equipmentPicto'])) { ?>
+                    <img src="assets/img_picto/<?= $row['equipmentPicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['equipmentAlt'] ?>" title="<?= $row['equipmentTitle'] ?>">
+                <?php } else {
+                    '';
+                } ?>
             </div>
         </div>
         <div class="card">

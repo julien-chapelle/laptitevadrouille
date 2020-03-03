@@ -30,19 +30,24 @@ if (isset($_POST['checkPassword'])) {
     };
 };
 //WALK DELETE
-if (isset($_POST['deleteWalk']) && empty($arrayError) && isset($_SESSION) && $_SESSION['status'] != 'admin') {
+if (isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_POST['deleteWalk']) && empty($arrayError)) {
     if (password_verify($_POST['checkPassword'], $detailUser[0]['password']) == 'true') {
         //DELETE PAYMENT OF WALK
         $currentId = intval($_GET['id']);
         $paymentDelete = new Lpv_avoir;
         //Hydratation
-        $paymentDelete->setId($currentId);
+        $paymentDelete->setIdWalk($currentId);
         $paymentDelete->deletePayment();
         //DELETE WALK
         $walkDelete = new Lpv_category();
         //Hydratation
         $walkDelete->setId($currentId);
         $walkDelete->deleteWalk();
+        //DELETE PICS & MAP
+        $currentPics = $detailWalk[0]['pics'];
+        $currentMap = $detailWalk[0]['map'];
+        unlink('assets/img_walk/' . $currentPics);
+        unlink('assets/img_map/' . $currentMap);
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
     } else {
         $arrayError['checkPassword'] = 'Le mot de passe actuel saisi est faux';
