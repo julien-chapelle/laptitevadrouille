@@ -35,7 +35,7 @@
             <a class="btn btn-outline-success px-3 shadow" href="http://laptitevadrouille/" title="Retour vers accueil"><i class="fas fa-reply"></i></a>
             <button class="btn btn-outline-success p-2 shadow" role="button" type="submit" name="addUser">S'INSCRIRE</button>
             <p class="valid h5"><?= isset($_POST['addUser']) && empty($arrayError) ? 'Compte créé avec succès !' : '' ?></p>
-            <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : "" ?></p>
+            <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : '' ?></p>
         </div>
     </div>
 </form>

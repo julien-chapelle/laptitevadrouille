@@ -8,7 +8,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
     $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);
-    $detailUser = $user->detailUser();
+    $detailDeleteUser = $user->detailUser();
 };
 // ERROR PSEUDO
 $regexCheckPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,20}$/';

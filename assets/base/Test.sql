@@ -75,7 +75,7 @@ USE `laptitevadrouille`;
 
 SELECT count(`id`) AS `countId` 
         FROM `lpv_category` 
-        WHERE `walkValidate` IS NULL;
+        WHERE `walkValidate` IS NULL || `walkValidate` = '';
 
 
 

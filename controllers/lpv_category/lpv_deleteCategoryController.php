@@ -4,7 +4,6 @@ require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
-$test = 'test';
 $user = new Lpv_user();
 if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'admin') {
     $currentId = intval($_SESSION['id']);

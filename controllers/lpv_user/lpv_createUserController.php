@@ -2,6 +2,9 @@
 
 require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
+if(isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
+    header('Location:http://laptitevadrouille/index.php?user=detail');
+};
 $user = new Lpv_user();
 
 // ERROR PSEUDO
@@ -67,8 +70,8 @@ if (isset($_POST['addUser']) && empty($arrayError)) {
     foreach ($userList as $row) {
         $_SESSION['pseudo'] = $row['pseudo'];
         $_SESSION['mail'] = $row['mail'];
+        $_SESSION['status'] = $row['status'];
     }
     $_SESSION['id'] = $lastId;
-    header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
+    header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
 }
-?>

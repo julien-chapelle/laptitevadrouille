@@ -1,4 +1,4 @@
-<?php foreach ($detailUser as $row) { ?>
+<?php foreach ($detailEditUser as $row) { ?>
     <form class="p-4" method="POST" action="">
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">

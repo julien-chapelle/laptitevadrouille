@@ -35,11 +35,8 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_GET['walk']) && $_GET['walk'] == 'delete') {
     include('views/lpv_category/delete.php');
     return;
-} elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
+} elseif (isset($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     include('views/lpv_user/create.php');
-    return;
-} elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
-    include('views/lpv_user/detail.php');
     return;
 } elseif (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'detail') {
     include('views/lpv_user/detail.php');

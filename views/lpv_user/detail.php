@@ -254,6 +254,27 @@
                     </div>
                 </div>
             </div>
+            <div class="row text-center justify-content-center m-0">
+                <div class="col-5 text-right">
+                    <?php if ($pageListUser > 1) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPagePage=<?= $pageListUser - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
+                </div>
+                <div class="col-2">
+                    <p class="text-danger mx-2 h5 mt-2"><?= $pageListUser . '/' . $pageCountListUser ?></p>
+                </div>
+                <div class="col-5 text-left">
+                    <?php if ($pageListUser < $pageCountListUser) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageListUser + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageCountListUser ?>"><i class="fas fa-angle-double-right"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
+                </div>
+            </div>
         </div>
         <div class="card text-center">
             <div class="card-body p-1">

@@ -8,7 +8,7 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && isset($_GET
     $currentId = intval($_GET['id']);
     //Hydratation
     $user->setId($currentId);
-    $detailUser = $user->detailUser();
+    $detailEditUser = $user->detailUser();
 };
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 // ERROR PSEUDO

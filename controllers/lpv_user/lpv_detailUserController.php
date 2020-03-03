@@ -10,10 +10,31 @@ if (isset($_SESSION) && !empty($_SESSION)) {
     $user->setId($currentId);
     $detailUser = $user->detailUser();
 }
-
+//USER LIST WITH PAGINATION
 if (isset($_SESSION) && !empty($_SESSION) && $detailUser[0]['status'] == 'admin') {
+    $countUserResult = $user->countUser();
+    $pageListUser = 1;
+    $limiteListUser = 4;
+    $pageCountListUser = ceil(intval($countUserResult[0]['countId']) / $limiteListUser);
+    $debutListUser = ($pageListUser - 1) * $limiteListUser;
     //Hydratation
-    $listUser = $user->listUser();
+    $listUser = $user->listUserPaging($limiteListUser, $debutListUser);
+
+    if (isset($_GET['listUserPage'])) {
+
+        $pageListUser = $_GET['listUserPage'];
+        $limiteListUser = 4;
+        $pageCountListUser = ceil(intval($countUserResult[0]['countId']) / $limiteListUser);
+        $debutListUser = ($pageListUser - 1) * $limiteListUser;
+        //Hydratation
+        $listUser = $user->listUserPaging($limiteListUser, $debutListUser);
+    };
+
+    if (isset($_GET['listUserPage']) && $_GET['listUserPage'] <= 0 || isset($_GET['listUserPage']) && $_GET['listUserPage'] > $pageCountListUser) {
+        header('Location: http://laptitevadrouille/index.php?user=detail');
+    } else {
+        '';
+    };
 }
 
 //LOGOUT SESSION DEBUT
