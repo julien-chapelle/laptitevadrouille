@@ -7,10 +7,7 @@
     <div class="col p-0">
         <?php
         if (!empty($searchWalk)) {
-            foreach ($searchWalk as $row) {
-                if ($row['walkValidate'] != 'Validate') {
-                    continue;
-                }; ?>
+            foreach ($searchWalk as $row) { ?>
                 <div class="card mb-3">
                     <form method="GET" action="walkIdea.php" class="mb-0">
                         <div class="row no-gutters">

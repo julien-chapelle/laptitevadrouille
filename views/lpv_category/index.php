@@ -1,10 +1,7 @@
 <div class="row d-flex justify-content-end p-3 m-0">
     <div class="col p-0">
         <?php
-        foreach ($listWalk as $row) {
-            if ($row['walkValidate'] != 'Validate') {
-                continue;
-            }; ?>
+        foreach ($listWalk as $row) { ?>
             <div class="card mb-3">
                 <form method="GET" action="" class="mb-0">
                     <div class="row no-gutters">

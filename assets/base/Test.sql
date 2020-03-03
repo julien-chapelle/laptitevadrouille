@@ -65,13 +65,17 @@ USE `laptitevadrouille`;
 --         WHERE `LPV_user`.`id` = 12;
 -- SELECT count(`id`) AS `countId` FROM `lpv_category` WHERE `walkValidate` = 'Validate';
 
-SELECT `LPV_category`.`id`,`LPV_category`.`title`,`LPV_category`.`walkValidate`, `LPV_paymentPicto`.`paymentPicto`, `LPV_paymentPicto`.`paymentTitle`, `LPV_paymentPicto`.`paymentAlt`
-        FROM `LPV_category`
-        LEFT JOIN `avoir`
-        ON `avoir`.`id_LPV_category` = `LPV_category`.`id`
-        LEFT JOIN `LPV_paymentPicto`
-        ON `LPV_paymentPicto`.`id` = `avoir`.`id`
-        WHERE `LPV_category`.`id` = 1;
+-- SELECT `LPV_category`.`id`,`LPV_category`.`title`,`LPV_category`.`walkValidate`, `LPV_paymentPicto`.`paymentPicto`, `LPV_paymentPicto`.`paymentTitle`, `LPV_paymentPicto`.`paymentAlt`
+--         FROM `LPV_category`
+--         LEFT JOIN `avoir`
+--         ON `avoir`.`id_LPV_category` = `LPV_category`.`id`
+--         LEFT JOIN `LPV_paymentPicto`
+--         ON `LPV_paymentPicto`.`id` = `avoir`.`id`
+--         WHERE `LPV_category`.`id` = 1;
+
+SELECT count(`id`) AS `countId` 
+        FROM `lpv_category` 
+        WHERE `walkValidate` IS NULL;
 
 
 

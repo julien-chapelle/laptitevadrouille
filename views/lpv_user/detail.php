@@ -83,10 +83,7 @@
                 <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
-                        foreach ($listWalk as $row) {
-                            if ($row['walkValidate'] != null) {
-                                continue;
-                            };
+                        foreach ($listUnvalidateWalk as $row) {
                         ?>
                             <div class="card mb-3">
                                 <form method="GET" action="">
@@ -127,6 +124,27 @@
                     </div>
                 </div>
             </div>
+            <div class="row text-center justify-content-center m-0">
+                <div class="col-5 text-right">
+                    <?php if ($pageUnval > 1) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
+                </div>
+                <div class="col-2">
+                    <p class="text-danger mx-2 h5 mt-2"><?= $pageUnval . '/' . $pageCountUnval ?></p>
+                </div>
+                <div class="col-5 text-left">
+                    <?php if ($pageUnval < $pageCountUnval) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageCountUnval ?>"><i class="fas fa-angle-double-right"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
+                </div>
+            </div>
         </div>
         <div class="card text-center">
             <div class="card-body p-1">
@@ -135,9 +153,6 @@
                     <div class="col p-0">
                         <?php
                         foreach ($listWalk as $row) {
-                            if ($row['walkValidate'] != 'Validate') {
-                                continue;
-                            };
                         ?>
                             <div class="card mb-3">
                                 <form method="GET" action="">
@@ -176,6 +191,27 @@
                             </div>
                         <?php }; ?>
                     </div>
+                </div>
+            </div>
+            <div class="row text-center justify-content-center m-0">
+                <div class="col-5 text-right">
+                    <?php if ($pageVal > 1) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
+                </div>
+                <div class="col-2">
+                    <p class="text-danger mx-2 h5 mt-2"><?= $pageVal . '/' . $pageCountVal ?></p>
+                </div>
+                <div class="col-5 text-left">
+                    <?php if ($pageVal < $pageCountVal) { ?>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn btn-outline-danger btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageCountVal ?>"><i class="fas fa-angle-double-right"></i></a>
+                    <?php } else {
+                        '';
+                    } ?>
                 </div>
             </div>
         </div>
