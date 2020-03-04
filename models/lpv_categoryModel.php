@@ -288,14 +288,14 @@ class Lpv_category extends Lpv_database
 
         $classicListWalkResult = $this->db->prepare($classicListWalkQuery);
         if ($classicListWalkResult->execute()) {
-            $dataClassicListWalk = $classicListWalkResult->fetchAll();
+            $dataClassicListWalk = $classicListWalkResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataClassicListWalk;
         }
     }
     //LIST VALIDATE WALK + PAGING
     public function listWalk($limite, $debut)
     {
-        $listWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        $listValWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
         ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
@@ -310,18 +310,18 @@ class Lpv_category extends Lpv_database
         WHERE `walkValidate` = 'Validate'
         LIMIT :limite OFFSET :debut";
 
-        $listWalkResult = $this->db->prepare($listWalkQuery);
-        $listWalkResult->bindValue(':limite', $limite, PDO::PARAM_INT);
-        $listWalkResult->bindValue(':debut', $debut, PDO::PARAM_INT);
-        if ($listWalkResult->execute()) {
-            $dataListWalk = $listWalkResult->fetchAll();
-            return $dataListWalk;
+        $listValWalkResult = $this->db->prepare($listValWalkQuery);
+        $listValWalkResult->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $listValWalkResult->bindValue(':debut', $debut, PDO::PARAM_INT);
+        if ($listValWalkResult->execute()) {
+            $dataListValWalk = $listValWalkResult->fetchAll(PDO::FETCH_ASSOC);
+            return $dataListValWalk;
         }
     }
     //LIST UNVALIDATE WALK + PAGING
     public function listUnvalWalk($limite, $debut)
     {
-        $listWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        $listUnvalWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
             FROM `LPV_category`
             LEFT JOIN `LPV_locationPicto`
             ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
@@ -336,12 +336,12 @@ class Lpv_category extends Lpv_database
             WHERE `walkValidate` IS NULL OR `walkValidate` = ''
             LIMIT :limite OFFSET :debut";
 
-        $listWalkResult = $this->db->prepare($listWalkQuery);
-        $listWalkResult->bindValue(':limite', $limite, PDO::PARAM_INT);
-        $listWalkResult->bindValue(':debut', $debut, PDO::PARAM_INT);
-        if ($listWalkResult->execute()) {
-            $dataListWalk = $listWalkResult->fetchAll();
-            return $dataListWalk;
+        $listUnvalWalkResult = $this->db->prepare($listUnvalWalkQuery);
+        $listUnvalWalkResult->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $listUnvalWalkResult->bindValue(':debut', $debut, PDO::PARAM_INT);
+        if ($listUnvalWalkResult->execute()) {
+            $dataListUnvalWalk = $listUnvalWalkResult->fetchAll(PDO::FETCH_ASSOC);
+            return $dataListUnvalWalk;
         }
     }
     //COUNT ID VALIDATE WALK ON DATABASE
@@ -353,7 +353,7 @@ class Lpv_category extends Lpv_database
 
         $countWalkValResult = $this->db->prepare($countWalkValQuery);
         if ($countWalkValResult->execute()) {
-            $dataCountValWalk = $countWalkValResult->fetchAll();
+            $dataCountValWalk = $countWalkValResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataCountValWalk;
         }
     }
@@ -366,7 +366,7 @@ class Lpv_category extends Lpv_database
 
         $countWalkUnvalResult = $this->db->prepare($countWalkUnvalQuery);
         if ($countWalkUnvalResult->execute()) {
-            $dataCountUnvalWalk = $countWalkUnvalResult->fetchAll();
+            $dataCountUnvalWalk = $countWalkUnvalResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataCountUnvalWalk;
         }
     }
@@ -445,7 +445,7 @@ class Lpv_category extends Lpv_database
         $countSearchWalkResult = $this->db->prepare($countSearchWalkQuery);
         $countSearchWalkResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
         if ($countSearchWalkResult->execute()) {
-            $dataCountSearchWalk = $countSearchWalkResult->fetchAll();
+            $dataCountSearchWalk = $countSearchWalkResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataCountSearchWalk;
         }
     }

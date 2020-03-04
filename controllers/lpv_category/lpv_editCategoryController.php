@@ -4,7 +4,8 @@ require_once('models/lpv_database.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
 $walkEdit = new Lpv_category();
-
+$target_dir_pics = 'assets/img_walk';
+$target_dir_map = 'assets/img_map';
 //DETAIL USER
 if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET['id'])) {
     $currentId = intval($_GET['id']);
@@ -14,7 +15,34 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET
     $detailPaymentWalk = $walkEdit->detailPaymentWalk();
     $arrayDateHour = explode('<br />', $detailWalk[0]['openedHours']);
 };
-
+// ERROR SIZE PICS
+if (isset($_FILES['fileUploadPics']['size']) && $_FILES['fileUploadPics']['name'] != '') {
+    $target_pics_extansion = strtolower(pathinfo($target_dir_pics . '/' . ($_FILES['fileUploadPics']['name']), PATHINFO_EXTENSION));
+    $checkPics = explode('/', $_FILES['fileUploadPics']['type']);
+    if ($checkPics[0] !== 'image') {
+        $arrayError['moveFilePics'] = 'Le fichier n\'est pas une image';
+    }
+    if ($_FILES['fileUploadPics']['size'] > 1000000 || $_FILES['fileUploadPics']['size'] == 0) {
+        $arrayError['moveFilePics'] = 'Fichier trop volumineux (Max 1Mo)';
+    }
+    if ($target_pics_extansion != 'jpg' && $target_pics_extansion != 'png' && $target_pics_extansion != 'jpeg') {
+        $arrayError['moveFilePics'] = 'Désolé, seule les extansions de types JPG, JPEG, PNG sont acceptées.';
+    }
+}
+// ERROR SIZE MAP
+if (isset($_FILES['fileUploadMap']['size']) && $_FILES['fileUploadMap']['name'] != '') {
+    $target_map_extansion = strtolower(pathinfo($target_dir_map . '/' . ($_FILES['fileUploadMap']['name']), PATHINFO_EXTENSION));
+    $checkMap = explode('/', $_FILES['fileUploadMap']['type']);
+    if ($checkMap[0] !== 'image') {
+        $arrayError['moveFileMap'] = 'Le fichier n\'est pas une image';
+    }
+    if ($_FILES['fileUploadMap']['size'] > 1000000 || $_FILES['fileUploadMap']['size'] == 0) {
+        $arrayError['moveFileMap'] = 'Fichier trop volumineux (Max 1Mo)';
+    }
+    if ($target_map_extansion != 'jpg' && $target_map_extansion != 'png' && $target_map_extansion != 'jpeg') {
+        $arrayError['moveFileMap'] = 'Désolé, seule les extansions de types JPG, JPEG, PNG sont acceptées.';
+    }
+}
 // ERROR GOOGLE MAP ADDRESS
 $regexGoogleMapOfWalk = '/^(https:\/\/www\.google\.com\/maps\/place\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%]{1,}+$/';
 
@@ -138,8 +166,6 @@ if (isset($_POST['officialSiteOfWalk'])) {
         $arrayError['officialSiteOfWalk'] = 'Veuillez remplir le champ';
     };
 };
-$target_dir_pics = 'assets/img_walk';
-$target_dir_map = 'assets/img_map';
 
 if (isset($_POST['editWalk']) && empty($arrayError)) {
 
@@ -151,7 +177,7 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     $walkRate_3_11OfWalk = htmlspecialchars($_POST['rate_3_11OfWalk']);
     $walkRate_12_plusOfWalk = htmlspecialchars($_POST['rate_12_plusOfWalk']);
     $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
-    $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']);
+    $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk5']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk6']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk7']);
     $walkFileUploadPicsOfWalk = htmlspecialchars($_FILES['fileUploadPics']['name']);
     $walkFileUploadMapOfWalk = htmlspecialchars($_FILES['fileUploadMap']['name']);
     $walkGoogleMapOfWalk = htmlspecialchars($_POST['googleMapOfWalk']);
@@ -161,7 +187,9 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     $walkOutputTypePictoOfWalk = htmlspecialchars(intval($_POST['outputTypePictoOfWalk']));
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
-    $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+    if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
+        $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+    };
     //Hydratation
     $walkEdit->setId($currentId);
     $walkEdit->setTitle($walkTitle);
@@ -172,11 +200,14 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     $walkEdit->setRate12Plus($walkRate_12_plusOfWalk);
     $walkEdit->setRateChildDisabled($walkRate_child_disabledOfWalk);
     $walkEdit->setOpenedHour($walkOpenedHoursOfWalk);
-    if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && $_FILES['fileUploadMap']['name'] != '') {
+    if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '') {
         $walkEdit->setPics($walkFileUploadPicsOfWalk);
-        $walkEdit->setMap($walkFileUploadMapOfWalk);
     } else {
         $walkEdit->setPics($detailWalk[0]['pics']);
+    };
+    if (isset($_FILES) &&$_FILES['fileUploadMap']['name'] != '') {
+        $walkEdit->setMap($walkFileUploadMapOfWalk);
+    } else {
         $walkEdit->setMap($detailWalk[0]['map']);
     };
     $walkEdit->setGoogleMapAddress($walkGoogleMapOfWalk);
@@ -186,7 +217,9 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
     $walkEdit->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
     $walkEdit->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
     $walkEdit->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
-    $walkEdit->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
+        $walkEdit->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    };
     $walkEdit->editWalk();
 
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
@@ -243,14 +276,20 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
         $paymentVacancyChecks->setIdWalk($currentId);
         $paymentVacancyChecks->addPayment();
     };
-    //MOVE MAP PICS ON SERVER FIELD
-    $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];
-    $nameMap = basename($_FILES["fileUploadMap"]["name"]);
-    move_uploaded_file($tmp_name_map, "$target_dir_map/$nameMap");
     //MOVE WALK PICS ON SERVER FIELD
-    $tmp_name_pics = $_FILES["fileUploadPics"]["tmp_name"];
-    $namePics = basename($_FILES["fileUploadPics"]["name"]);
+    if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
+        unlink($target_dir_pics . '/' . $detailWalk[0]['pics']);
+    };
+    $tmp_name_pics = $_FILES['fileUploadPics']['tmp_name'];
+    $namePics = basename($_FILES['fileUploadPics']['name']);
     move_uploaded_file($tmp_name_pics, "$target_dir_pics/$namePics");
+    //MOVE MAP MAP ON SERVER FIELD
+    if (isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
+        unlink($target_dir_map . '/' . $detailWalk[0]['map']);
+    };
+    $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];
+    $nameMap = basename($_FILES['fileUploadMap']['name']);
+    move_uploaded_file($tmp_name_map, "$target_dir_map/$nameMap");
 
-    header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
+    header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
 }

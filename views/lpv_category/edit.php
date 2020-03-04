@@ -11,12 +11,14 @@
             <label class="font-weight-bold text-dark" for="fileUploadPics">
                 CHOISIR PHOTO ILLUSTRATION</label>
             <input type="file" class="form-control-file btn buttonColor2 btn-sm mb-3" name="fileUploadPics" id="fileUploadPics" title="choisissez une photo d'illustration" />
+            <p class="error"><?= isset($arrayError['moveFilePics']) ? $arrayError['moveFilePics'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <img src="assets/<?= isset($detailWalk[0]['map']) && $detailWalk[0]['map'] != '' && $detailWalk[0]['map'] != 'null'  ? 'img_map/' . $detailWalk[0]['map'] : 'img/emptyMapWalkLogo.png' ?>" class="img-fluid previewAvatar my-3 mx-5" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" alt="<?= isset($detailWalk[0]['map']) ? 'Image ' . strtolower($detailWalk[0]['title']) : 'Image par défaut' ?>" />
             <label class="font-weight-bold text-dark" for="fileUploadMap">
                 CHOISIR IMAGE GOOGLE MAP</label>
             <input type="file" class="form-control-file btn buttonColor2 btn-sm mb-3" name="fileUploadMap" id="fileUploadMap" title="choisissez une image Google Map" />
+            <p class="error"><?= isset($arrayError['moveFileMap']) ? $arrayError['moveFileMap'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
@@ -97,6 +99,15 @@
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
 
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk4'] : $arrayDateHour[3] ?>" />
+            <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
+
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk5" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk5'] : $arrayDateHour[4] ?>" />
+            <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
+
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk6" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk6'] : $arrayDateHour[5] ?>" />
+            <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
+
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk7" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk7'] : $arrayDateHour[6] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
     </div>

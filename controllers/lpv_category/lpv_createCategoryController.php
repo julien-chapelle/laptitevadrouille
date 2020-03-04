@@ -126,7 +126,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkRate_3_11OfWalk = htmlspecialchars($_POST['rate_3_11OfWalk']);
     $walkRate_12_plusOfWalk = htmlspecialchars($_POST['rate_12_plusOfWalk']);
     $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
-    $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']);
+    $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk5']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk6']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk7']);
     $walkPublicationDate = htmlspecialchars(strftime("%d-%m-%Y"));
     $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
     $walkLocationPictoOfWalk = htmlspecialchars(intval($_POST['locationPictoOfWalk']));
@@ -135,7 +135,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
 
     if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
-    $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
+        $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
     };
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
         $walkFreePictoOfWalk = htmlspecialchars(intval($_POST['freePictoOfWalk']));
@@ -167,7 +167,9 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkCreate->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
     $walkCreate->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
     $walkCreate->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
-    $walkCreate->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
+        $walkCreate->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
+    };
     $lastWalkId = $walkCreate->addWalk();
 
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
@@ -204,5 +206,5 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
         $paymentVacancyChecks->setIdWalk($lastWalkId);
         $paymentVacancyChecks->addPayment();
     };
-    header('refresh:3;url=http://laptitevadrouille/index.php?user=detail');
+    header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
 }

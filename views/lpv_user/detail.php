@@ -125,21 +125,21 @@
                 </div>
             </div>
             <div class="row text-center justify-content-center m-0">
-                <div class="col-5 text-right">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-right px-0">
                     <?php if ($pageUnval > 1) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval - 1 ?>"><i class="fas fa-angle-left"></i></a>
                     <?php } else {
                         '';
                     } ?>
                 </div>
-                <div class="col-2">
-                    <p class="textColor1 mx-2 h5 mt-2"><?= $pageUnval . '/' . $pageCountUnval ?></p>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
+                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageUnval . '/' . $pageCountUnval ?></p>
                 </div>
-                <div class="col-5 text-left">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageUnval < $pageCountUnval) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval + 1 ?>"><i class="fas fa-angle-right"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageCountUnval ?>"><i class="fas fa-angle-double-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageUnval + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkUnvalidatePage=<?= $pageCountUnval ?>"><i class="fas fa-angle-double-right"></i></a>
                     <?php } else {
                         '';
                     } ?>
@@ -194,21 +194,21 @@
                 </div>
             </div>
             <div class="row text-center justify-content-center m-0">
-                <div class="col-5 text-right">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-right px-0">
                     <?php if ($pageVal > 1) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal - 1 ?>"><i class="fas fa-angle-left"></i></a>
                     <?php } else {
                         '';
                     } ?>
                 </div>
-                <div class="col-2">
-                    <p class="textColor1 mx-2 h5 mt-2"><?= $pageVal . '/' . $pageCountVal ?></p>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
+                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageVal . '/' . $pageCountVal ?></p>
                 </div>
-                <div class="col-5 text-left">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageVal < $pageCountVal) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal + 1 ?>"><i class="fas fa-angle-right"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageCountVal ?>"><i class="fas fa-angle-double-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageVal + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&walkValidatePage=<?= $pageCountVal ?>"><i class="fas fa-angle-double-right"></i></a>
                     <?php } else {
                         '';
                     } ?>
@@ -255,21 +255,21 @@
                 </div>
             </div>
             <div class="row text-center justify-content-center m-0">
-                <div class="col-5 text-right">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-right px-0">
                     <?php if ($pageListUser > 1) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPagePage=<?= $pageListUser - 1 ?>"><i class="fas fa-angle-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&listUserPagePage=<?= $pageListUser - 1 ?>"><i class="fas fa-angle-left"></i></a>
                     <?php } else {
                         '';
                     } ?>
                 </div>
-                <div class="col-2">
-                    <p class="textColor1 mx-2 h5 mt-2"><?= $pageListUser . '/' . $pageCountListUser ?></p>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
+                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageListUser . '/' . $pageCountListUser ?></p>
                 </div>
-                <div class="col-5 text-left">
+                <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageListUser < $pageCountListUser) { ?>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageListUser + 1 ?>"><i class="fas fa-angle-right"></i></a>
-                        <a class="btn buttonColor2 btn-sm mx-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageCountListUser ?>"><i class="fas fa-angle-double-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageListUser + 1 ?>"><i class="fas fa-angle-right"></i></a>
+                        <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?user=detail&listUserPage=<?= $pageCountListUser ?>"><i class="fas fa-angle-double-right"></i></a>
                     <?php } else {
                         '';
                     } ?>
@@ -285,6 +285,7 @@
                             <div class="form-group">
                                 <input type="file" class="form-control-file btn buttonColor2 btn-sm" name="fileUpload" id="fileUpload" title="choisissez une image" />
                                 <button type="submit" class="btn buttonColor2 btn-sm btn-block" name="addAvatarBdd"><i class="fas fa-cloud-upload-alt"></i> AJOUTER</button>
+                                <p class="error"><?= isset($arrayError['moveFileAvatar']) ? $arrayError['moveFileAvatar'] : '' ?></p>
                             </div>
                         </form>
                     </div>
