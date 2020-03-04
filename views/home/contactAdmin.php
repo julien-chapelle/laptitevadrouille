@@ -8,7 +8,7 @@
     <!-- Map fin-->
     <!-- formulaire début-->
     <div class="col text-center">
-        <form class="p-4 border borderRadius shadow m-3" method="POST" action="contactAdmin.php">
+        <form class="p-4 border borderRadius shadow m-3" method="POST" action="">
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col">
                     <p class="font-weight-bold text-dark h5 my-4">Pour nous contacter, veuillez remplir ce formulaire :</p>
@@ -40,7 +40,7 @@
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col">
                     <button class="btn buttonColor2 py-2" role="button" type="submit" name="send">ENVOYER</button>
-                    <p class="mailOk font-weight_bold"><?= count($arrayError) == 0 && isset($_POST['send']) ? $mailSendMessaheOk : '' ?></p>
+                    <p class="valid h5"><?= count($arrayError) == 0 && isset($_POST['send']) ? '<i class="fas fa-check"></i> Votre message a bien été envoyé.' : '' ?></p>
                 </div>
             </div>
         </form>
