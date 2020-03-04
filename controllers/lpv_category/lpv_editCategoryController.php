@@ -44,7 +44,7 @@ if (isset($_FILES['fileUploadMap']['size']) && $_FILES['fileUploadMap']['name'] 
     }
 }
 // ERROR GOOGLE MAP ADDRESS
-$regexGoogleMapOfWalk = '/^(https:\/\/www\.google\.com\/maps\/place\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%]{1,}+$/';
+$regexGoogleMapOfWalk = '/^(https:\/\/www\.google\.com\/maps\/place\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%\'\(\)]{1,}+$/';
 
 if (isset($_POST['googleMapOfWalk'])) {
     if (preg_match($regexGoogleMapOfWalk, $_POST['googleMapOfWalk']) == 0) {
@@ -55,7 +55,7 @@ if (isset($_POST['googleMapOfWalk'])) {
     };
 };
 // ERROR TITRE
-$regexTitleOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,}+$/';
+$regexTitleOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\'\œ\’\‘]{1,}+$/';
 
 if (isset($_POST['titleOfWalk'])) {
     if (preg_match($regexTitleOfWalk, $_POST['titleOfWalk']) == 0) {
@@ -66,7 +66,7 @@ if (isset($_POST['titleOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COURTE
-$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ]{1,}+$/';
+$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
 
 if (isset($_POST['shortDescriptionOfWalk'])) {
     if (preg_match($regexShortDescriptionOfWalk, $_POST['shortDescriptionOfWalk']) == 0) {
@@ -77,7 +77,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COMPLETE
-$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ]{1,}+$/';
+$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
 
 if (isset($_POST['completeDescriptionOfWalk'])) {
     if (preg_match($regexCompleteDescriptionOfWalk, $_POST['completeDescriptionOfWalk']) == 0) {
@@ -132,7 +132,7 @@ if (isset($_POST['rate_child_disabledOfWalk'])) {
     };
 };
 // ERROR HEURES & PERIODES D'OUVERTURES
-$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:]+$/';
+$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:\,\(\)\'\/\.\&\œ]+$/';
 
 if (isset($_POST['openedHoursOfWalk1'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk1']) == 0) {
@@ -142,18 +142,33 @@ if (isset($_POST['openedHoursOfWalk1'])) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez remplir le champ';
     };
 };
-if (isset($_POST['openedHoursOfWalk2']) && !empty($_POST['openedHoursOfWalk2'])) {
+if (isset($_POST['openedHoursOfWalk2']) && !empty($_POST['openedHoursOfWalk2']) && $_POST['openedHoursOfWalk2'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk2']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
 };
-if (isset($_POST['openedHoursOfWalk3']) && !empty($_POST['openedHoursOfWalk3'])) {
+if (isset($_POST['openedHoursOfWalk3']) && !empty($_POST['openedHoursOfWalk3']) && $_POST['openedHoursOfWalk3'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk3']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
 };
-if (isset($_POST['openedHoursOfWalk4']) && !empty($_POST['openedHoursOfWalk4'])) {
+if (isset($_POST['openedHoursOfWalk4']) && !empty($_POST['openedHoursOfWalk4']) && $_POST['openedHoursOfWalk4'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk4']) == 0) {
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+    };
+};
+if (isset($_POST['openedHoursOfWalk5']) && !empty($_POST['openedHoursOfWalk5']) && $_POST['openedHoursOfWalk5'] !== '') {
+    if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk5']) == 0) {
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+    };
+};
+if (isset($_POST['openedHoursOfWalk6']) && !empty($_POST['openedHoursOfWalk6']) && $_POST['openedHoursOfWalk6'] !== '') {
+    if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk6']) == 0) {
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+    };
+};
+if (isset($_POST['openedHoursOfWalk7']) && !empty($_POST['openedHoursOfWalk7']) && $_POST['openedHoursOfWalk7'] !== '') {
+    if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk7']) == 0) {
         $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
     };
 };
@@ -277,14 +292,14 @@ if (isset($_POST['editWalk']) && empty($arrayError)) {
         $paymentVacancyChecks->addPayment();
     };
     //MOVE WALK PICS ON SERVER FIELD
-    if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
+    if ($detailWalk[0]['pics'] != '' && isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
         unlink($target_dir_pics . '/' . $detailWalk[0]['pics']);
     };
     $tmp_name_pics = $_FILES['fileUploadPics']['tmp_name'];
     $namePics = basename($_FILES['fileUploadPics']['name']);
     move_uploaded_file($tmp_name_pics, "$target_dir_pics/$namePics");
     //MOVE MAP MAP ON SERVER FIELD
-    if (isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
+    if ($detailWalk[0]['map'] != '' && isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
         unlink($target_dir_map . '/' . $detailWalk[0]['map']);
     };
     $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];

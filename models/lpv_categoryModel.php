@@ -362,7 +362,8 @@ class Lpv_category extends Lpv_database
     {
         $countWalkUnvalQuery = "SELECT count(`id`) AS `countId` 
         FROM `lpv_category` 
-        WHERE `walkValidate` IS NULL";
+        WHERE `walkValidate` IS NULL
+        OR `walkValidate` = ''";
 
         $countWalkUnvalResult = $this->db->prepare($countWalkUnvalQuery);
         if ($countWalkUnvalResult->execute()) {

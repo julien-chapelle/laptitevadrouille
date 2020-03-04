@@ -1,7 +1,7 @@
 <?php foreach ($detailEditUser as $row) { ?>
     <form class="p-4" method="POST" action="">
         <div class="row text-center m-0 mt-1 justify-content-center">
-            <div class="col-12">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                 <label class="font-weight-bold text-dark" for="pseudo"><i class="fas fa-user"></i>
                     NOUVEAU PRENOM OU PSEUDO</label>
                 <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput" name="pseudo" id="pseudo" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['pseudo'] : $row['pseudo'] ?>" />
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row text-center m-0 mt-1 justify-content-center">
-            <div class="col-12">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                 <label class="font-weight-bold text-dark" for="email"><i class="fas fa-at"></i>
                     NOUVEL EMAIL</label>
                 <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center borderInput" name="mail" id="email" value="<?= !empty($arrayError) && isset($_POST['editUserInfo']) ? $_POST['mail'] : $row['mail'] ?>" />
@@ -18,7 +18,7 @@
         </div>
         <?php if ($_SESSION['id'] == $row['id']) { ?>
             <div class="row text-center m-0 mt-1 justify-content-center">
-                <div class="col-12">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <label class="font-weight-bold text-dark" for="password"><i class="fas fa-unlock-alt"></i> MOT
                         DE PASSE</label>
                     <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput" name="password" id="password" />
@@ -27,7 +27,7 @@
             </div>
         <?php } else { ?>
             <div class="row text-center m-0 mt-1 justify-content-center">
-                <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label class="font-weight-bold text-dark" for="changeStatusSelect"><i class="fas fa-crown"></i> CHANGEMENT DE STATUS</label>
                         <select class="form-control text-center borderInput" id="changeStatusSelect" name="status">

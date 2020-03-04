@@ -11,7 +11,7 @@
                 <form method="POST" action="">
                     <div class="modal-body mx-3">
                         <div class="mb-5 text-center">
-                            <p class="font-weight-bold text-center"><?= 'Bonjour ' . $_SESSION['pseudo'] . ' !' ?></p>
+                            <p class="font-weight-bold text-center"><?= 'Bonjour ' . $detailUser[0]['pseudo'] . ' !' ?></p>
                             <img src="assets/<?= $AvatarUser[0]['avatarName'] != null ? 'img_avatar_choice/' . $AvatarUser[0]['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
                         <div class="col-12 text-center p-0">

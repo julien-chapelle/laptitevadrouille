@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="googleMapOfWalk">
                 ADRESSE GOOGLE MAP</label>
             <textarea title="Renseignez l'adresse Google Map'" placeholder="ex: https://www.google.com/maps/place/zoo..." type="text" class="form-control text-center borderInput" name="googleMapOfWalk" id="googleMapOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['googleMapOfWalk'] : $detailWalk[0]['googleMapAddress'] ?></textarea>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="titleOfWalk">
                 TITRE</label>
             <input title="Renseignez le nom du lieu de sortie" placeholder="ex: Zoo des animaux" type="text" class="form-control text-center borderInput" name="titleOfWalk" id="titleOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['titleOfWalk'] : $detailWalk[0]['title'] ?>" />
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="shortDescriptionOfWalk">
                 DESCRIPTION COURTE</label>
             <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['shortDescriptionOfWalk'] : $detailWalk[0]['description'] ?></textarea>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="completeDescriptionOfWalk">
                 DESCRIPTION COMPLETE</label>
             <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['completeDescriptionOfWalk'] : $detailWalk[0]['moreInfoDescription'] ?></textarea>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="rate_0_3OfWalk">
                 PRIX AGE 0-3 ANS</label>
             <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_0_3OfWalk'] : $detailWalk[0]['rate_0_3'] ?>" />
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="rate_3_11OfWalk">
                 PRIX AGE 3-11 ANS</label>
             <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_3_11OfWalk'] : $detailWalk[0]['rate_3_11'] ?>" />
@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="rate_12_plusOfWalk">
                 PRIX AGE 12 ANS ET PLUS</label>
             <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_12_plusOfWalk'] : $detailWalk[0]['rate_12_plus'] ?>" />
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="rate_child_disabledOfWalk">
                 PRIX ENFANT EN SITUATION DE HANDICAPE</label>
             <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_child_disabledOfWalk'] : $detailWalk[0]['rate_child_disabled'] ?>" />
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="openedHoursOfWalk">
                 HEURES & PERIODES D'OUVERTURES</label>
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk1'] : $arrayDateHour[0] ?>" />
@@ -112,7 +112,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-12">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold text-dark" for="officialSiteOfWalk">
                 SITE OFFICIEL</label>
             <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['officialSiteOfWalk'] : $detailWalk[0]['officialSite'] ?>" />
@@ -242,7 +242,7 @@
             </div>
         </div>
         <div class="col-4">
-            <img src="assets/img_picto/threePicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory mr-3" />
+            <img src="assets/img_picto/threePicto.png" title="Sortie conseillée dès 3ans" alt="Pictograme dès 3ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="threePictoOfWalk" value="2" <?= isset($detailWalk[0]['ageAdvisePicto']) && $detailWalk[0]['ageAdvisePicto'] == 'threePicto.png' ? 'checked' : '' ?> />
                 <label class="form-check-label" for="threePictoOfWalk">
@@ -251,7 +251,7 @@
             </div>
         </div>
         <div class="col-4">
-            <img src="assets/img_picto/fivePicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory mr-3" />
+            <img src="assets/img_picto/fivePicto.png" title="Sortie conseillée dès 5ans" alt="Pictograme sortie dès 5ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="fivePictoOfWalk" value="3" <?= isset($detailWalk[0]['ageAdvisePicto']) && $detailWalk[0]['ageAdvisePicto'] == 'fivePicto.png' ? 'checked' : '' ?> />
                 <label class="form-check-label" for="fivePictoOfWalk">
@@ -339,7 +339,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-3 col-md-3 col-sm-12 my-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 my-4">
             <label for="validateStatusChoice" class="font-weight-bold text-dark">CHOIX DE LA VISIBILITE</label>
             <select class="form-control text-center borderInput" id="validateStatusChoice" name="validateStatusChoice">
                 <option value="Validate" <?= $detailWalk[0]['walkValidate'] == 'Validate' ? 'selected' : '' ?>>Status validé (Sortie visible sur le site)</option>
