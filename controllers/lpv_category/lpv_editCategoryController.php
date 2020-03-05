@@ -183,7 +183,6 @@ if (isset($_POST['officialSiteOfWalk'])) {
 };
 
 if (isset($_POST['editWalk']) && empty($arrayError)) {
-
     $currentId = htmlspecialchars(intval($_GET['id']));
     $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
     $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);

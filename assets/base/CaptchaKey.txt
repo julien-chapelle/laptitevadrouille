@@ -1,10 +1,10 @@
 Clés ReCaptcha Google
 
 Clé du site :
-6Lel5d4UAAAAABPLDDUn5xgfmbgs0lTEqbBKQTgD
+6LcJ9t4UAAAAAMDb7U3SsZ5-zT4BASoX1jOwZiPo
 
 Clé secrète :
-6Lel5d4UAAAAAIhk0ctvApwH9xdM8tf4jyW3KJdw
+6LcJ9t4UAAAAANtPuz8Ar41nbB8RXsvoAekyAJAV
 
 API Request
 

@@ -58,15 +58,14 @@ if (isset($_POST['passwordConfirm'])) {
     };
 };
 // ERROR EMPTY CLIENT APPROUVE
-if (isset($_POST['addUser']) && !isset($_POST['clientApprouve'])) {
+if (isset($_POST["g-recaptcha-response"]) && !isset($_POST['clientApprouve'])) {
     $arrayError['clientApprouve'] = 'Veuillez approuver pour continuer';
 }
-
 //RECAPTCHA
-if (isset($_POST["g-recaptcha-response"])) {
+if (isset($_POST["g-recaptcha-response"]) && empty($arrayError)) {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array(
-        'secret' => '6Lel5d4UAAAAAIhk0ctvApwH9xdM8tf4jyW3KJdw',
+        'secret' => '6LcJ9t4UAAAAANtPuz8Ar41nbB8RXsvoAekyAJAV',
         'response' => $_POST["g-recaptcha-response"]
     );
     $options = array(
@@ -86,20 +85,17 @@ if (isset($_POST["g-recaptcha-response"])) {
         $arrayValid['reCaptcha'] = 'Vous n\'êtes pas un robot !';
     }
 }
-// IF ALL OK AFTER SUBMI
-if (isset($_POST['addUser']) && empty($arrayError) && isset($POST['clientApprouve']) && $POST['clientApprouve'] == 'clientApprouve' && $captcha_success->success == true) {
-
+// IF ALL OK AFTER SUBMIT
+if (isset($_POST["g-recaptcha-response"]) && empty($arrayError) && isset($_POST['clientApprouve']) && $_POST['clientApprouve'] == 'clientApprouve' && $captcha_success->success) {
     $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
     $mail = htmlspecialchars($_POST['mail']);
     $password = htmlspecialchars(password_hash($_POST['password'], PASSWORD_DEFAULT));
-
     //Hydratation
     $user->setPseudo($pseudo);
     $user->setMail($mail);
     $user->setPassword($password);
     $lastId = $user->addUser();
     $userList = $user->listUser();
-    var_dump($test);
     //AUTO CONNECT AFTER CREATE SUCCESS
     foreach ($userList as $row) {
         $_SESSION['pseudo'] = $row['pseudo'];
