@@ -5,17 +5,3 @@ Clé du site :
 
 Clé secrète :
 6LcJ9t4UAAAAANtPuz8Ar41nbB8RXsvoAekyAJAV
-
-API Request
-
-URL: https://www.google.com/recaptcha/api/siteverify METHOD: POST
-
-    <!-- <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <div class="captcha_wrapper">
-                <div class="g-recaptcha" data-sitekey="6Lel5d4UAAAAABPLDDUn5xgfmbgs0lTEqbBKQTgD"></div>
-                <p class="error"><?= isset($arrayError['reCaptcha']) ? $arrayError['reCaptcha'] : '' ?></p>
-                <p class="valid"><?= isset($arrayValid['reCaptcha']) ? $arrayValid['reCaptcha'] : '' ?></p>
-            </div>
-        </div>
-    </div> -->

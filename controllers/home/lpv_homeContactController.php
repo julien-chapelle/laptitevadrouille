@@ -42,6 +42,7 @@ if (count($arrayError) == 0 && isset($_POST['send'])) {
     $message = $_POST['userMessage'];
     $headers = 'From:' . $from;
     mail($to, utf8_decode($subject), $message, $headers);
+    header('refresh:2;url=http://laptitevadrouille/');
 };
 ?>
 

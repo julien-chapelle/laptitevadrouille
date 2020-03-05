@@ -1,4 +1,4 @@
-<div class="row justify-content-around">
+<div class="row justify-content-around m-0">
     <div class="col text-center pt-4 border borderRadius shadow m-3">
         <a href="https://www.google.com/maps/place/40+Rue+Eug%C3%A8ne+Boudin,+76290+Montivilliers/@49.5463243,0.1694886,17z/data=!3m1!4b1!4m5!3m4!1s0x47e0254a4f77ad85:0x12614fe99629a794!8m2!3d49.5463243!4d0.1716773"><img src="assets/img_map/contactMap.png" class="img-fluid" /></a>
         <p class="font-weight-bold text-dark my-2">Adresse : </p>
