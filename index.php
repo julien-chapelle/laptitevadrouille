@@ -1,4 +1,4 @@
-<?php require_once('controllers/home/lpv_homeController.php'); ?>
+<?php require_once('controllers/home/lpv_homeController.php'); var_dump($_POST); var_dump($captcha_success->success)?>
 
 <head>
     <meta charset="UTF-8" />
@@ -10,6 +10,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="content/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("createUserForm").submit();
+       }
+     </script>
 </head>
 
 <body>

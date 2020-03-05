@@ -2,9 +2,12 @@
 
 require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
-if(isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
+$arrayValid = [];
+//LOCATION IF ISSET SESSION
+if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {
     header('Location:http://laptitevadrouille/index.php?user=detail');
 };
+//OBJECT INITIALIZATION
 $user = new Lpv_user();
 
 // ERROR PSEUDO
@@ -54,8 +57,38 @@ if (isset($_POST['passwordConfirm'])) {
         $arrayError['passwordConfirm'] = 'Les mots de passes ne sont pas identiques !';
     };
 };
+// ERROR EMPTY CLIENT APPROUVE
+if (isset($_POST['addUser']) && !isset($_POST['clientApprouve'])) {
+    $arrayError['clientApprouve'] = 'Veuillez approuver pour continuer';
+}
 
-if (isset($_POST['addUser']) && empty($arrayError)) {
+//RECAPTCHA
+if (isset($_POST["g-recaptcha-response"])) {
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+        'secret' => '6Lel5d4UAAAAAIhk0ctvApwH9xdM8tf4jyW3KJdw',
+        'response' => $_POST["g-recaptcha-response"]
+    );
+    $options = array(
+        'http' => array(
+            'header' => 'Content-Type: application/x-www-form-urlencoded\r\n',
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $verify = file_get_contents($url, false, $context);
+    $captcha_success = json_decode($verify);
+
+    if ($captcha_success->success == false) {
+        $arrayError['reCaptcha'] = 'Vous êtes un robot ! Stop !';
+    } else if ($captcha_success->success == true) {
+        $arrayValid['reCaptcha'] = 'Vous n\'êtes pas un robot !';
+    }
+}
+// IF ALL OK AFTER SUBMI
+if (isset($_POST['addUser']) && empty($arrayError) && isset($POST['clientApprouve']) && $POST['clientApprouve'] == 'clientApprouve' && $captcha_success->success == true) {
+
     $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
     $mail = htmlspecialchars($_POST['mail']);
     $password = htmlspecialchars(password_hash($_POST['password'], PASSWORD_DEFAULT));
@@ -66,7 +99,8 @@ if (isset($_POST['addUser']) && empty($arrayError)) {
     $user->setPassword($password);
     $lastId = $user->addUser();
     $userList = $user->listUser();
-
+    var_dump($test);
+    //AUTO CONNECT AFTER CREATE SUCCESS
     foreach ($userList as $row) {
         $_SESSION['pseudo'] = $row['pseudo'];
         $_SESSION['mail'] = $row['mail'];
