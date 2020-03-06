@@ -9,7 +9,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="titleOfWalk">
                 TITRE</label>
-            <input title="Renseignez le nom du lieu de sortie" placeholder="ex: Zoo des animaux" type="text" class="form-control text-center borderInput" name="titleOfWalk" id="titleOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['titleOfWalk'] : '' ?>" />
+            <input title="Renseignez le nom du lieu de sortie" placeholder="ex: Zoo des animaux" type="text" class="form-control text-center borderInput textColor2" name="titleOfWalk" id="titleOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['titleOfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['titleOfWalk']) ? $arrayError['titleOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -17,37 +17,39 @@
         <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <label class="font-weight-bold textColor1" for="shortDescriptionOfWalk">
                 DESCRIPTION COURTE</label>
-            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['shortDescriptionOfWalk'] : '' ?></textarea>
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput textColor2" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['shortDescriptionOfWalk'] : '' ?></textarea>
             <p class="error"><?= isset($arrayError['shortDescriptionOfWalk']) ? $arrayError['shortDescriptionOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <label class="font-weight-bold textColor1" for="completeDescriptionOfWalk">
                 DESCRIPTION COMPLETE</label>
-            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['completeDescriptionOfWalk'] : '' ?></textarea>
+            <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput textColor2" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['completeDescriptionOfWalk'] : '' ?></textarea>
             <p class="error"><?= isset($arrayError['completeDescriptionOfWalk']) ? $arrayError['completeDescriptionOfWalk'] : '' ?></p>
         </div>
+    </div>
+    <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_0_3OfWalk">
                 PRIX AGE 0-3 ANS</label>
-            <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_0_3OfWalk'] : '' ?>" />
+            <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_0_3OfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['rate_0_3OfWalk']) ? $arrayError['rate_0_3OfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_3_11OfWalk">
                 PRIX AGE 3-11 ANS</label>
-            <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_3_11OfWalk'] : '' ?>" />
+            <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_3_11OfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['rate_3_11OfWalk']) ? $arrayError['rate_3_11OfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_12_plusOfWalk">
                 PRIX AGE 12 ANS ET PLUS</label>
-            <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_12_plusOfWalk'] : '' ?>" />
+            <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_12_plusOfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['rate_12_plusOfWalk']) ? $arrayError['rate_12_plusOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_child_disabledOfWalk">
                 PRIX ENFANT EN SITUATION DE HANDICAPE</label>
-            <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_child_disabledOfWalk'] : '' ?>" />
+            <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['rate_child_disabledOfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['rate_child_disabledOfWalk']) ? $arrayError['rate_child_disabledOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -59,31 +61,31 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk1'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk1'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk2" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk2'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk2" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk2'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk3" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk3'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk3" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk3'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk4'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk4'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk5" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk5'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk5" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk5'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk6" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk6'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk6" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk6'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput" name="openedHoursOfWalk7" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk7'] : '' ?>" />
+            <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk7" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['openedHoursOfWalk7'] : '' ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
     </div>
@@ -91,7 +93,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="officialSiteOfWalk">
                 SITE OFFICIEL</label>
-            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['officialSiteOfWalk'] : '' ?>" />
+            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput textColor2" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['officialSiteOfWalk'] : '' ?>" />
             <p class="error"><?= isset($arrayError['officialSiteOfWalk']) ? $arrayError['officialSiteOfWalk'] : '' ?></p>
         </div>
     </div>

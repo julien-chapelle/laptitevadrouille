@@ -38,15 +38,13 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <label class="font-weight-bold textColor1" for="shortDescriptionOfWalk">
                 DESCRIPTION COURTE</label>
             <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput textColor2" name="shortDescriptionOfWalk" id="shortDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['shortDescriptionOfWalk'] : $detailWalk[0]['description'] ?></textarea>
             <p class="error"><?= isset($arrayError['shortDescriptionOfWalk']) ? $arrayError['shortDescriptionOfWalk'] : '' ?></p>
         </div>
-    </div>
-    <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <label class="font-weight-bold textColor1" for="completeDescriptionOfWalk">
                 DESCRIPTION COMPLETE</label>
             <textarea title="Décrivez rapidement la sortie" placeholder="ex: Plus de 1500 animaux sauvages..." type="text" class="form-control text-center borderInput textColor2" name="completeDescriptionOfWalk" id="completeDescriptionOfWalk"><?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['completeDescriptionOfWalk'] : $detailWalk[0]['moreInfoDescription'] ?></textarea>
@@ -54,23 +52,19 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_0_3OfWalk">
                 PRIX AGE 0-3 ANS</label>
             <input title="Saisir le prix pour la tranche d'âge 0-3ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_0_3OfWalk" id="rate_0_3OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_0_3OfWalk'] : $detailWalk[0]['rate_0_3'] ?>" />
             <p class="error"><?= isset($arrayError['rate_0_3OfWalk']) ? $arrayError['rate_0_3OfWalk'] : '' ?></p>
         </div>
-    </div>
-    <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_3_11OfWalk">
                 PRIX AGE 3-11 ANS</label>
             <input title="Saisir le prix pour la tranche d'âge 3-11ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_3_11OfWalk" id="rate_3_11OfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_3_11OfWalk'] : $detailWalk[0]['rate_3_11'] ?>" />
             <p class="error"><?= isset($arrayError['rate_3_11OfWalk']) ? $arrayError['rate_3_11OfWalk'] : '' ?></p>
         </div>
-    </div>
-    <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_12_plusOfWalk">
                 PRIX AGE 12 ANS ET PLUS</label>
             <input title="Saisir le prix à partir de 12ans" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_12_plusOfWalk" id="rate_12_plusOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_12_plusOfWalk'] : $detailWalk[0]['rate_12_plus'] ?>" />
@@ -78,7 +72,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="rate_child_disabledOfWalk">
                 PRIX ENFANT EN SITUATION DE HANDICAPE</label>
             <input title="Saisir le prix pour les enfants en situation de handicape" placeholder="ex: 15 ou GRATUIT" type="text" class="form-control text-center borderInput textColor2" name="rate_child_disabledOfWalk" id="rate_child_disabledOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['rate_child_disabledOfWalk'] : $detailWalk[0]['rate_child_disabled'] ?>" />
@@ -86,27 +80,37 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="openedHoursOfWalk">
                 HEURES & PERIODES D'OUVERTURES</label>
+        </div>
+    </div>
+    <div class="row text-center m-0 mt-1 justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk1" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk1'] : $arrayDateHour[0] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk2" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk2'] : $arrayDateHour[1] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk3" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk3'] : $arrayDateHour[2] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk4" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk4'] : $arrayDateHour[3] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk5" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk5'] : $arrayDateHour[4] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk6" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk6'] : $arrayDateHour[5] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
-
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
             <input title="Saisir les périodes et horaires d'ouvertures" placeholder="ex: Février à Juin : de 10h00 à 17h00" type="text" class="form-control text-center borderInput textColor2" name="openedHoursOfWalk7" id="openedHoursOfWalk" value="<?= !empty($arrayError) && isset($_POST['editWalk']) ? $_POST['openedHoursOfWalk7'] : $arrayDateHour[6] ?>" />
             <p class="error"><?= isset($arrayError['openedHoursOfWalk']) ? $arrayError['openedHoursOfWalk'] : '' ?></p>
         </div>
@@ -120,7 +124,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-6">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/outdoorPicto.png" title="Sortie en extérieure" alt="Pictograme sortie extérieure" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="locationPictoOfWalk" id="outdoorPictoOfWalk" value="1" <?= isset($detailWalk[0]['locationPicto']) && $detailWalk[0]['locationPicto'] == 'outdoorPicto.png' ? 'checked' : '' ?> />
@@ -129,8 +133,8 @@
                 </label>
             </div>
         </div>
-        <div class="col-6">
-            <img src="assets/img_picto/indoorPicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory mr-3" />
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+            <img src="assets/img_picto/indoorPicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="locationPictoOfWalk" id="indoorPictoOfWalk" value="2" <?= isset($detailWalk[0]['locationPicto']) && $detailWalk[0]['locationPicto'] == 'indoorPicto.png' ? 'checked' : '' ?> />
                 <label class="form-check-label textColor2" for="indoorPictoOfWalk">
@@ -140,7 +144,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/zooPicto.png" title="Sortie type zoo" alt="Pictograme zoo" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="zooPictoOfWalk" value="1" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'zooPicto.png' ? 'checked' : '' ?> />
@@ -149,7 +153,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/wildlifePicto.png" title="Sortie type parc animalier" alt="Pictograme parc animalier" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="wildlifePictoOfWalk" value="2" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'wildlifePicto.png' ? 'checked' : '' ?> />
@@ -158,7 +162,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/farmPicto.png" title="Sortie type ferme" alt="Pictograme ferme" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="farmPictoOfWalk" value="3" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'farmPicto.png' ? 'checked' : '' ?> />
@@ -167,7 +171,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/amusementParkPicto.png" title="Sortie type parc d'attraction" alt="Pictograme parc d'attraction" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="amusementParkPictoOfWalk" value="4" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'amusementParkPicto.png' ? 'checked' : '' ?> />
@@ -176,7 +180,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/barCafePicto.png" title="Sortie type bar/Café" alt="Pictograme bar/Café" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="barCafePictoOfWalk" value="5" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'barCafePicto.png' ? 'checked' : '' ?> />
@@ -185,7 +189,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/forestPicto.png" title="Sortie type forêt" alt="Pictograme forêt" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="forestPictoOfWalk" value="6" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'forestPicto.png' ? 'checked' : '' ?> />
@@ -194,7 +198,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/museumPicto.png" title="Sortie type musée" alt="Pictograme musée" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="museumPictoOfWalk" value="7" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'museumPicto.png' ? 'checked' : '' ?> />
@@ -203,7 +207,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/playAreaPicto.png" title="Sortie type aire de jeux" alt="Pictograme aire de jeux" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="playAreaPictoOfWalk" value="8" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'playAreaPicto.png' ? 'checked' : '' ?> />
@@ -212,7 +216,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/restaurantPicto.png" title="Sortie type restaurant" alt="Pictograme restaurant" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="restaurantPictoOfWalk" value="9" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'restaurantPicto.png' ? 'checked' : '' ?> />
@@ -221,7 +225,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/libraryPicto.png" title="Sortie type bibliothèque" alt="Pictograme bibliothèque" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="libraryPictoOfWalk" value="10" <?= isset($detailWalk[0]['outputTypePicto']) && $detailWalk[0]['outputTypePicto'] == 'libraryPicto.png' ? 'checked' : '' ?> />
@@ -232,7 +236,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/birthPicto.png" title="Sortie possible dès la naissance" alt="Pictograme dès la naissance" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="birthPictoOfWalk" value="1" <?= isset($detailWalk[0]['ageAdvisePicto']) && $detailWalk[0]['ageAdvisePicto'] == 'birthPicto.png' ? 'checked' : '' ?> />
@@ -241,7 +245,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/threePicto.png" title="Sortie conseillée dès 3ans" alt="Pictograme dès 3ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="threePictoOfWalk" value="2" <?= isset($detailWalk[0]['ageAdvisePicto']) && $detailWalk[0]['ageAdvisePicto'] == 'threePicto.png' ? 'checked' : '' ?> />
@@ -250,7 +254,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/fivePicto.png" title="Sortie conseillée dès 5ans" alt="Pictograme sortie dès 5ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="fivePictoOfWalk" value="3" <?= isset($detailWalk[0]['ageAdvisePicto']) && $detailWalk[0]['ageAdvisePicto'] == 'fivePicto.png' ? 'checked' : '' ?> />
@@ -261,7 +265,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/babyStrollerPicto.png" title="Accessible en poussette" alt="Pictograme accessible en poussette" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="practicabilityPictoOfWalk" id="babyStrollerPictoOfWalk" value="1" <?= isset($detailWalk[0]['practicabilityPicto']) && $detailWalk[0]['practicabilityPicto'] == 'babyStrollerPicto.png' ? 'checked' : '' ?> />
@@ -270,7 +274,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/babyCarrierPicto.png" title="Porte bébé conseillé" alt="Pictograme porte bébé" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="practicabilityPictoOfWalk" id="babyCarrierPictoOfWalk" value="2" <?= isset($detailWalk[0]['practicabilityPicto']) && $detailWalk[0]['practicabilityPicto'] == 'babyCarrierPicto.png' ? 'checked' : '' ?> />
@@ -292,7 +296,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/freePicto.png" title="Gratuit" alt="Pictograme gratuit" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="5" id="freePictoOfWalk" name="freePictoOfWalk" <?= isset($detailPaymentWalk[0]['paymentPicto']) && $detailPaymentWalk[0]['paymentPicto'] == 'freePicto.png' ? 'checked' : '' ?> />
@@ -301,7 +305,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/cardPicto.png" title="Paiement par carte bleu accepté" alt="Pictograme carte bleu" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="1" id="cardPictoOfWalk" name="cardPictoOfWalk" <?= isset($detailPaymentWalk[0]['paymentPicto']) && $detailPaymentWalk[0]['paymentPicto'] == 'cardPicto.png' || isset($detailPaymentWalk[1]['paymentPicto']) && $detailPaymentWalk[1]['paymentPicto'] == 'cardPicto.png' || isset($detailPaymentWalk[2]['paymentPicto']) && $detailPaymentWalk[2]['paymentPicto'] == 'cardPicto.png' || isset($detailPaymentWalk[3]['paymentPicto']) && $detailPaymentWalk[3]['paymentPicto'] == 'cardPicto.png' || isset($detailPaymentWalk[4]['paymentPicto']) && $detailPaymentWalk[4]['paymentPicto'] == 'cardPicto.png' ? 'checked' : '' ?> />
@@ -310,7 +314,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/checkPicto.png" title="Paiement par chèque accepté" alt="Pictograme chèque" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="3" id="checkPictoOfWalk" name="checkPictoOfWalk" <?= isset($detailPaymentWalk[0]['paymentPicto']) && $detailPaymentWalk[0]['paymentPicto'] == 'checkPicto.png' || isset($detailPaymentWalk[1]['paymentPicto']) && $detailPaymentWalk[1]['paymentPicto'] == 'checkPicto.png' || isset($detailPaymentWalk[2]['paymentPicto']) && $detailPaymentWalk[2]['paymentPicto'] == 'checkPicto.png' || isset($detailPaymentWalk[3]['paymentPicto']) && $detailPaymentWalk[3]['paymentPicto'] == 'checkPicto.png' || isset($detailPaymentWalk[4]['paymentPicto']) && $detailPaymentWalk[4]['paymentPicto'] == 'checkPicto.png' ? 'checked' : '' ?> />
@@ -319,7 +323,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/cashPicto.png" title="Paiement en espèces accepté" alt="Pictograme espèces" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="2" id="cashPictoOfWalk" name="cashPictoOfWalk" <?= isset($detailPaymentWalk[0]['paymentPicto']) && $detailPaymentWalk[0]['paymentPicto'] == 'cashPicto.png' || isset($detailPaymentWalk[1]['paymentPicto']) && $detailPaymentWalk[1]['paymentPicto'] == 'cashPicto.png' || isset($detailPaymentWalk[2]['paymentPicto']) && $detailPaymentWalk[2]['paymentPicto'] == 'cashPicto.png' || isset($detailPaymentWalk[3]['paymentPicto']) && $detailPaymentWalk[3]['paymentPicto'] == 'cashPicto.png' || isset($detailPaymentWalk[4]['paymentPicto']) && $detailPaymentWalk[4]['paymentPicto'] == 'cashPicto.png' ? 'checked' : '' ?> />
@@ -328,7 +332,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/vacancyChecksPicto.png" title="Paiement par chèques vacances accepté" alt="Pictograme chèques vacances" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="vacancyChecksPictoOfWalk" name="vacancyChecksPictoOfWalk" <?= isset($detailPaymentWalk[0]['paymentPicto']) && $detailPaymentWalk[0]['paymentPicto'] == 'vacancyChecksPicto.png' || isset($detailPaymentWalk[1]['paymentPicto']) && $detailPaymentWalk[1]['paymentPicto'] == 'vacancyChecksPicto.png' || isset($detailPaymentWalk[2]['paymentPicto']) && $detailPaymentWalk[2]['paymentPicto'] == 'vacancyChecksPicto.png' || isset($detailPaymentWalk[3]['paymentPicto']) && $detailPaymentWalk[3]['paymentPicto'] == 'vacancyChecksPicto.png' || isset($detailPaymentWalk[4]['paymentPicto']) && $detailPaymentWalk[4]['paymentPicto'] == 'vacancyChecksPicto.png' ? 'checked' : '' ?> />

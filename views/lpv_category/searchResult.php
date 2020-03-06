@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <p class="card-title h5"><?= $row['title'] ?></p>
+                                    <p class="card-title h5 textColor1"><?= $row['title'] ?></p>
                                     <div class="row pb-3">
                                         <div class="col px-2">
                                             <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoCategory" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -30,14 +30,14 @@
                                             } ?>
                                         </div>
                                     </div>
-                                    <p class="card-text"><?= $row['description'] ?></p>
-                                    <p>Tarif moins de 3 ans : <?= $row['rate_0_3'] ?><?= $row['rate_0_3'] == 'GRATUIT' ? "" : "€" ?><br />
+                                    <p class="textColor2"><small><?= $row['description'] ?></small></p>
+                                    <p class="textColor2">Tarif moins de 3 ans : <?= $row['rate_0_3'] ?><?= $row['rate_0_3'] == 'GRATUIT' ? "" : "€" ?><br />
                                         Tarif de 3 à 11 ans : <?= $row['rate_3_11'] ?><?= $row['rate_3_11'] == 'GRATUIT' ? "" : "€" ?><br />
                                         Tarif à partir de 12 ans : <?= $row['rate_12_plus'] ?><?= $row['rate_12_plus'] == 'GRATUIT' ? "" : "€" ?><br />
                                         Enfant en situation de Handicap : <?= $row['rate_child_disabled'] ?><?= $row['rate_child_disabled'] == 'GRATUIT' ? "" : "€" ?>
                                     </p>
                                     <a class="btn buttonColor2 btn-sm" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>">+ d'info</a>
-                                    <p class="card-text"><small class="text-muted">Ajouté le <?= $row['publication_date'] ?></small></p>
+                                    <p class="card-text"><small class="textColor2">Ajouté le <?= $row['publication_date'] ?></small></p>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
         } else { ?>
             <div class="row text-center justify-content-around m-0">
                 <div class="col-md-12">
-                    <p class="card-text text-danger h5">Aucun résultat trouvé</p>
+                    <p class="card-text textColor1 h3">Aucun résultat trouvé</p>
                 </div>
             </div>
         <?php }; ?>
@@ -63,7 +63,7 @@
         } ?>
     </div>
     <div class="col-lg-1 col-md-2 col-sm-2 col-2 px-0">
-        <p class="textColor1 mx-2 h5 mt-2"><?= $page . '/' . $pageCount ?></p>
+        <p class="textColor2 mx-2 h5 mt-2"><?= $page . '/' . $pageCount ?></p>
     </div>
     <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
         <?php if ($page < $pageCount) { ?>
