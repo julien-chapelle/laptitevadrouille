@@ -17,44 +17,44 @@ a[type=button] {
 }
 
 .scrollUpColor {
-    color: rgb(255, 136, 0);
+    color: rgb(188, 226, 118);
     opacity: 0.7;
 }
 
 /* scrollUp button */
 .navBarColor {
-    background-color: rgba(255, 136, 0, 0.733);
+    background-color: rgba(188, 226, 118, 0.733);
 }
 .footerColor {
-    background-color: rgba(70, 59, 40);
+    background-color: rgb(63, 116, 42);
 }
 .butonEdit {
     cursor:pointer;
-    color:rgb(255, 136, 0);
+    color:rgb(188, 226, 118);
 }
 .buttonColor1 {
     background-color: transparent;
-    border: 2px solid rgb(70, 59, 40);
-    color: rgb(70, 59, 40);
+    border: 2px solid rgb(63, 116, 42);
+    color: rgb(63, 116, 42);
     font-size: 15px;
 }
 .buttonColor1:hover {
-    color: rgb(70, 59, 40);
+    color: rgb(63, 116, 42);
 }
 .buttonColor2 {
     background-color: transparent;
-    border: 2px solid rgb(255, 136, 0);
-    color: rgb(255, 136, 0);
+    border: 2px solid rgb(188, 226, 118);
+    color: rgb(188, 226, 118);
     font-size: 15px;
 }
 .buttonColor2:hover {
-    color: rgb(255, 136, 0);
+    color: rgb(188, 226, 118);
 }
 .textColor1 {
-    color: rgb(255, 136, 0);
+    color: rgb(188, 226, 118);
 }
 .textColor2 {
-    color: rgb(70, 59, 40);
+    color: rgb(63, 116, 42);
 }
 #facebookLogoSize {
     height: 35px;
@@ -66,8 +66,8 @@ a[type=button] {
 .borderInput {
     border-top: none;
     border-right: none;
-    border-left: 1px solid rgba(70, 59, 40, 0.466);
-    border-bottom: 1px solid rgb(70, 59, 40, 0.466);
+    border-left: 1px solid rgba(63, 116, 42, 0.466);
+    border-bottom: 1px solid rgb(63, 116, 42, 0.466);
     border-radius: 0;
 }
 .footerTextSize {
@@ -110,13 +110,13 @@ p {
 
 /* FONT COLOR DEBUT */
 .error {
-    color: red;
+    color: rgb(226, 58, 58);
 }
 .valid {
-    color: green;
+    color: rgb(188, 226, 118);
 }
 .mailOk {
-    color: rgb(58, 161, 27);
+    color: rgb(188, 226, 118);
 }
 
 /* FONT COLOR FIN */
@@ -177,3 +177,64 @@ cursor:pointer;
     width: 2.5rem;
 }
 /* SIZE PICTO PAIEMENT FIN */
+/* Z-INDEX MAP HOME PAGE DEBUT */
+.mapHomePageSeineMaritime{
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    left: 25rem;
+}
+.mapHomePageEure {
+    width: 19.1rem;
+    position: absolute;
+    top: 9.26rem;
+    left: 25.8rem;
+}
+.mapHomePageOrne {
+    width: 21.35rem;
+    position: absolute;
+    top: 18.6rem;
+    left: 13.71rem;
+}
+.mapHomePageCalvados {
+    width: 19.5rem;
+    position: absolute;
+    top: 11rem;
+    left: 10rem;
+}
+.mapHomePageManche {
+    width: 15.1rem;
+    position: absolute;
+    top: 5rem;
+    left: 2.1rem;
+}
+/* Z-INDEX MAP HOME PAGE FIN */
+/* MOVE EFFECT MAP DEBUT */
+.moveEffectMap {
+    -webkit-transition: all 0.5s ease;
+    /* Safari et Chrome */
+    -moz-transition: all 0.5s ease;
+    /* Firefox */
+    -ms-transition: all 0.5s ease;
+    /* Internet Explorer 9 */
+    -o-transition: all 0.5s ease;
+    /* Opera */
+    transition: all 0.5s ease;
+}
+
+.moveEffectMap:hover {
+    /* L'image est grossie de 25% */
+    -webkit-transform: scale(1.03);
+    /* Safari et Chrome */
+    -moz-transform: scale(1.03);
+    /* Firefox */
+    -ms-transform: scale(1.03);
+    /* Internet Explorer 9 */
+    -o-transform: scale(1.03);
+    /* Opera */
+    transform: scale(1.03);
+}
+/* MOVE EFFECT MAP FIN */
+/* body {
+    background: red;
+} */
