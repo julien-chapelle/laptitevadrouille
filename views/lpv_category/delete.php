@@ -1,8 +1,8 @@
-<form class="p-4" method="POST" action="">
+<form class="p-4 card mx-4 mt-5" method="POST" action="">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <p class="h5 text-center">Suppression de la sortie : <?= $deleteWalkDetail[0]['title'] ?></p>
-            <p class="h5 text-center">Status de visibilité : <?= ($deleteWalkDetail[0]['walkValidate']) == 'Validate' ? 'Validée' : 'Non validée' ?></p>
+            <p class="h3 text-center textColor1">Suppression de la sortie : <?= $deleteWalkDetail[0]['title'] ?></p>
+            <p class="h5 text-center textColor2">Status de visibilité : <?= ($deleteWalkDetail[0]['walkValidate']) == 'Validate' ? 'Validée' : 'Non validée' ?></p>
         </div>
     </div>
     <div class="row">
@@ -14,20 +14,20 @@
     </div>
     <div class="row d-flex justify-content-center mx-auto">
         <div class="col p-1 text-center">
-            <p class="h6 text-black text-center">Si vous souhaitez vraiment supprimer cette sortie il vous suffit de saisir votre mot de passe administrateur ci-dessous :</p>
+            <p class="h6 textColor2 text-center">Si vous souhaitez vraiment supprimer cette sortie il vous suffit de saisir votre mot de passe administrateur ci-dessous :</p>
             <!-- formulaire début-->
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-12">
-                    <p class="font-weight-bold text-dark"><i class="fas fa-user"></i>
+                    <p class="font-weight-bold textColor1"><i class="fas fa-user"></i>
                         PRENOM OU PSEUDO ADMINISTRATEUR</p>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4">
-                    <p class="border border-dark rounded"><?= $_SESSION['pseudo'] ?></p>
+                    <p class="border border-white rounded textColor2"><?= $_SESSION['pseudo'] ?></p>
                 </div>
             </div>
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <label class="font-weight-bold text-dark" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
+                    <label class="font-weight-bold textColor1" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
                         DE PASSE</label>
                     <input title="Saisissez votre mot de passe" type="password" class="form-control text-center borderInput" name="checkPassword" id="checkPassword" />
                     <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>

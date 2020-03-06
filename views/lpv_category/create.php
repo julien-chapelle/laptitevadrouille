@@ -96,7 +96,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-6">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/outdoorPicto.png" title="Sortie en extérieure" alt="Pictograme sortie extérieure" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="locationPictoOfWalk" id="outdoorPictoOfWalk" value="1" <?= !empty($arrayError) && isset($_POST['locationPictoOfWalk']) && $_POST['locationPictoOfWalk'] == '1' ? 'checked' : '' ?>>
@@ -105,8 +105,8 @@
                 </label>
             </div>
         </div>
-        <div class="col-6">
-            <img src="assets/img_picto/indoorPicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory mr-3" />
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+            <img src="assets/img_picto/indoorPicto.png" title="Sortie en intérieure" alt="Pictograme sortie intérieure" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="locationPictoOfWalk" id="indoorPictoOfWalk" value="2" <?= !empty($arrayError) && isset($_POST['locationPictoOfWalk']) && $_POST['locationPictoOfWalk'] == '2' ? 'checked' : '' ?>>
                 <label class="form-check-label textColor2" for="indoorPictoOfWalk">
@@ -116,7 +116,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/zooPicto.png" title="Sortie type zoo" alt="Pictograme zoo" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="zooPictoOfWalk" value="1" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '1' ? 'checked' : '' ?>>
@@ -125,7 +125,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/wildlifePicto.png" title="Sortie type parc animalier" alt="Pictograme parc animalier" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="wildlifePictoOfWalk" value="2" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '2' ? 'checked' : '' ?>>
@@ -134,7 +134,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/farmPicto.png" title="Sortie type ferme" alt="Pictograme ferme" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="farmPictoOfWalk" value="3" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '3' ? 'checked' : '' ?>>
@@ -143,7 +143,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/amusementParkPicto.png" title="Sortie type parc d'attraction" alt="Pictograme parc d'attraction" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="amusementParkPictoOfWalk" value="4" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '4' ? 'checked' : '' ?>>
@@ -152,7 +152,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/barCafePicto.png" title="Sortie type bar/Café" alt="Pictograme bar/Café" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="barCafePictoOfWalk" value="5" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '5' ? 'checked' : '' ?>>
@@ -161,7 +161,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/forestPicto.png" title="Sortie type forêt" alt="Pictograme forêt" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="forestPictoOfWalk" value="6" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '6' ? 'checked' : '' ?>>
@@ -170,7 +170,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/museumPicto.png" title="Sortie type musée" alt="Pictograme musée" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="museumPictoOfWalk" value="7" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '7' ? 'checked' : '' ?>>
@@ -179,7 +179,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/playAreaPicto.png" title="Sortie type aire de jeux" alt="Pictograme aire de jeux" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="playAreaPictoOfWalk" value="8" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '8' ? 'checked' : '' ?>>
@@ -188,7 +188,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/restaurantPicto.png" title="Sortie type restaurant" alt="Pictograme restaurant" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="restaurantPictoOfWalk" value="9" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '9' ? 'checked' : '' ?>>
@@ -197,7 +197,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/libraryPicto.png" title="Sortie type bibliothèque" alt="Pictograme bibliothèque" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="outputTypePictoOfWalk" id="libraryPictoOfWalk" value="10" <?= !empty($arrayError) && isset($_POST['outputTypePictoOfWalk']) && $_POST['outputTypePictoOfWalk'] == '10' ? 'checked' : '' ?>>
@@ -208,7 +208,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/birthPicto.png" title="Sortie possible dès la naissance" alt="Pictograme dès la naissance" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="birthPictoOfWalk" value="1" <?= !empty($arrayError) && isset($_POST['ageAdvisePictoOfWalk']) && $_POST['ageAdvisePictoOfWalk'] == '1' ? 'checked' : '' ?>>
@@ -217,7 +217,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/threePicto.png" title="Sortie conseillée dès 3ans" alt="Pictograme dès 3ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="threePictoOfWalk" value="2" <?= !empty($arrayError) && isset($_POST['ageAdvisePictoOfWalk']) && $_POST['ageAdvisePictoOfWalk'] == '2' ? 'checked' : '' ?>>
@@ -226,7 +226,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/fivePicto.png" title="Sortie conseillée dès 5ans" alt="Pictograme dès 5ans" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="ageAdvisePictoOfWalk" id="fivePictoOfWalk" value="3" <?= !empty($arrayError) && isset($_POST['ageAdvisePictoOfWalk']) && $_POST['ageAdvisePictoOfWalk'] == '3' ? 'checked' : '' ?>>
@@ -237,7 +237,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/babyStrollerPicto.png" title="Accessible en poussette" alt="Pictograme accessible en poussette" class="sizePictoCategory" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="practicabilityPictoOfWalk" id="babyStrollerPictoOfWalk" value="1" <?= !empty($arrayError) && isset($_POST['practicabilityPictoOfWalk']) && $_POST['practicabilityPictoOfWalk'] == '1' ? 'checked' : '' ?>>
@@ -246,7 +246,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/babyCarrierPicto.png" title="Porte bébé conseillé" alt="Pictograme porte bébé" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="practicabilityPictoOfWalk" id="babyCarrierPictoOfWalk" value="2" <?= !empty($arrayError) && isset($_POST['practicabilityPictoOfWalk']) && $_POST['practicabilityPictoOfWalk'] == '2' ? 'checked' : '' ?>>
@@ -268,7 +268,7 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/freePicto.png" title="Gratuit" alt="Pictograme gratuit" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="5" id="freePictoOfWalk" name="freePictoOfWalk" <?= !empty($arrayError) && isset($_POST['freePictoOfWalk']) && $_POST['freePictoOfWalk'] == '5' ? 'checked' : '' ?>>
@@ -277,7 +277,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/cardPicto.png" title="Paiement par carte bleu accepté" alt="Pictograme carte bleu" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="1" id="cardPictoOfWalk" name="cardPictoOfWalk" <?= !empty($arrayError) && isset($_POST['cardPictoOfWalk']) && $_POST['cardPictoOfWalk'] == '1' ? 'checked' : '' ?>>
@@ -286,7 +286,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/checkPicto.png" title="Paiement par chèque accepté" alt="Pictograme chèque" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="3" id="checkPictoOfWalk" name="checkPictoOfWalk" <?= !empty($arrayError) && isset($_POST['checkPictoOfWalk']) && $_POST['checkPictoOfWalk'] == '3' ? 'checked' : '' ?>>
@@ -295,7 +295,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/cashPicto.png" title="Paiement en espèces accepté" alt="Pictograme espèces" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="2" id="cashPictoOfWalk" name="cashPictoOfWalk" <?= !empty($arrayError) && isset($_POST['cashPictoOfWalk']) && $_POST['cashPictoOfWalk'] == '2' ? 'checked' : '' ?>>
@@ -304,7 +304,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
             <img src="assets/img_picto/vacancyChecksPicto.png" title="Paiement par chèques vacances accepté" alt="Pictograme chèques vacances" class="sizePictoCategory mr-3" />
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="4" id="vacancyChecksPictoOfWalk" name="vacancyChecksPictoOfWalk" <?= !empty($arrayError) && isset($_POST['vacancyChecksPictoOfWalk']) && $_POST['vacancyChecksPictoOfWalk'] == '4' ? 'checked' : '' ?>>

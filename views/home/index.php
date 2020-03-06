@@ -1,3 +1,8 @@
+<div class="row m-0">
+    <div class="col p-0">
+        <p class="textColor2 font-weight-bold h1 text-center mt-5">LA P'TITE VADROUILLE</p>
+    </div>
+</div>
 <div class="row d-flex justify-content-center m-0 heightArea">
     <div class="col-6 text-center mt-5 mediaDisplay">
         <p class="textHomePageSeineMaritime showTextSeineMaritime">Seine-Maritime</p>
@@ -13,17 +18,16 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center m-0">
-    <div class="col p-0 text-center text-white font-weight-bold">Le Havre</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Rouen</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Caen</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Cherbourg</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Evreux</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Dieppe</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Alençon</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Lisieux</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Saint Lô</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Fécamp</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Elbeuf</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Argentan</div>
-    <div class="col p-0 text-center text-white font-weight-bold">Gisors</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Le Havre</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Rouen</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Caen</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Cherbourg</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Evreux</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Dieppe</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Alençon</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Lisieux</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Saint Lô</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Fécamp</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Elbeuf</div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-4 p-0 text-center text-white font-weight-bold">Argentan</div>
 </div>

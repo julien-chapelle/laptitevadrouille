@@ -255,7 +255,7 @@ cursor:pointer;
 /* Z-INDEX MAP HOME PAGE FIN */
 /* Z-INDEX TEXT HOME PAGE DEBUT */
 .textHomePageSeineMaritime{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 6;
     position: absolute;
@@ -264,7 +264,7 @@ cursor:pointer;
     color: white;
 }
 .textHomePageEure {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 7;
     position: absolute;
@@ -273,7 +273,7 @@ cursor:pointer;
     color: white;
 }
 .textHomePageOrne {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 8;
     position: absolute;
@@ -282,7 +282,7 @@ cursor:pointer;
     color: white;
 }
 .textHomePageCalvados {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 9;
     position: absolute;
@@ -291,7 +291,7 @@ cursor:pointer;
     color: white;
 }
 .textHomePageManche {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 10;
     position: absolute;

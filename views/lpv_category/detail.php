@@ -3,7 +3,7 @@
         <a class="btn buttonColor2 px-3 shadow" href="<?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'http://laptitevadrouille/index.php?user=detail' : 'http://laptitevadrouille/index.php?list=walk&amp;page=1'?>" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
     </div>
 </div>
-<div class="card-columns px-3 mt-4">
+<div class="card-columns px-3 mt-2">
     <?php foreach ($detailWalk as $row) {
         if ($row['walkValidate'] != 'Validate') {
             continue;
@@ -14,7 +14,7 @@
     ?>
         <img src="assets/img_walk/<?= $row['pics'] ?>" class="img-fluid card" alt="Image illustration <?= strtolower($row['title']) ?>" title="Image illustration <?= strtolower($row['title']) ?>" />
         <div class="card">
-            <p class="text-center h4 my-auto"><?= $row['title'] ?></p>
+            <p class="text-center h4 my-auto textColor1"><?= $row['title'] ?></p>
         </div>
         <div class="card">
             <div class="card-body text-center px-2">
@@ -35,15 +35,15 @@
                     DESCRIPTION
                 </a>
                 <div class="collapse text-left mt-3" id="collapseDescription">
-                    <p><?= $row['moreInfoDescription'] ?>
+                    <p class="textColor2"><?= $row['moreInfoDescription'] ?>
                     </p>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <p class="card-title font-weight-bold">TARIFS :</p>
-                <p>Tarif moins de 3 ans : <?= $row['rate_0_3'] ?><?= $row['rate_0_3'] == 'GRATUIT' ? "" : "€" ?><br />
+                <p class="card-title font-weight-bold textColor1">TARIFS :</p>
+                <p class="textColor2">Tarif moins de 3 ans : <?= $row['rate_0_3'] ?><?= $row['rate_0_3'] == 'GRATUIT' ? "" : "€" ?><br />
                     Tarif de 3 à 11 ans : <?= $row['rate_3_11'] ?><?= $row['rate_3_11'] == 'GRATUIT' ? "" : "€" ?><br />
                     Tarif à partir de 12 ans : <?= $row['rate_12_plus'] ?><?= $row['rate_12_plus'] == 'GRATUIT' ? "" : "€" ?><br />
                     Enfant en situation de Handicap : <?= $row['rate_child_disabled'] ?><?= $row['rate_child_disabled'] == 'GRATUIT' ? "" : "€" ?>
@@ -52,8 +52,8 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <p class="card-title font-weight-bold">HORAIRES :</p>
-                <p><?= $row['openedHours'] ?></p>
+                <p class="card-title font-weight-bold textColor1">HORAIRES :</p>
+                <p class="textColor2"><?= $row['openedHours'] ?></p>
             </div>
         </div>
         <div class="card">
@@ -64,7 +64,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <p class="card-title font-weight-bold">MOYENS DE PAIEMENTS ACCEPTES :</p>
+                <p class="card-title font-weight-bold textColor1">MOYENS DE PAIEMENTS ACCEPTES :</p>
                 <?php foreach ($detailWalkPayment as $row) {
                     if ($row['id'] != $_GET['moreInfo']) {
                         continue;
