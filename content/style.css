@@ -2,7 +2,11 @@
     .mediaDisplay {
         display: none;
     }
-
+}
+@media screen and (min-width: 1000px) {
+    .logoDisplay {
+        display: none;
+    }
 }
 span[type=button] {
     -webkit-appearance: none;

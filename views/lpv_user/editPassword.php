@@ -1,16 +1,16 @@
-<form class="p-4" method="POST" action="">
+<form class="p-4 card mx-4 mt-5" method="POST" action="">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold text-dark" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT
+            <label class="font-weight-bold textColor1" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT
                 DE PASSE ACTUEL</label>
-            <input title="Saisissez le mot de passe actuel" type="password" class="form-control text-center borderInput" name="currentPassword" id="currentPassword" />
+            <input title="Saisissez le mot de passe actuel" type="password" class="form-control text-center borderInput textColor2" name="currentPassword" id="currentPassword" />
             <p class="error"><?= isset($arrayError['currentPassword']) ? $arrayError['currentPassword'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold text-dark" for="newPassword"><i class="fas fa-unlock-alt"></i> NOUVEAU MOT DE PASSE</label>
-            <input title="Saisissez le nouveau mot de passe" type="password" class="form-control text-center borderInput" name="newPassword" id="newPassword" />
+            <label class="font-weight-bold textColor1" for="newPassword"><i class="fas fa-unlock-alt"></i> NOUVEAU MOT DE PASSE</label>
+            <input title="Saisissez le nouveau mot de passe" type="password" class="form-control text-center borderInput textColor2" name="newPassword" id="newPassword" />
             <p class="error"><?= isset($arrayError['newPassword']) ? $arrayError['newPassword'] : '' ?></p>
         </div>
     </div>

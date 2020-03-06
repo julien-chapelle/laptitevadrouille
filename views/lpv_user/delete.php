@@ -1,7 +1,7 @@
-<form class="p-4" method="POST" action="">
+<form class="p-4 card mx-4 mt-5" method="POST" action="">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
-            <p class="h5 text-center">Suppression du compte utilisateur</p>
+            <p class="h3 text-center textColor1">Suppression du compte utilisateur</p>
         </div>
     </div>
     <div class="row">
@@ -13,22 +13,22 @@
     </div>
     <div class="row d-flex justify-content-center mx-auto">
         <div class="col p-1 text-center">
-            <p class="h6 text-black text-center">Si vous souhaitez vraiment supprimer votre compte il vous suffit de saisir votre pseudo et mot de passe ci-dessous :</p>
+            <p class="h6 textColor2 text-center">Si vous souhaitez vraiment supprimer votre compte il vous suffit de saisir votre pseudo et mot de passe ci-dessous :</p>
             <!-- formulaire début-->
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <label class="font-weight-bold text-dark" for="checkPseudo"><i class="fas fa-user"></i>
+                    <label class="font-weight-bold textColor1" for="checkPseudo"><i class="fas fa-user"></i>
                         PRENOM OU PSEUDO</label>
-                    <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput" name="checkPseudo" id="checkPseudo" value="<?= !empty($arrayError) && isset($_POST['checkPseudo']) ? $_POST['checkPseudo'] : $detailDeleteUser[0]['pseudo'] ?>" />
+                    <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput textColor2" name="checkPseudo" id="checkPseudo" value="<?= !empty($arrayError) && isset($_POST['checkPseudo']) ? $_POST['checkPseudo'] : $detailDeleteUser[0]['pseudo'] ?>" />
                     <p class="error"><?= isset($arrayError['checkPseudo']) ? $arrayError['checkPseudo'] : '' ?></p>
                 </div>
             </div>
             <?php if ($_SESSION['id'] == $detailDeleteUser[0]['id']) { ?>
                 <div class="row text-center m-0 mt-1 justify-content-center">
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <label class="font-weight-bold text-dark" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
+                        <label class="font-weight-bold textColor1" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
                             DE PASSE</label>
-                        <input title="Saisissez votre mot de passe" type="password" class="form-control text-center borderInput" name="checkPassword" id="checkPassword" />
+                        <input title="Saisissez votre mot de passe" type="password" class="form-control text-center borderInput textColor2" name="checkPassword" id="checkPassword" />
                         <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>
                     </div>
                 </div>

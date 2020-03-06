@@ -5,7 +5,7 @@
 </div>
 <div class="row m-0 mt-1 p-2">
     <?php foreach ($avatarList as $value) { ?>
-        <div class="col-lg-2 col-md-4 col-sm-6 p-0 text-center">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-0 text-center">
             <form class="p-0 m-0" method="POST" action="">
                 <button class="btn p-0 my-2 mx-0 bg-transparent shadow-none" type="submit" name="choiceAvatar">
                     <img src="assets/img_avatar_choice/<?= $value['avatarName'] ?>" class="previewAvatar img-fluid shadow" alt="<?= 'Avatar_' . $value['avatarName'] ?>" title="<?= 'Image avatar ' . $value['avatarName'] ?>" />

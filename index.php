@@ -38,9 +38,9 @@
                         </li>
                     </ul>
                 </form>
-                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0 borderInput">
-                    <input class="form-control mr-1 bg-transparent border-0" type="search" aria-label="Search" name="searchTitle">
-                    <button class="btn searchButtonColor my-0 p-0 shadow-none" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
+                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0 borderInput row m-0">
+                    <input class="form-control mr-1 bg-transparent border-0 col-9 textColor2" type="search" aria-label="Search" name="searchTitle">
+                    <button class="btn searchButtonColor my-0 p-0 shadow-none col-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
                 </form>
                 <button type="button" class="btn searchButtonColor my-0 shadow-none pl-2" title="Rechercher autour de moi"><i class="fas fa-crosshairs"></i></button>
                 <ul class="navbar-nav ml-auto">

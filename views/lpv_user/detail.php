@@ -5,7 +5,7 @@
                 <div class="col p-1">
                     <div class="card-body p-2">
                         <div class="m-2">
-                            <img src="assets/<?= $row['id_LPV_avatar'] != null ? 'img_avatar_choice/' . $row['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
+                            <img src="assets/<?= $row['id_LPV_avatar'] != null ? 'img_avatar_choice/' . $row['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar img-fluid" />
                         </div>
                         <a class="btn buttonColor1 btn-sm" href="http://laptitevadrouille/index.php?avatarChoice=user<?= $row['id'] ?>">Choisir avatar</a>
                         <form method="POST" action="">
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-10">
-                        <p class="card-title font-weight-bold">MES INFORMATIONS :</p>
+                        <p class="card-title font-weight-bold textColor1">MES INFORMATIONS :</p>
                     </div>
                     <div class="col-2 mt-1 text-right">
                         <a class="butonEdit" href="http://laptitevadrouille/index.php?user=editInfo&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
@@ -27,17 +27,17 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>STATUS : <?= $row['status'] ?></p>
+                        <p class="textColor2">STATUS : <?= $row['status'] ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>PSEUDO : <?= isset($row['pseudo']) ? $row['pseudo'] : '' ?></p>
+                        <p class="textColor2">PSEUDO : <?= isset($row['pseudo']) ? $row['pseudo'] : '' ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>EMAIL : <?= isset($row['mail']) ? $row['mail'] : '' ?></p>
+                        <p class="textColor2">EMAIL : <?= isset($row['mail']) ? $row['mail'] : '' ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -50,8 +50,8 @@
         <?php if ($row['status'] == 'user') { ?>
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title font-weight-bold">VOS FAVORIS :</p>
-                    <p class="card-text">BlaBla</p>
+                    <p class="card-title font-weight-bold textColor1">VOS FAVORIS :</p>
+                    <p class="card-text textColor2">BlaBla</p>
                 </div>
             </div>
         <?php }; ?>
@@ -64,12 +64,12 @@
         <div class="card">
             <div class="card-body">
                 <div class="row m-0">
-                    <div class="col-6 p-0">
+                    <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
                         <form method="POST" action="" class="mb-0">
                             <button class="btn buttonColor2 btn-sm mx-0" type="submit" name="logout">DECONNECTION</button>
                         </form>
                     </div>
-                    <div class="col-6 p-0">
+                    <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
                         <a class="btn buttonColor2 btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>
@@ -77,9 +77,9 @@
         </div>
     <?php };
     if ($row['status'] == 'admin') { ?>
-        <div class="card text-center">
+        <div class="card text-center py-2">
             <div class="card-body p-1">
-                <p class="card-title font-weight-bold mb-0">SORTIES EN ATTENTE DE VALIDATION :</p>
+                <p class="card-title font-weight-bold mb-0 textColor1">SORTIES EN ATTENTE DE VALIDATION :</p>
                 <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
@@ -90,7 +90,7 @@
                                     <div class="row no-gutters">
                                         <div class="col">
                                             <div class="card-body p-1">
-                                                <p class="card-title mb-1"><?= $row['title'] ?></p>
+                                                <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -108,13 +108,13 @@
                                         </div>
                                     </div>
                                     <div class="row no-gutters justify-content-end">
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=detail&amp;unvalidateWalk=<?= $row['id'] ?>" title="Plus d'informations"><i class="fas fa-search"></i></a>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=edit&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Supprimer la sortie"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                     } ?>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
-                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageUnval . '/' . $pageCountUnval ?></p>
+                    <p class="textColor2 mx-2 h5 mt-2 mx-0"><?= $pageUnval . '/' . $pageCountUnval ?></p>
                 </div>
                 <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageUnval < $pageCountUnval) { ?>
@@ -146,9 +146,9 @@
                 </div>
             </div>
         </div>
-        <div class="card text-center">
+        <div class="card text-center py-2">
             <div class="card-body p-1">
-                <p class="card-title font-weight-bold mb-0">SORTIES VALIDEES :</p>
+                <p class="card-title font-weight-bold mb-0 textColor1">SORTIES VALIDEES :</p>
                 <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
@@ -159,7 +159,7 @@
                                     <div class="row no-gutters">
                                         <div class="col">
                                             <div class="card-body p-1">
-                                                <p class="card-title mb-1"><?= $row['title'] ?></p>
+                                                <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -177,13 +177,13 @@
                                         </div>
                                     </div>
                                     <div class="row no-gutters justify-content-end">
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>" title="Plus d'informations"><i class="fas fa-search"></i></a>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=edit&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-3 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?walk=delete&amp;id=<?= $row['id'] ?>" title="Supprimer la sortie"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                     } ?>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
-                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageVal . '/' . $pageCountVal ?></p>
+                    <p class="textColor2 mx-2 h5 mt-2 mx-0"><?= $pageVal . '/' . $pageCountVal ?></p>
                 </div>
                 <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageVal < $pageCountVal) { ?>
@@ -215,9 +215,9 @@
                 </div>
             </div>
         </div>
-        <div class="card text-center">
+        <div class="card text-center py-2">
             <div class="card-body p-1">
-                <p class="card-title font-weight-bold mb-0">LISTE DES UTILISATEURS :</p>
+                <p class="card-title font-weight-bold mb-0 textColor1">LISTE DES UTILISATEURS :</p>
                 <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <?php
@@ -226,25 +226,25 @@
                             <div class="card mb-3">
                                 <form method="GET" action="" class="m-0">
                                     <div class="row no-gutters">
-                                        <div class="col-3">
+                                        <div class="col-lg-3 col-md-12 col-sm-12 col-3">
                                             <div class="card-body p-0">
-                                                <p class="m-0"><?= $row['pseudo'] ?></p>
+                                                <p class="m-0 textColor2"><?= $row['pseudo'] ?></p>
                                             </div>
                                         </div>
-                                        <div class="col-5">
+                                        <div class="col-lg-5 col-md-12 col-sm-12 col-5">
                                             <div class="card-body p-0">
                                                 <p class="m-0"><small><a href="mailto:<?= $row['mail'] ?>"><?= $row['mail'] ?></a></small></p>
                                             </div>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 col-2">
                                             <div class="card-body p-0">
-                                                <p class="m-0"><?= $row['status'] ?></p>
+                                                <p class="m-0 textColor2"><?= $row['status'] ?></p>
                                             </div>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-2 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?user=editInfo&amp;id=<?= $row['id'] ?>" title="Modifier les informations"><i class="far fa-edit"></i></a>
                                         </div>
-                                        <div class="col-1 mt-1 text-center">
+                                        <div class="col-lg-1 col-md-2 col-sm-2 col-1 mt-1 text-center">
                                             <a class="butonEdit" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="Supprimer l'utilisateur"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
@@ -264,7 +264,7 @@
                     } ?>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-2 px-0">
-                    <p class="textColor1 mx-2 h5 mt-2 mx-0"><?= $pageListUser . '/' . $pageCountListUser ?></p>
+                    <p class="textColor2 mx-2 h5 mt-2 mx-0"><?= $pageListUser . '/' . $pageCountListUser ?></p>
                 </div>
                 <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
                     <?php if ($pageListUser < $pageCountListUser) { ?>
@@ -278,7 +278,7 @@
         </div>
         <div class="card text-center">
             <div class="card-body p-1">
-                <p class="card-title font-weight-bold mb-0">AJOUT AVATAR EN BDD :</p>
+                <p class="card-title font-weight-bold mb-0 textColor1">AJOUT AVATAR EN BDD :</p>
                 <div class="row d-flex justify-content-end px-3 py-1 m-0">
                     <div class="col p-0">
                         <form method="POST" action="" enctype="multipart/form-data">
@@ -294,7 +294,7 @@
         </div>
         <div class="card text-center">
             <div class="card-body p-1">
-                <p class="card-title font-weight-bold mb-0">LISTE DES AVATAR DISPONIBLES :</p>
+                <p class="card-title font-weight-bold mb-0 textColor1">LISTE DES AVATAR DISPONIBLES :</p>
                 <div class="row m-0 mt-1 p-2 d-flex justify-content-center">
                     <?php foreach ($avatarList as $value) { ?>
                         <div class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 text-center">
