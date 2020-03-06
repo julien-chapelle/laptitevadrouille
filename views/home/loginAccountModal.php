@@ -1,9 +1,9 @@
 <div class="modal fade right" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-full-height modal-right" role="document">
-        <div class="modal-content bgBody text-black">
-            <div class="modal-header border-dark bgHeader text-center text-dark">
+    <div class="modal-dialog modal-full-height modal-right card" role="document">
+        <div class="modal-content textColor1 card">
+            <div class="modal-header border-dark text-center textColor1">
                 <p class="modal-title w-100 font-weight-bold pl-3 h4"><?= isset($_SESSION) && count($_SESSION) != 0 ? 'Connecté' : 'Connexion' ?></p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close textColor2" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -15,10 +15,10 @@
                             <img src="assets/<?= $AvatarUser[0]['avatarName'] != null ? 'img_avatar_choice/' . $AvatarUser[0]['avatarName'] : 'img/userTestLogo.png' ?>" class="previewAvatar" />
                         </div>
                         <div class="col-12 text-center p-0">
-                            <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn buttonColor1 btn-sm btn-block m-0">Info profil</a>
+                            <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn buttonColor2 btn-sm btn-block m-0">Info profil</a>
                         </div>
                         <div class="col-12 text-center p-0">
-                            <button class="btn buttonColor2 btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
+                            <button class="btn buttonColor1 btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
                         </div>
                     </div>
                 </form>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="modal-footer d-flex justify-content-center borderFooter border-top border-dark">
+                <div class="modal-footer d-flex justify-content-center borderFooter border-top border-white">
                     <div class="row mx-auto">
                         <label class="col-12 text-center">Vous n'avez pas de compte ?</label>
                         <div class="col-12 text-center">

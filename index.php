@@ -2,6 +2,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <!-- Logo title -->
+    <link rel="shortcut icon" href="assets/img/logoLaPtiteVadrouille.png" class="titleSizeLogo" />
     <title><?= include('controllers/home/lpv_homeTitleController.php') ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
@@ -21,29 +23,30 @@
 <body>
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light navBarColor sticky-top">
-            <a class="navbar-brand" href="http://laptitevadrouille/index.php?view=accueil">LOGO</a>
+            <a class="navbar-brand" href="http://laptitevadrouille/index.php?view=accueil"><img src="assets/img/logoLaPtiteVadrouille.png" class="navBarSizeLogo" alt="Logo La P'tite Vadrouille" title="Retour vers accueil" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="fas fa-baby-carriage"></i></span>
+                <span><i class="fas fa-baby-carriage textColor2"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form method="GET" action="" class="my-auto">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://laptitevadrouille/index.php?view=accueil">Accueil</a>
+                            <a class="nav-link text-white font-weight-bold h5" href="http://laptitevadrouille/index.php?view=accueil">ACCUEIL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://laptitevadrouille/index.php?list=walk&amp;page=1">Catégories</a>
+                            <a class="nav-link text-white font-weight-bold h5" href="http://laptitevadrouille/index.php?list=walk&amp;page=1">CATEGORIES</a>
                         </li>
                     </ul>
                 </form>
-                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0">
-                    <input class="form-control shadow mr-1 borderInput bg-transparent" type="search" placeholder="Recherche" aria-label="Search" name="searchTitle">
-                    <button class="btn buttonColor1 my-1 shadow p-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
+                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0 borderInput">
+                    <input class="form-control mr-1 bg-transparent border-0" type="search" aria-label="Search" name="searchTitle">
+                    <button class="btn searchButtonColor my-0 p-0 shadow-none" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
                 </form>
+                <button type="button" class="btn searchButtonColor my-0 shadow-none pl-2" title="Rechercher autour de moi"><i class="fas fa-crosshairs"></i></button>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link sizeFontUser avatarNavZone" href="#" data-toggle="modal" data-target="#signIn">
-                            <?= !empty($_SESSION) && $AvatarUser[0]['avatarName'] != null ? '<img src="assets/img_avatar_choice/' . $AvatarUser[0]['avatarName'] . '" class="avatarNav" />' : '<i class="far fa-user-circle"></i>' ?>
+                            <?= !empty($_SESSION) && $AvatarUser[0]['avatarName'] != null ? '<img src="assets/img_avatar_choice/' . $AvatarUser[0]['avatarName'] . '" class="avatarNav" />' : '<i class="far fa-user-circle textColor2"></i>' ?>
                         </a>
                     </li>
                 </ul>
@@ -52,26 +55,26 @@
         <div class="container-fluid p-0 pb-5">
             <?= include('controllers/home/lpv_homeBodyController.php') ?>
         </div>
-        <footer class="row text-center footerColor px-3 py-2 m-0 footerTextSize justify-content-around">
+        <footer class="row text-center footerColor px-3 py-2 m-0 footerTextSize justify-content-around shadowTop">
             <div class="col-3 p-0">
-                <p><a href="http://laptitevadrouille/index.php?view=accueil" class="text-light">Accueil</a></p>
-                <p><a class="text-light" data-toggle="modal" data-target="#about">A propos</a></p>
-                <p><a href="http://laptitevadrouille/index.php?view=contact" class="text-light">Nous contacter</a></p>
+                <p><a href="http://laptitevadrouille/index.php?view=accueil" class="text-white">Accueil</a></p>
+                <p><a class="text-white" data-toggle="modal" data-target="#about">A propos</a></p>
+                <p><a href="http://laptitevadrouille/index.php?view=contact" class="text-white">Nous contacter</a></p>
             </div>
             <div class="col-3 p-0">
-                <p><a href="http://laptitevadrouille/index.php?legalNotice" class="text-light">Mentions légales</a></p>
-                <p><a href="http://laptitevadrouille/index.php?siteMap" class="text-light">Plan du site</a></p>
-                <p><a href="http://laptitevadrouille/index.php?helpPage" class="text-light">Aide</a></p>
+                <p><a href="http://laptitevadrouille/index.php?legalNotice" class="text-white">Mentions légales</a></p>
+                <p><a href="http://laptitevadrouille/index.php?siteMap" class="text-white">Plan du site</a></p>
+                <p><a href="http://laptitevadrouille/index.php?helpPage" class="text-white">Aide</a></p>
             </div>
             <div class="col-3 p-0">
-                <p class="text-light">Retrouvez-nous sur les réseaux sociaux</p>
+                <p class="text-white">Retrouvez-nous sur les réseaux sociaux</p>
                 <div class="row">
                     <a class="col-6 p-0 pr-1 text-right" href="https://fr-fr.facebook.com/" target="_blank"><img src="assets/img/facebook.png" title="Facebook" alt="Logo Facebook" id="facebookLogoSize" /></a>
                     <a class="col-6 p-0 pl-1 text-left" href="https://twitter.com/?lang=fr" target="_blank"><img src="assets/img/twitter.png" title="Twitter" alt="Logo Twitter" id="twitterLogoSize" /></a>
                 </div>
             </div>
         </footer>
-        <footer class="row text-center footerColor text-light px-3 py-2 m-0 footerTextSize border-top border-light">
+        <footer class="row text-center footerColor text-white px-3 py-2 m-0 footerTextSize border-top border-white">
             <p class="col-12 p-0"><?= 'Tout droits réservés© La P\'tite Vadrouille - 2019 - ' . date('Y') . '.' ?></p>
         </footer>
         <div id="scrollUp">

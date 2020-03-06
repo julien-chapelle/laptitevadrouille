@@ -10,6 +10,45 @@ jQuery(function () {
         });
     });
 
+    $(function(){
+        $('.showTextSeineMaritime').hide(); //Visibility default hide
+        $('.showTextEure').hide();
+        $('.showTextCalvados').hide();
+        $('.showTextOrne').hide();
+        $('.showTextManche').hide();
+
+        $('.showDetectSeineMaritime').mouseover(function(){ //Mouse over show
+            $('.showTextSeineMaritime').show('slow');
+        })
+        $('.showDetectSeineMaritime').mouseout(function(){ //Mouse out hide
+            $('.showTextSeineMaritime').hide();
+        })
+        $('.showDetectEure').mouseover(function(){
+            $('.showTextEure').show('slow');
+        })
+        $('.showDetectEure').mouseout(function(){
+            $('.showTextEure').hide();
+        })
+        $('.showDetectCalvados').mouseover(function(){
+            $('.showTextCalvados').show('slow');
+        })
+        $('.showDetectCalvados').mouseout(function(){
+            $('.showTextCalvados').hide();
+        })
+        $('.showDetectOrne').mouseover(function(){
+            $('.showTextOrne').show('slow');
+        })
+        $('.showDetectOrne').mouseout(function(){
+            $('.showTextOrne').hide();
+        })
+        $('.showDetectManche').mouseover(function(){
+            $('.showTextManche').show('slow');
+        })
+        $('.showDetectManche').mouseout(function(){
+            $('.showTextManche').hide();
+        })
+    })
+
     // $(function () {
     //     $('.crossJs1').mouseover(function () {
     //         $('.crossJs1').css('border', '2px solid red');

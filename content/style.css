@@ -1,3 +1,9 @@
+@media screen and (max-width: 1000px) {
+    .mediaDisplay {
+        display: none;
+    }
+
+}
 span[type=button] {
     -webkit-appearance: none;
     border-radius: 0;
@@ -7,7 +13,14 @@ a[type=button] {
     -webkit-appearance: none;
     border-radius: 0;
 }
-
+body{
+    background: url("../assets/img/backgroundPics.jpg");
+    background-position: left;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 /* scrollUp button */
 #scrollUp {
     position: fixed;
@@ -15,59 +28,80 @@ a[type=button] {
     right: -100px;
     font-size: 35px;
 }
-
 .scrollUpColor {
-    color: rgb(188, 226, 118);
+    color: white;
     opacity: 0.7;
 }
-
 /* scrollUp button */
 .navBarColor {
-    background-color: rgba(188, 226, 118, 0.733);
+    /* background-color: rgba(188, 226, 118, 0.733); */
+    background-color: transparent;
+}
+.navBarSizeLogo {
+    width: 90px;
+    opacity: 0.8;
+}
+.titleSizeLogo {
+    width: 16px;
 }
 .footerColor {
-    background-color: rgb(63, 116, 42);
+    background-color: transparent;
 }
 .butonEdit {
     cursor:pointer;
-    color:rgb(188, 226, 118);
+    color:#a94731;
+}
+.searchButtonColor {
+    background-color: transparent;
+    color: white;
+    font-size: 25px;
 }
 .buttonColor1 {
     background-color: transparent;
-    border: 2px solid rgb(63, 116, 42);
-    color: rgb(63, 116, 42);
+    border: 2px solid #a94731;
+    color: #a94731;
     font-size: 15px;
 }
 .buttonColor1:hover {
-    color: rgb(63, 116, 42);
+    color: #a94731;
 }
 .buttonColor2 {
     background-color: transparent;
-    border: 2px solid rgb(188, 226, 118);
-    color: rgb(188, 226, 118);
+    border: 2px solid white;
+    color: white;
     font-size: 15px;
 }
 .buttonColor2:hover {
-    color: rgb(188, 226, 118);
+    color: white;
 }
 .textColor1 {
-    color: rgb(188, 226, 118);
+    color: #a94731;
 }
 .textColor2 {
-    color: rgb(63, 116, 42);
+    color: white;
 }
 #facebookLogoSize {
     height: 35px;
 }
-
+.card {
+    background-color: rgba(0, 0, 0, 0.39);
+}
 #twitterLogoSize {
     height: 35px;
 }
 .borderInput {
     border-top: none;
     border-right: none;
-    border-left: 1px solid rgba(63, 116, 42, 0.466);
-    border-bottom: 1px solid rgb(63, 116, 42, 0.466);
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 0;
+    background: transparent;
+}
+.borderInput2 {
+    border-top: none;
+    border-right: none;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
     border-radius: 0;
 }
 .footerTextSize {
@@ -76,6 +110,9 @@ a[type=button] {
 
 .sizeFontUser {
     font-size: 30px;
+}
+.heightArea{
+    height: 80vh;
 }
 
 ul {
@@ -129,7 +166,6 @@ p {
     width:200px;
     height:200px;
 }
-
 .previewAvatarDetailAdmin {
     overflow:hidden;
     -webkit-border-radius:50px;
@@ -138,7 +174,6 @@ p {
     width:50px;
     height:50px;
 }
-
 /* PICTURE USER CHOICE */
 /* PICTURE USER NAVBAR */
 .avatarNav {
@@ -149,7 +184,6 @@ p {
     width:50px;
     height:50px;
 }
-
 /* PICTURE USER NAVBAR */
 /* BORDER CONTACT ADMIN */
 .borderRadius {
@@ -179,36 +213,93 @@ cursor:pointer;
 /* SIZE PICTO PAIEMENT FIN */
 /* Z-INDEX MAP HOME PAGE DEBUT */
 .mapHomePageSeineMaritime{
+    opacity: 0.6;
+    z-index: 1;
     width: 20rem;
     position: absolute;
     top: 0;
     left: 25rem;
 }
 .mapHomePageEure {
+    opacity: 0.6;
+    z-index: 2;
     width: 19.1rem;
     position: absolute;
     top: 9.26rem;
     left: 25.8rem;
 }
 .mapHomePageOrne {
+    opacity: 0.6;
+    z-index: 3;
     width: 21.35rem;
     position: absolute;
     top: 18.6rem;
     left: 13.71rem;
 }
 .mapHomePageCalvados {
+    opacity: 0.6;
+    z-index: 4;
     width: 19.5rem;
     position: absolute;
     top: 11rem;
     left: 10rem;
 }
 .mapHomePageManche {
+    opacity: 0.6;
+    z-index: 5;
     width: 15.1rem;
     position: absolute;
     top: 5rem;
     left: 2.1rem;
 }
 /* Z-INDEX MAP HOME PAGE FIN */
+/* Z-INDEX TEXT HOME PAGE DEBUT */
+.textHomePageSeineMaritime{
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    left: 8rem;
+    color: white;
+}
+.textHomePageEure {
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 7;
+    position: absolute;
+    top: 0;
+    left: 10rem;
+    color: white;
+}
+.textHomePageOrne {
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 8;
+    position: absolute;
+    top: 0;
+    left: 10rem;
+    color: white;
+}
+.textHomePageCalvados {
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 10rem;
+    color: white;
+}
+.textHomePageManche {
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 10rem;
+    color: white;
+}
+/* Z-INDEX TEXT HOME PAGE FIN */
 /* MOVE EFFECT MAP DEBUT */
 .moveEffectMap {
     -webkit-transition: all 0.5s ease;
@@ -236,5 +327,5 @@ cursor:pointer;
 }
 /* MOVE EFFECT MAP FIN */
 /* body {
-    background: red;
+    background: #e2e2e2;
 } */
