@@ -1,4 +1,4 @@
-<form class="p-4 card mx-4 mt-5" method="POST" action="">
+<form class="p-4 card mx-4 mt-5" method="POST" action="" enctype="multipart/form-data">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT

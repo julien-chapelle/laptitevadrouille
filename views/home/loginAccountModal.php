@@ -8,7 +8,7 @@
                 </button>
             </div>
             <?php if (isset($_SESSION) && count($_SESSION) != 0) { ?>
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="modal-body mx-3">
                         <div class="mb-5 text-center">
                             <p class="font-weight-bold text-center"><?= 'Bonjour ' . $detailUser[0]['pseudo'] . ' !' ?></p>
@@ -23,7 +23,7 @@
                     </div>
                 </form>
             <?php  } else { ?>
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="modal-body mx-3">
                         <div class="mb-5">
                             <label for="userMail"><i class="fas fa-user prefix colorIcon ml-1"></i></label>

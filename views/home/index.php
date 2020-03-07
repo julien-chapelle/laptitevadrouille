@@ -5,7 +5,7 @@
 </div>
 <div class="row d-flex justify-content-center m-0 heightArea">
     <div class="col-10 text-center mt-5 logoDisplay">
-        <img src="assets/img/logoLaPtiteVadrouille.png" alt="Logo La P'tite Vadrouille" title="Retour vers accueil" class="img-fluid" />
+        <img src="assets/img/logoLaPtiteVadrouille.png" alt="Logo La P'tite Vadrouille" title="Logo La P'tite Vadrouille" class="img-fluid" />
     </div>
     <div class="col-6 text-center mt-5 mediaDisplay">
         <p class="textHomePageSeineMaritime showTextSeineMaritime">Seine-Maritime</p>

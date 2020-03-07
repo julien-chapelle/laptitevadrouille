@@ -1,4 +1,4 @@
-<form class="p-4 card mx-4 mt-5" method="POST" action="">
+<form class="p-4 card mx-4 mt-5" method="POST" action="" enctype="multipart/form-data">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
             <p class="h3 text-center textColor1">Suppression du compte utilisateur</p>

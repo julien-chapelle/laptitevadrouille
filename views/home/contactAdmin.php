@@ -8,7 +8,7 @@
     <!-- Map fin-->
     <!-- formulaire début-->
     <div class="col-lg-5 col-md-10 col-sm-10 col-10 text-center p-0 mx-3 mt-4">
-        <form class="p-4 border-0 borderRadius shadow card" method="POST" action="">
+        <form class="p-4 border-0 borderRadius shadow card" method="POST" action="" enctype="multipart/form-data">
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col">
                     <p class="font-weight-bold textColor1 h5 my-4">Pour nous contacter, veuillez remplir ce formulaire :</p>

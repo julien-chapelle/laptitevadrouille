@@ -9,7 +9,15 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['user']) && $_GET['user
 };
 //OBJECT INITIALIZATION
 $user = new Lpv_user();
-
+//VERIFY IF MAIL USER EXIST
+$verifyIfUserExist = $user->listUser();
+if (isset($_POST['mail'])) {
+    foreach ($verifyIfUserExist as $row) {
+        if ($_POST['mail'] == $row['mail']) {
+            $arrayError['verifyIfUserMailExist'] = 'Ce mail est déjà utilisé';
+        };
+    };
+};
 // ERROR PSEUDO
 $regexPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,20}$/';
 

@@ -53,6 +53,7 @@
             <p class="error"><?= isset($arrayError['reCaptcha']) ? $arrayError['reCaptcha'] : '' ?></p>
             <p class="valid"><?= isset($arrayValid['reCaptcha']) ? $arrayValid['reCaptcha'] : '' ?></p>
             <p class="valid h5"><?= isset($_POST['g-recaptcha-response']) && empty($arrayError) ? 'Compte créé avec succès !' : '' ?></p>
+            <p class="error h5"><?= isset($arrayError['verifyIfUserMailExist']) ? $arrayError['verifyIfUserMailExist'] : '' ?></p>
             <p class="error"><?= isset($e) ? 'Problème de connection au serveur, veuillez essayer à nouveau ultérieurement.' : '' ?></p>
         </div>
     </div>

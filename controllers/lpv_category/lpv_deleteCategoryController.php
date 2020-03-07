@@ -43,12 +43,16 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_POST
         $walkDelete->setId($currentId);
         $walkDelete->deleteWalk();
         //DELETE PICS & MAP
-        $currentPics = $detailWalk[0]['pics'];
-        $currentMap = $detailWalk[0]['map'];
-        unlink('assets/img_walk/' . $currentPics);
-        unlink('assets/img_map/' . $currentMap);
+        if (isset($detailWalk[0]['pics']) && $detailWalk[0]['pics'] != null && $detailWalk[0]['pics'] != '') {
+            $currentPics = $detailWalk[0]['pics'];
+            unlink('assets/img_walk/' . $currentPics);
+        };
+        if (isset($detailWalk[0]['map']) && $detailWalk[0]['map'] != null && $detailWalk[0]['map'] != '') {
+            $currentMap = $detailWalk[0]['map'];
+            unlink('assets/img_map/' . $currentMap);
+        };
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
     } else {
         $arrayError['checkPassword'] = 'Le mot de passe actuel saisi est faux';
     };
-}
+};
