@@ -9,31 +9,31 @@
 <form class="p-4 card mx-4 mt-2" method="POST" action="" id="createUserForm" enctype="multipart/form-data">
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold textColor1" for="pseudo"><i class="fas fa-user"></i>
+            <label class="font-weight-bold textColor1" for="pseudoCreate"><i class="fas fa-user"></i>
                 PRENOM OU PSEUDO</label>
-            <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput textColor2" name="pseudo" id="pseudo" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['pseudo'] : '' ?>" />
-            <p class="error"><?= isset($arrayError['pseudo']) ? $arrayError['pseudo'] : '' ?></p>
+            <input title="Renseignez le prénom ou le pseudo" placeholder="ex: Jean" type="text" class="form-control text-center borderInput textColor2" name="pseudoCreate" id="pseudoCreate" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['pseudoCreate'] : '' ?>" />
+            <p class="error"><?= isset($arrayError['pseudoCreate']) ? $arrayError['pseudoCreate'] : '' ?></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold textColor1" for="email"><i class="fas fa-at"></i>
+            <label class="font-weight-bold textColor1" for="emailCreate"><i class="fas fa-at"></i>
                 EMAIL</label>
-            <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center borderInput textColor2" name="mail" id="email" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['mail'] : '' ?>" />
-            <p class="error"><?= isset($arrayError['mail']) ? $arrayError['mail'] : '' ?></p>
+            <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center borderInput textColor2" name="mailCreate" id="emailCreate" value="<?= !empty($arrayError) && isset($_POST["g-recaptcha-response"]) ? $_POST['mailCreate'] : '' ?>" />
+            <p class="error"><?= isset($arrayError['mailCreate']) ? $arrayError['mailCreate'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold textColor1" for="password"><i class="fas fa-unlock-alt"></i> MOT
+            <label class="font-weight-bold textColor1" for="passwordCreate"><i class="fas fa-unlock-alt"></i> MOT
                 DE PASSE</label>
-            <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput textColor2" name="password" id="password" />
-            <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
+            <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput textColor2" name="passwordCreate" id="passwordCreate" />
+            <p class="error"><?= isset($arrayError['passwordCreate']) ? $arrayError['passwordCreate'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold textColor1" for="confirmPassword"><i class="fas fa-unlock-alt"></i> CONFIRMER MOT DE PASSE</label>
-            <input title="Confirmez le mot de passe" type="password" class="form-control text-center borderInput textColor2" name="passwordConfirm" id="confirmPassword" />
-            <p class="error"><?= isset($arrayError['passwordConfirm']) ? $arrayError['passwordConfirm'] : '' ?></p>
+            <label class="font-weight-bold textColor1" for="confirmPasswordCreate"><i class="fas fa-unlock-alt"></i> CONFIRMER MOT DE PASSE</label>
+            <input title="Confirmez le mot de passe" type="password" class="form-control text-center borderInput textColor2" name="passwordConfirmCreate" id="confirmPasswordCreate" />
+            <p class="error"><?= isset($arrayError['passwordConfirmCreate']) ? $arrayError['passwordConfirmCreate'] : '' ?></p>
         </div>
     </div>
     <!-- ACCORD AGREEMENT -->

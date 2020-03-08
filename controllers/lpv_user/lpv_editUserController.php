@@ -43,10 +43,13 @@ if (isset($_POST['password'])) {
     if (empty($_POST['password'])) {
         $arrayError['password'] = 'Veuillez remplir le champ';
     };
+    if(!empty($_POST['password']) && password_verify($_POST['password'], $_SESSION['password']) != 'true'){
+        $arrayError['password'] = 'Le mot de passe est faux !';
+    };
 };
 // USER INFO UPDATE
 if (isset($_POST['editUserInfo']) && empty($arrayError)) {
-    if ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] != $_SESSION['id']) {
+    if ($_SESSION['status'] == 'admin' && password_verify($_POST['password'], $_SESSION['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         $status = htmlspecialchars(mb_strtolower($_POST['status']));
@@ -58,7 +61,7 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->editUserInfo();
         $user->changeStatus();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } elseif ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] == $_SESSION['id'] && password_verify($_POST['password'], $detailEditUser[0]['password']) == 'true') {
+    } elseif ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] == $_SESSION['id'] && password_verify($_POST['password'],  $_SESSION['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         //Hydratation
@@ -67,7 +70,7 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->setMail($mail);
         $user->editUserInfo();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } elseif ($_SESSION['status'] == 'user' && password_verify($_POST['password'], $detailEditUser[0]['password']) == 'true') {
+    } elseif ($_SESSION['status'] == 'user' && password_verify($_POST['password'], $_SESSION['password']) == 'true') {
         $pseudo = htmlspecialchars(ucfirst(mb_strtolower($_POST['pseudo'], 'UTF-8')));
         $mail = htmlspecialchars($_POST['mail']);
         //Hydratation
@@ -76,8 +79,6 @@ if (isset($_POST['editUserInfo']) && empty($arrayError)) {
         $user->setMail($mail);
         $user->editUserInfo();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } else {
-        $arrayError['password'] = 'Le mot de passe est faux';
     };
 };
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,6 +103,20 @@ if (isset($_POST['newPassword'])) {
     if (empty($_POST['newPassword'])) {
         $arrayError['newPassword'] = 'Veuillez remplir le champ';
     };
+};
+// ERROR CONFIRM NEW PASSWORD
+$regexConfirmeNewPassword = '/^[a-z0-9A-Z]{1,15}$/';
+
+if (isset($_POST['confirmNewPassword'])) {
+    if (preg_match($regexConfirmeNewPassword, $_POST['confirmNewPassword']) == 0) {
+        $arrayError['confirmNewPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+    };
+    if (empty($_POST['confirmNewPassword'])) {
+        $arrayError['confirmNewPassword'] = 'Veuillez remplir le champ';
+    };
+    if ($_POST['newPassword'] != $_POST['confirmNewPassword']) {
+        $arrayError['confirmNewPassword'] = 'Les mots de passes ne sont pas identiques !';
+    }
 };
 // USER PASSWORD UPDATE
 if (isset($_POST['editUserPassword']) && empty($arrayError)) {

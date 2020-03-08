@@ -181,8 +181,21 @@ if (isset($_POST['officialSiteOfWalk'])) {
         $arrayError['officialSiteOfWalk'] = 'Veuillez remplir le champ';
     };
 };
+// ERROR PASSWORD
+$regexPasswordEditWalk = '/^[a-z0-9A-Z]{1,15}$/';
 
-if (isset($_POST['editWalk']) && empty($arrayError)) {
+if (isset($_POST['passwordEditWalk'])) {
+    if (preg_match($regexPasswordEditWalk, $_POST['passwordEditWalk']) == 0) {
+        $arrayError['passwordEditWalk'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+    };
+    if (empty($_POST['passwordEditWalk'])) {
+        $arrayError['passwordEditWalk'] = 'Veuillez remplir le champ';
+    };
+    if(!empty($_POST['passwordEditWalk']) && password_verify($_POST['passwordEditWalk'], $_SESSION['password']) != 'true'){
+        $arrayError['passwordEditWalk'] = 'Le mot de passe est faux !';
+    };
+};
+if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['passwordEditWalk'], $_SESSION['password']) == 'true') {
     $currentId = htmlspecialchars(intval($_GET['id']));
     $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
     $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);

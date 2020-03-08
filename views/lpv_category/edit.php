@@ -355,6 +355,14 @@
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <label class="font-weight-bold textColor1" for="passwordEditWalk"><i class="fas fa-unlock-alt"></i> MOT
+                    DE PASSE ADMIN</label>
+                <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput textColor2" name="passwordEditWalk" id="passwordEditWalk" />
+                <p class="error"><?= isset($arrayError['passwordEditWalk']) ? $arrayError['passwordEditWalk'] : '' ?></p>
+            </div>
+        </div>
+    <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-12">
             <a class="btn buttonColor2 py-2 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply py-1"></i></a>
             <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="editWalk">MODIFIER</button>

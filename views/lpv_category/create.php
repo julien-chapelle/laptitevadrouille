@@ -94,10 +94,10 @@
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <label class="font-weight-bold textColor1" for="officialSiteOfWalk">
+            <label class="font-weight-bold textColor1" for="createOfficialSiteOfWalk">
                 SITE OFFICIEL</label>
-            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput textColor2" name="officialSiteOfWalk" id="officialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST["validateWalk"]) ? $_POST['officialSiteOfWalk'] : '' ?>" />
-            <p class="error"><?= isset($arrayError['officialSiteOfWalk']) ? $arrayError['officialSiteOfWalk'] : '' ?></p>
+            <input title="Indiquez l'adresse du site officiel" placeholder="ex: www.zoo.com" type="text" class="form-control text-center borderInput textColor2" name="createOfficialSiteOfWalk" id="createOfficialSiteOfWalk" value="<?= !empty($arrayError) && isset($_POST["validateWalk"]) ? $_POST['createOfficialSiteOfWalk'] : '' ?>" />
+            <p class="error"><?= isset($arrayError['createOfficialSiteOfWalk']) ? $arrayError['createOfficialSiteOfWalk'] : '' ?></p>
         </div>
     </div>
     <div class="row text-center m-0 mt-1 justify-content-center">

@@ -31,18 +31,14 @@
                     <p class="error"><?= isset($arrayError['checkPseudo']) ? $arrayError['checkPseudo'] : '' ?></p>
                 </div>
             </div>
-            <?php if ($_SESSION['id'] == $detailDeleteUser[0]['id']) { ?>
-                <div class="row text-center m-0 mt-1 justify-content-center">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <label class="font-weight-bold textColor1" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
-                            DE PASSE</label>
-                        <input title="Saisissez votre mot de passe" type="password" class="form-control text-center borderInput textColor2" name="checkPassword" id="checkPassword" />
-                        <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>
-                    </div>
+            <div class="row text-center m-0 mt-1 justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <label class="font-weight-bold textColor1" for="checkPassword"><i class="fas fa-unlock-alt"></i> MOT
+                        DE PASSE</label>
+                    <input title="Saisissez votre mot de passe" type="password" class="form-control text-center borderInput textColor2" name="checkPassword" id="checkPassword" />
+                    <p class="error"><?= isset($arrayError['checkPassword']) ? $arrayError['checkPassword'] : '' ?></p>
                 </div>
-            <?php } else {
-                '';
-            } ?>
+            </div>
         </div>
         <!-- formulaire fin-->
     </div>

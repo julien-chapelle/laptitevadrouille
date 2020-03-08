@@ -30,26 +30,25 @@ if (isset($_POST['checkPassword'])) {
     if (empty($_POST['checkPassword'])) {
         $arrayError['checkPassword'] = 'Veuillez remplir le champ';
     };
+    if(!empty($_POST['checkPassword']) && password_verify($_POST['checkPassword'], $_SESSION['password']) != 'true'){
+        $arrayError['checkPassword'] = 'Le mot de passe est faux !';
+    };
 };
 // USER DELETE
 if (isset($_POST['deleteUser']) && empty($arrayError) && isset($_SESSION) && $_SESSION['status'] != 'admin') {
-    if ($_POST['checkPseudo'] == $detailUser[0]['pseudo'] && password_verify($_POST['checkPassword'], $detailUser[0]['password']) == 'true') {
+    if ($_POST['checkPseudo'] == $detailDeleteUser[0]['pseudo'] && password_verify($_POST['checkPassword'], $_SESSION['password']) == 'true') {
         //Hydratation
         $user->setId($currentId);
         $user->deleteUser();
             session_reset();
             session_destroy();
             header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
-    } else {
-        $arrayError['checkPassword'] = 'Le mot de passe ou le pseudo actuel saisi est faux';
     };
 } elseif (isset($_POST['deleteUser']) && empty($arrayError) && isset($_SESSION) && $_SESSION['status'] == 'admin') {
-    if ($_POST['checkPseudo'] == $detailUser[0]['pseudo']) {
+    if ($_POST['checkPseudo'] == $detailDeleteUser[0]['pseudo'] && password_verify($_POST['checkPassword'], $_SESSION['password']) == 'true') {
         //Hydratation
         $user->setId($currentId);
         $user->deleteUser();
         header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
-    } else {
-        $arrayError['checkPseudo'] = 'Le pseudo actuel saisi est faux';
     };
 }

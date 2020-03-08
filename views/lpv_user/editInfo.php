@@ -22,18 +22,9 @@
                 <p class="error"><?= isset($arrayError['mail']) ? $arrayError['mail'] : '' ?></p>
             </div>
         </div>
-        <?php if ($_SESSION['id'] == $row['id']) { ?>
+        <?php if ($_SESSION['status'] == 'admin' && $detailEditUser[0]['id'] != $_SESSION['id']) { ?>
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <label class="font-weight-bold textColor1" for="password"><i class="fas fa-unlock-alt"></i> MOT
-                        DE PASSE</label>
-                    <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput textColor2" name="password" id="password" />
-                    <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
-                </div>
-            </div>
-        <?php } else { ?>
-            <div class="row text-center m-0 mt-1 justify-content-center">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label class="font-weight-bold textColor1" for="changeStatusSelect"><i class="fas fa-crown"></i> CHANGEMENT DE STATUS</label>
                         <select class="form-control text-center borderInput textColor2" id="changeStatusSelect" name="status">
@@ -44,6 +35,14 @@
                 </div>
             </div>
         <?php }; ?>
+        <div class="row text-center m-0 mt-1 justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <label class="font-weight-bold textColor1" for="password"><i class="fas fa-unlock-alt"></i> MOT
+                    DE PASSE</label>
+                <input title="Choisissez un mot de passe" type="password" class="form-control text-center borderInput textColor2" name="password" id="password" />
+                <p class="error"><?= isset($arrayError['password']) ? $arrayError['password'] : '' ?></p>
+            </div>
+        </div>
         <div class="row text-center m-0 mt-1 justify-content-center">
             <div class="col-12">
                 <button class="btn buttonColor2 py-2 shadow" role="button" type="submit" name="editUserInfo">MODIFIER</button>

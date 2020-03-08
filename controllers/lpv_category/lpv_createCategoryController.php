@@ -6,8 +6,8 @@ require_once('models/lpv_avoirModel.php');
 $walkCreate = new Lpv_category();
 //VERIFY IF OFFICIAL SITE OF WALK EXIST
 $verifyIfExist = $walkCreate->classicListWalk();
-if (isset($_POST['officialSiteOfWalk'])) {
-    $arrayExplodeResultPostOfficialSite = explode('.', $_POST['officialSiteOfWalk']);
+if (isset($_POST['createOfficialSiteOfWalk'])) {
+    $arrayExplodeResultPostOfficialSite = explode('.', $_POST['createOfficialSiteOfWalk']);
     foreach ($verifyIfExist as $row) {
         $arrayExplodeResultOfficialSite = explode('.', $row['officialSite']);
         if ($arrayExplodeResultPostOfficialSite[1] == $arrayExplodeResultOfficialSite[1]) {
@@ -137,21 +137,21 @@ $twitterDetectRegex = '/^(https:\/\/twitter\.com\/)[A-Za-z0-9\ \-\à\á\â\ã\ä
 $facebookDetectRegex = '/^(https:\/\/www\.facebook\.com\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%\'\(\)\?]{1,}+$/';
 $instagramDetectRegex = '/^(https:\/\/www\.instagram\.com\/)[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\.\!\+\=\@\,\/\:\%\'\(\)\?]{1,}+$/';
 // ERROR SITE OFFICIEL
-if (isset($_POST['officialSiteOfWalk'])) {
-    if ((filter_var($_POST['officialSiteOfWalk'], FILTER_VALIDATE_URL)) == false) {
-        $arrayError['officialSiteOfWalk'] = 'Veuillez respecter le format (réseaux sociaux non autorisés)';
+if (isset($_POST['createOfficialSiteOfWalk'])) {
+    if ((filter_var($_POST['createOfficialSiteOfWalk'], FILTER_VALIDATE_URL)) == false) {
+        $arrayError['createOfficialSiteOfWalk'] = 'Veuillez respecter le format (réseaux sociaux non autorisés)';
     };
-    if (preg_match($twitterDetectRegex, $_POST['officialSiteOfWalk']) == 1) {
-        $arrayError['officialSiteOfWalk'] = 'Adresse Twitter non autorisée (Contactez l\'administrateur)';
+    if (preg_match($twitterDetectRegex, $_POST['createOfficialSiteOfWalk']) == 1) {
+        $arrayError['createOfficialSiteOfWalk'] = 'Adresse Twitter non autorisée (Contactez l\'administrateur)';
     };
-    if (preg_match($facebookDetectRegex, $_POST['officialSiteOfWalk']) == 1) {
-        $arrayError['officialSiteOfWalk'] = 'Adresse Facebook non autorisée (Contactez l\'administrateur)';
+    if (preg_match($facebookDetectRegex, $_POST['createOfficialSiteOfWalk']) == 1) {
+        $arrayError['createOfficialSiteOfWalk'] = 'Adresse Facebook non autorisée (Contactez l\'administrateur)';
     };
-    if (preg_match($instagramDetectRegex, $_POST['officialSiteOfWalk']) == 1) {
-        $arrayError['officialSiteOfWalk'] = 'Adresse Instagram non autorisée (Contactez l\'administrateur)';
+    if (preg_match($instagramDetectRegex, $_POST['createOfficialSiteOfWalk']) == 1) {
+        $arrayError['createOfficialSiteOfWalk'] = 'Adresse Instagram non autorisée (Contactez l\'administrateur)';
     };
-    if (empty($_POST['officialSiteOfWalk'])) {
-        $arrayError['officialSiteOfWalk'] = 'Veuillez remplir le champ';
+    if (empty($_POST['createOfficialSiteOfWalk'])) {
+        $arrayError['createOfficialSiteOfWalk'] = 'Veuillez remplir le champ';
     };
 };
 if (isset($_POST['validateWalk']) && empty($arrayError)) {
@@ -164,7 +164,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
     $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk5']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk6']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk7']);
     $walkPublicationDate = htmlspecialchars(strftime("%d-%m-%Y"));
-    $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
+    $walkOfficialSiteOfWalk = htmlspecialchars($_POST['createOfficialSiteOfWalk']);
     $walkLocationPictoOfWalk = htmlspecialchars(intval($_POST['locationPictoOfWalk']));
     $walkOutputTypePictoOfWalk = htmlspecialchars(intval($_POST['outputTypePictoOfWalk']));
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
