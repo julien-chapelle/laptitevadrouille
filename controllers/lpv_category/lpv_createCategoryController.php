@@ -6,7 +6,7 @@ require_once('models/lpv_avoirModel.php');
 $walkCreate = new Lpv_category();
 //VERIFY IF OFFICIAL SITE OF WALK EXIST
 $verifyIfExist = $walkCreate->classicListWalk();
-if (isset($_POST['createOfficialSiteOfWalk'])) {
+if (isset($_POST['createOfficialSiteOfWalk']) && !empty($_POST['createOfficialSiteOfWalk'])) {
     $arrayExplodeResultPostOfficialSite = explode('.', $_POST['createOfficialSiteOfWalk']);
     foreach ($verifyIfExist as $row) {
         $arrayExplodeResultOfficialSite = explode('.', $row['officialSite']);
@@ -27,7 +27,7 @@ if (isset($_POST['titleOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COURTE
-$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
+$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»\&]{1,}+$/';
 
 if (isset($_POST['shortDescriptionOfWalk'])) {
     if (preg_match($regexShortDescriptionOfWalk, $_POST['shortDescriptionOfWalk']) == 0) {
@@ -38,7 +38,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COMPLETE
-$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
+$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»\&]{1,}+$/';
 
 if (isset($_POST['completeDescriptionOfWalk'])) {
     if (preg_match($regexCompleteDescriptionOfWalk, $_POST['completeDescriptionOfWalk']) == 0) {
@@ -93,7 +93,7 @@ if (isset($_POST['rate_child_disabledOfWalk'])) {
     };
 };
 // ERROR HEURES & PERIODES D'OUVERTURES
-$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:]+$/';
+$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:\,\(\)\.\'\!\œ\’\‘\«\»]+$/';
 
 if (isset($_POST['openedHoursOfWalk1'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk1']) == 0) {
@@ -165,6 +165,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk5']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk6']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk7']);
     $walkPublicationDate = htmlspecialchars(strftime("%d-%m-%Y"));
     $walkOfficialSiteOfWalk = htmlspecialchars($_POST['createOfficialSiteOfWalk']);
+    $walkIdCreator = htmlspecialchars(intval($_SESSION['id']));
     $walkLocationPictoOfWalk = htmlspecialchars(intval($_POST['locationPictoOfWalk']));
     $walkOutputTypePictoOfWalk = htmlspecialchars(intval($_POST['outputTypePictoOfWalk']));
     $walkAgeAdvisePictoOfWalk = htmlspecialchars(intval($_POST['ageAdvisePictoOfWalk']));
@@ -199,6 +200,7 @@ if (isset($_POST['validateWalk']) && empty($arrayError)) {
     $walkCreate->setOpenedHour($walkOpenedHoursOfWalk);
     $walkCreate->setPublicationDate($walkPublicationDate);
     $walkCreate->setOfficialSite($walkOfficialSiteOfWalk);
+    $walkCreate->setIdCreator($walkIdCreator);
     $walkCreate->setIdLpvLocationPicto($walkLocationPictoOfWalk);
     $walkCreate->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
     $walkCreate->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);

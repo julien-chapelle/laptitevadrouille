@@ -37,9 +37,11 @@ body{
     opacity: 0.7;
 }
 /* scrollUp button */
-.navBarColor {
-    /* background-color: rgba(188, 226, 118, 0.733); */
+.navBarUserColor {
     background-color: transparent;
+}
+.navBarAdminColor {
+    background-color: #c75c4460;
 }
 .navBarSizeLogo {
     width: 90px;

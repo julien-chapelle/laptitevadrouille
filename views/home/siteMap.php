@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div class="col-lg-3 col-md-2 col-sm-6 col-12 text-center">
-        <h2 class="font-weight-bold text-center h4 textColor1">CATEGORIES</h2>
+        <h2 class="font-weight-bold text-center h4 textColor1">LISTE DES SORTIES</h2>
         <ul>
             <li></li>
         </ul>

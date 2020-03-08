@@ -74,7 +74,7 @@
                 <div class="row m-0">
                     <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
                         <form method="POST" action="" class="mb-0">
-                            <button class="btn buttonColor2 btn-sm mx-0" type="submit" name="logout">DECONNECTION</button>
+                            <button class="btn buttonColor2 btn-sm mx-0" type="submit" name="logout">DECONNEXION</button>
                         </form>
                     </div>
                     <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
@@ -99,6 +99,7 @@
                                         <div class="col">
                                             <div class="card-body p-1">
                                                 <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
+                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? '' : 'Créé par ' . $row['pseudo'] ?></small>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -168,6 +169,7 @@
                                         <div class="col">
                                             <div class="card-body p-1">
                                                 <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
+                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? 'Utilisateur supprimé' : 'Créé par ' . $row['pseudo'] ?></small>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">

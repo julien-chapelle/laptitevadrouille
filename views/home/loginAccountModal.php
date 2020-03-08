@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-full-height modal-right card" role="document">
         <div class="modal-content textColor1 card">
             <div class="modal-header border-dark text-center textColor1">
-                <p class="modal-title w-100 font-weight-bold pl-3 h4"><?= isset($_SESSION) && count($_SESSION) != 0 ? 'Connecté' : 'Connexion' ?></p>
+                <p class="modal-title w-100 font-weight-bold pl-3 h4"><?= isset($_SESSION) && count($_SESSION) != 0 ? 'CONNECTÉ' : 'CONNEXION' ?></p>
                 <button type="button" class="close textColor2" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -18,7 +18,7 @@
                             <a href="http://laptitevadrouille/index.php?user=detail" type="button" class="btn buttonColor2 btn-sm btn-block m-0">Info profil</a>
                         </div>
                         <div class="col-12 text-center p-0">
-                            <button class="btn buttonColor1 btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNECTION</button>
+                            <button class="btn buttonColor1 btn-sm btn-block m-0 mt-2" type="submit" name="logoutModal">DECONNEXION</button>
                         </div>
                     </div>
                 </form>
@@ -36,7 +36,7 @@
                             <p class="error"><?= isset($arrayError['passwordConnexion']) ? $arrayError['passwordConnexion'] : '' ?></p>
                         </div>
                         <div class="col-12 text-center p-0">
-                            <button type="submit" class="btn buttonColor1 btn-sm btn-block m-0" name="userConnection">Connexion</button>
+                            <button type="submit" class="btn buttonColor1 btn-sm btn-block m-0" name="userConnection">CONNEXION</button>
                             <p class="error pt-2"><?= isset($_POST['userConnection']) && !empty($_POST['userMailConnexion']) && !empty($_POST['passwordConnexion']) ? $userNoExistError : '' ?></p>
                         </div>
                     </div>

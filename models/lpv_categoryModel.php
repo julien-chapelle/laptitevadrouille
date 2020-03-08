@@ -18,6 +18,7 @@ class Lpv_category extends Lpv_database
     private $_googleMapAddress;
     private $_likes;
     private $_officialSite;
+    private $_idCreator;
     private $_walkValidate;
     private $_id_LPV_locationPicto;
     private $_id_LPV_outputTypePicto;
@@ -176,6 +177,16 @@ class Lpv_category extends Lpv_database
     {
         $this->_officialSite = $officialSite;
     }
+    //ID CREATOR
+    public function getIdCreator()
+    {
+        return $this->_idCreator;
+    }
+
+    public function setIdCreator($idCreator)
+    {
+        $this->_idCreator = $idCreator;
+    }
     //WALK VALIDATE
     public function getWalkValidate()
     {
@@ -247,8 +258,8 @@ class Lpv_category extends Lpv_database
     //ADD WALK
     public function addWalk()
     {
-        $createWalkQuery = "INSERT INTO `LPV_category`(`id`, `title`, `description`, `moreInfoDescription`, `rate_0_3`, `rate_3_11`, `rate_12_plus`, `rate_child_disabled`, `openedHours`, `publication_date`, `pics`, `map`, `googleMapAddress`, `likes`, `officialSite`, `walkValidate`, `id_LPV_locationPicto`, `id_LPV_outputTypePicto`, `id_LPV_ageAdvisePicto`, `id_LPV_practicabilityPicto`, `id_LPV_equipmentPicto`)
-        VALUES (null,:walkTitle, :walkShortDescription, :walkCompleteDescription, :walkRate_0_3OfWalk, :walkRate_3_11OfWalk,:walkRate_12_plusOfWalk,:walkRate_child_disabledOfWalk,:walkOpenedHoursOfWalk,:walkPublicationDate, null, null, null,0,:walkOfficialSiteOfWalk,null,:walkLocationPictoOfWalk,:walkOutputTypePictoOfWalk,:walkAgeAdvisePictoOfWalk,:walkPracticabilityPictoOfWalk,:walkBabyDiaperPictoOfWalk)";
+        $createWalkQuery = "INSERT INTO `LPV_category`(`id`, `title`, `description`, `moreInfoDescription`, `rate_0_3`, `rate_3_11`, `rate_12_plus`, `rate_child_disabled`, `openedHours`, `publication_date`, `pics`, `map`, `googleMapAddress`, `likes`, `officialSite`, `walkValidate`, `id_creator`, `id_LPV_locationPicto`, `id_LPV_outputTypePicto`, `id_LPV_ageAdvisePicto`, `id_LPV_practicabilityPicto`, `id_LPV_equipmentPicto`)
+        VALUES (null,:walkTitle, :walkShortDescription, :walkCompleteDescription, :walkRate_0_3OfWalk, :walkRate_3_11OfWalk,:walkRate_12_plusOfWalk,:walkRate_child_disabledOfWalk,:walkOpenedHoursOfWalk,:walkPublicationDate, null, null, null,0,:walkOfficialSiteOfWalk,null,:idCreator,:walkLocationPictoOfWalk,:walkOutputTypePictoOfWalk,:walkAgeAdvisePictoOfWalk,:walkPracticabilityPictoOfWalk,:walkBabyDiaperPictoOfWalk)";
 
         $createWalkResult = $this->db->prepare($createWalkQuery);
         $createWalkResult->bindValue(':walkTitle', $this->getTitle(), PDO::PARAM_STR);
@@ -261,6 +272,7 @@ class Lpv_category extends Lpv_database
         $createWalkResult->bindValue(':walkOpenedHoursOfWalk', $this->getOpenedHour(), PDO::PARAM_STR);
         $createWalkResult->bindValue(':walkPublicationDate', $this->getPublicationDate(), PDO::PARAM_STR);
         $createWalkResult->bindValue(':walkOfficialSiteOfWalk', $this->getOfficialSite(), PDO::PARAM_STR);
+        $createWalkResult->bindValue(':idCreator', $this->getIdCreator(), PDO::PARAM_INT);
         $createWalkResult->bindValue(':walkLocationPictoOfWalk', $this->getIdLpvLocationPicto(), PDO::PARAM_INT);
         $createWalkResult->bindValue(':walkOutputTypePictoOfWalk', $this->getIdLpvOutputTypePicto(), PDO::PARAM_INT);
         $createWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_INT);
@@ -273,29 +285,7 @@ class Lpv_category extends Lpv_database
     //CLASSIC LIST
     public function classicListWalk()
     {
-        $classicListWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
-        FROM `LPV_category`
-        LEFT JOIN `LPV_locationPicto`
-        ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
-        LEFT JOIN `LPV_outputTypePicto`
-        ON `LPV_outputTypePicto`.`id` = `LPV_category`.`id_LPV_outputTypePicto`
-        LEFT JOIN `LPV_ageAdvisePicto`
-        ON `LPV_ageAdvisePicto`.`id` = `LPV_category`.`id_LPV_ageAdvisePicto`
-        LEFT JOIN `LPV_practicabilityPicto`
-        ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
-        LEFT JOIN `LPV_equipmentPicto`
-        ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`";
-
-        $classicListWalkResult = $this->db->prepare($classicListWalkQuery);
-        if ($classicListWalkResult->execute()) {
-            $dataClassicListWalk = $classicListWalkResult->fetchAll(PDO::FETCH_ASSOC);
-            return $dataClassicListWalk;
-        }
-    }
-    //LIST VALIDATE WALK + PAGING
-    public function listWalk($limite, $debut)
-    {
-        $listValWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        $classicListWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
         ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
@@ -307,6 +297,32 @@ class Lpv_category extends Lpv_database
         ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
         LEFT JOIN `LPV_equipmentPicto`
         ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
+        LEFT JOIN `LPV_user`
+        ON `LPV_user`.`id` = `LPV_category`.`id_creator`";
+
+        $classicListWalkResult = $this->db->prepare($classicListWalkQuery);
+        if ($classicListWalkResult->execute()) {
+            $dataClassicListWalk = $classicListWalkResult->fetchAll(PDO::FETCH_ASSOC);
+            return $dataClassicListWalk;
+        }
+    }
+    //LIST VALIDATE WALK + PAGING
+    public function listWalk($limite, $debut)
+    {
+        $listValWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
+        FROM `LPV_category`
+        LEFT JOIN `LPV_locationPicto`
+        ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
+        LEFT JOIN `LPV_outputTypePicto`
+        ON `LPV_outputTypePicto`.`id` = `LPV_category`.`id_LPV_outputTypePicto`
+        LEFT JOIN `LPV_ageAdvisePicto`
+        ON `LPV_ageAdvisePicto`.`id` = `LPV_category`.`id_LPV_ageAdvisePicto`
+        LEFT JOIN `LPV_practicabilityPicto`
+        ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
+        LEFT JOIN `LPV_equipmentPicto`
+        ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
+        LEFT JOIN `LPV_user`
+        ON `LPV_user`.`id` = `LPV_category`.`id_creator`
         WHERE `walkValidate` = 'Validate'
         LIMIT :limite OFFSET :debut";
 
@@ -321,20 +337,22 @@ class Lpv_category extends Lpv_database
     //LIST UNVALIDATE WALK + PAGING
     public function listUnvalWalk($limite, $debut)
     {
-        $listUnvalWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
-            FROM `LPV_category`
-            LEFT JOIN `LPV_locationPicto`
-            ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
-            LEFT JOIN `LPV_outputTypePicto`
-            ON `LPV_outputTypePicto`.`id` = `LPV_category`.`id_LPV_outputTypePicto`
-            LEFT JOIN `LPV_ageAdvisePicto`
-            ON `LPV_ageAdvisePicto`.`id` = `LPV_category`.`id_LPV_ageAdvisePicto`
-            LEFT JOIN `LPV_practicabilityPicto`
-            ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
-            LEFT JOIN `LPV_equipmentPicto`
-            ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
-            WHERE `walkValidate` IS NULL OR `walkValidate` = ''
-            LIMIT :limite OFFSET :debut";
+        $listUnvalWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
+        FROM `LPV_category`
+        LEFT JOIN `LPV_locationPicto`
+        ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
+        LEFT JOIN `LPV_outputTypePicto`
+        ON `LPV_outputTypePicto`.`id` = `LPV_category`.`id_LPV_outputTypePicto`
+        LEFT JOIN `LPV_ageAdvisePicto`
+        ON `LPV_ageAdvisePicto`.`id` = `LPV_category`.`id_LPV_ageAdvisePicto`
+        LEFT JOIN `LPV_practicabilityPicto`
+        ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
+        LEFT JOIN `LPV_equipmentPicto`
+        ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
+        LEFT JOIN `LPV_user`
+        ON `LPV_user`.`id` = `LPV_category`.`id_creator`
+        WHERE `walkValidate` IS NULL OR `walkValidate` = ''
+        LIMIT :limite OFFSET :debut";
 
         $listUnvalWalkResult = $this->db->prepare($listUnvalWalkQuery);
         $listUnvalWalkResult->bindValue(':limite', $limite, PDO::PARAM_INT);
@@ -374,7 +392,7 @@ class Lpv_category extends Lpv_database
     //WALK DETAIL
     public function detailWalk()
     {
-        $detailWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        $detailWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
         ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
@@ -386,6 +404,8 @@ class Lpv_category extends Lpv_database
         ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
         LEFT JOIN `LPV_equipmentPicto`
         ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
+        LEFT JOIN `LPV_user`
+        ON `LPV_user`.`id` = `LPV_category`.`id_creator`
         WHERE `LPV_category`.`id` = :currentId";
 
         $detailWalkResult = $this->db->prepare($detailWalkQuery);
@@ -416,7 +436,7 @@ class Lpv_category extends Lpv_database
     //SEARCH WALK
     public function searchWalk()
     {
-        $searchTitleQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`
+        $searchTitleQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
         ON `LPV_category`.`id_LPV_locationPicto` = `LPV_locationPicto`.`id`
@@ -428,6 +448,8 @@ class Lpv_category extends Lpv_database
         ON `LPV_practicabilityPicto`.`id` = `LPV_category`.`id_LPV_practicabilityPicto`
         LEFT JOIN `LPV_equipmentPicto`
         ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
+        LEFT JOIN `LPV_user`
+        ON `LPV_user`.`id` = `LPV_category`.`id_creator`
         WHERE `title` LIKE :searchTitle";
 
         $searchTitleResult = $this->db->prepare($searchTitleQuery);

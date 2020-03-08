@@ -22,7 +22,7 @@
 
 <body>
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-light navBarColor sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top <?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'navBarAdminColor' : 'navBarUserColor' ?>">
             <a class="navbar-brand" href="http://laptitevadrouille/index.php?view=accueil"><img src="assets/img/logoLaPtiteVadrouille.png" class="navBarSizeLogo" alt="Logo La P'tite Vadrouille" title="Retour vers accueil" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fas fa-baby-carriage textColor2"></i></span>
@@ -34,7 +34,7 @@
                             <a class="nav-link text-white font-weight-bold h5" href="http://laptitevadrouille/index.php?view=accueil">ACCUEIL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white font-weight-bold h5" href="http://laptitevadrouille/index.php?list=walk&amp;page=1">CATEGORIES</a>
+                            <a class="nav-link text-white font-weight-bold h5" href="http://laptitevadrouille/index.php?list=walk&amp;page=1">LISTE DES SORTIES</a>
                         </li>
                     </ul>
                 </form>
