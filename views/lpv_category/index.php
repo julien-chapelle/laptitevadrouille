@@ -35,7 +35,7 @@
                                     Enfant en situation de Handicap : <?= $row['rate_child_disabled'] ?><?= $row['rate_child_disabled'] == 'GRATUIT' ? "" : "€" ?>
                                 </p>
                                 <a class="btn buttonColor2 btn-sm" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>">+ d'info</a>
-                                <p class="card-text"><small class="textColor2">Ajouté le <?= $row['publication_date'] ?></small></p>
+                                <p class="card-text"><small class="textColor2"><?= 'Créé le ' . utf8_encode (strftime('%d %B %Y', strtotime($row['publication_date']))) ?></small></p>
                             </div>
                         </div>
                     </div>
@@ -47,8 +47,8 @@
 <div class="row text-center justify-content-center m-0">
     <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-right px-0">
         <?php if ($page > 1) { ?>
-            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
-            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" title="début" href="http://laptitevadrouille/index.php?list=walk&amp;page=<?= 1 ?>"><i class="fas fa-angle-double-left"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" title="précédent" href="http://laptitevadrouille/index.php?list=walk&amp;page=<?= $page - 1 ?>"><i class="fas fa-angle-left"></i></a>
         <?php } else {
             '';
         } ?>
@@ -58,8 +58,8 @@
     </div>
     <div class="col-lg-5 col-md-2 col-sm-2 col-3 text-left px-0">
         <?php if ($page < $pageCount) { ?>
-            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
-            <a class="btn buttonColor2 btn-sm mx-2 px-2" href="http://laptitevadrouille/index.php?list=walk&page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" title="suivant" href="http://laptitevadrouille/index.php?list=walk&amp;page=<?= $page + 1 ?>"><i class="fas fa-angle-right"></i></a>
+            <a class="btn buttonColor2 btn-sm mx-2 px-2" title="fin" href="http://laptitevadrouille/index.php?list=walk&amp;page=<?= $pageCount ?>"><i class="fas fa-angle-double-right"></i></a>
         <?php } else {
             '';
         } ?>

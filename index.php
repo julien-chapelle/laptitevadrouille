@@ -38,7 +38,7 @@
                         </li>
                     </ul>
                 </form>
-                <form method="POST" action="http://laptitevadrouille/index.php?search=title&amp;page=1" class="form-inline my-2 my-lg-0 borderInput row m-0">
+                <form method="POST" action="" class="form-inline my-2 my-lg-0 borderInput row m-0">
                     <input class="form-control mr-1 bg-transparent border-0 col-9 textColor2" type="search" aria-label="Search" name="searchTitle">
                     <button class="btn searchButtonColor my-0 p-0 shadow-none col-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
                 </form>

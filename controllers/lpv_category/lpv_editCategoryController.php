@@ -66,7 +66,7 @@ if (isset($_POST['titleOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COURTE
-$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
+$regexShortDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»\&]{1,}+$/';
 
 if (isset($_POST['shortDescriptionOfWalk'])) {
     if (preg_match($regexShortDescriptionOfWalk, $_POST['shortDescriptionOfWalk']) == 0) {
@@ -77,7 +77,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR DESCRIPTION COMPLETE
-$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»]{1,}+$/';
+$regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»\&]{1,}+$/';
 
 if (isset($_POST['completeDescriptionOfWalk'])) {
     if (preg_match($regexCompleteDescriptionOfWalk, $_POST['completeDescriptionOfWalk']) == 0) {
@@ -132,7 +132,7 @@ if (isset($_POST['rate_child_disabledOfWalk'])) {
     };
 };
 // ERROR HEURES & PERIODES D'OUVERTURES
-$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:\,\(\)\'\/\.\&\œ]+$/';
+$regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\&\:\,\(\)\.\'\!\œ\’\‘\«\»]+$/';
 
 if (isset($_POST['openedHoursOfWalk1'])) {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk1']) == 0) {
@@ -191,11 +191,13 @@ if (isset($_POST['passwordEditWalk'])) {
     if (empty($_POST['passwordEditWalk'])) {
         $arrayError['passwordEditWalk'] = 'Veuillez remplir le champ';
     };
-    if(!empty($_POST['passwordEditWalk']) && password_verify($_POST['passwordEditWalk'], $_SESSION['password']) != 'true'){
+    if (!empty($_POST['passwordEditWalk']) && password_verify($_POST['passwordEditWalk'], $_SESSION['password']) != 'true') {
         $arrayError['passwordEditWalk'] = 'Le mot de passe est faux !';
     };
 };
+
 if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['passwordEditWalk'], $_SESSION['password']) == 'true') {
+
     $currentId = htmlspecialchars(intval($_GET['id']));
     $walkTitle = htmlspecialchars(strtoupper($_POST['titleOfWalk']));
     $walkShortDescription = htmlspecialchars($_POST['shortDescriptionOfWalk']);
@@ -205,8 +207,30 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     $walkRate_12_plusOfWalk = htmlspecialchars($_POST['rate_12_plusOfWalk']);
     $walkRate_child_disabledOfWalk = htmlspecialchars($_POST['rate_child_disabledOfWalk']);
     $walkOpenedHoursOfWalk = htmlspecialchars($_POST['openedHoursOfWalk1']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk2']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk3']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk4']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk5']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk6']) . '<br />' . htmlspecialchars($_POST['openedHoursOfWalk7']);
-    $walkFileUploadPicsOfWalk = htmlspecialchars($_FILES['fileUploadPics']['name']);
-    $walkFileUploadMapOfWalk = htmlspecialchars($_FILES['fileUploadMap']['name']);
+
+    $renamePics = strtolower(str_replace(' ', '_', $_POST['titleOfWalk'])) . '_category';
+    $renameMap = strtolower(str_replace(' ', '_', $_POST['titleOfWalk'])) . '_map';
+    //MOVE WALK PICS ON SERVER FIELD
+    if ($detailWalk[0]['pics'] != '' && isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
+        unlink($target_dir_pics . '/' . $detailWalk[0]['pics']);
+    };
+    if (isset($_FILES['fileUploadPics']['type']) && $_FILES['fileUploadPics']['type'] != '') {
+        $extansionPics = explode('/', $_FILES['fileUploadPics']['type']);
+        $walkFileUploadPicsOfWalk = htmlspecialchars($renamePics . '.' . strtolower($extansionPics[1]));
+        $tmp_name_pics = $_FILES['fileUploadPics']['tmp_name'];
+        move_uploaded_file($tmp_name_pics, $target_dir_pics . '/' . $renamePics . '.' . $extansionPics[1]);
+    };
+    //MOVE MAP IMAGE ON SERVER FIELD
+    if ($detailWalk[0]['map'] != '' && isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
+        unlink($target_dir_map . '/' . $detailWalk[0]['map']);
+    };
+    if (isset($_FILES['fileUploadMap']['type']) && $_FILES['fileUploadMap']['type'] != '') {
+        $extansionMap = explode('/', $_FILES['fileUploadMap']['type']);
+        $walkFileUploadMapOfWalk = htmlspecialchars($renameMap . '.' . strtolower($extansionMap[1]));
+        $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];
+        move_uploaded_file($tmp_name_map, $target_dir_map . '/' . $renameMap . '.' . $extansionMap[1]);
+    };
+
     $walkGoogleMapOfWalk = htmlspecialchars($_POST['googleMapOfWalk']);
     $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
     $walkValidateStatusChoiceOfWalk = htmlspecialchars($_POST['validateStatusChoice']);
@@ -232,7 +256,7 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     } else {
         $walkEdit->setPics($detailWalk[0]['pics']);
     };
-    if (isset($_FILES) &&$_FILES['fileUploadMap']['name'] != '') {
+    if (isset($_FILES) && $_FILES['fileUploadMap']['name'] != '') {
         $walkEdit->setMap($walkFileUploadMapOfWalk);
     } else {
         $walkEdit->setMap($detailWalk[0]['map']);
@@ -303,20 +327,6 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
         $paymentVacancyChecks->setIdWalk($currentId);
         $paymentVacancyChecks->addPayment();
     };
-    //MOVE WALK PICS ON SERVER FIELD
-    if ($detailWalk[0]['pics'] != '' && isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
-        unlink($target_dir_pics . '/' . $detailWalk[0]['pics']);
-    };
-    $tmp_name_pics = $_FILES['fileUploadPics']['tmp_name'];
-    $namePics = basename($_FILES['fileUploadPics']['name']);
-    move_uploaded_file($tmp_name_pics, "$target_dir_pics/$namePics");
-    //MOVE MAP MAP ON SERVER FIELD
-    if ($detailWalk[0]['map'] != '' && isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
-        unlink($target_dir_map . '/' . $detailWalk[0]['map']);
-    };
-    $tmp_name_map = $_FILES['fileUploadMap']['tmp_name'];
-    $nameMap = basename($_FILES['fileUploadMap']['name']);
-    move_uploaded_file($tmp_name_map, "$target_dir_map/$nameMap");
 
     header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
 }

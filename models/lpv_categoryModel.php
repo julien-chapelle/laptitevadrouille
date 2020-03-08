@@ -434,7 +434,7 @@ class Lpv_category extends Lpv_database
         };
     }
     //SEARCH WALK
-    public function searchWalk()
+    public function searchDetailWalk($limite, $debut)
     {
         $searchTitleQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
@@ -450,10 +450,13 @@ class Lpv_category extends Lpv_database
         ON `LPV_equipmentPicto`.`id` = `LPV_category`.`id_LPV_equipmentPicto`
         LEFT JOIN `LPV_user`
         ON `LPV_user`.`id` = `LPV_category`.`id_creator`
-        WHERE `title` LIKE :searchTitle";
+        WHERE `title` LIKE :searchTitle AND `LPV_category`.`walkValidate` = 'Validate'
+        LIMIT :limite OFFSET :debut";
 
         $searchTitleResult = $this->db->prepare($searchTitleQuery);
         $searchTitleResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
+        $searchTitleResult->bindValue(':limite', $limite, PDO::PARAM_INT);
+        $searchTitleResult->bindValue(':debut', $debut, PDO::PARAM_INT);
         if ($searchTitleResult->execute()) {
             $dataSearchWalk = $searchTitleResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataSearchWalk;
@@ -463,7 +466,7 @@ class Lpv_category extends Lpv_database
     public function countSearchWalk()
     {
         $countSearchWalkQuery = "SELECT count(`id`) AS `countSearchId` FROM `LPV_category`
-        WHERE `title` LIKE :searchTitle";
+        WHERE `title` LIKE :searchTitle AND `walkValidate` = 'Validate'";
 
         $countSearchWalkResult = $this->db->prepare($countSearchWalkQuery);
         $countSearchWalkResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);

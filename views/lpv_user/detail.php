@@ -99,7 +99,8 @@
                                         <div class="col">
                                             <div class="card-body p-1">
                                                 <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
-                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? '' : 'Créé par ' . $row['pseudo'] ?></small>
+                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? '' : 'Créé par ' . $row['pseudo'] ?></small><br />
+                                                <small class=" textColor2"><?= 'Créé le ' . utf8_encode (strftime('%d %B %Y', strtotime($row['publication_date']))) ?></small>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
@@ -169,7 +170,8 @@
                                         <div class="col">
                                             <div class="card-body p-1">
                                                 <p class="card-title mb-1 textColor2"><?= $row['title'] ?></p>
-                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? 'Utilisateur supprimé' : 'Créé par ' . $row['pseudo'] ?></small>
+                                                <small class=" textColor2"><?= $row['pseudo'] == '' ? 'Utilisateur supprimé' : 'Créé par ' . $row['pseudo'] ?></small><br />
+                                                <small class=" textColor2"><?= 'Créé le ' . utf8_encode (strftime('%d %B %Y', strtotime($row['publication_date']))) ?></small>
                                                 <div class="row">
                                                     <div class="col px-2">
                                                         <img src="assets/img_picto/<?= $row['locationPicto'] ?>" class="card-img m-1 sizePictoAdmin" alt="<?= $row['locationAlt'] ?>" title="<?= $row['locationTitle'] ?>">
