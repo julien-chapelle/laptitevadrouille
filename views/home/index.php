@@ -1,8 +1,32 @@
 <div class="row m-0">
     <div class="col p-0">
         <p class="textColor2 font-weight-bold h1 text-center mt-5">LA P'TITE VADROUILLE</p>
+
     </div>
 </div>
+<?php if (isset($_SESSION) && empty($_SESSION)) { ?>
+    <div class="row m-0 mt-1 p-2 justify-content-center">
+        <div class="col p-0 text-center">
+            <p class="textColor2 h3">POUR PARTAGER VOS EXPERIENCES INSCRIVEZ-VOUS !</p>
+        </div>
+    </div>
+    <div class="row m-0 mt-1 p-2 justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10  p-0 text-center">
+            <a class="btn buttonColor1 btn-lg btn-block px-3 shadow" href="http://laptitevadrouille/index.php?user=add" title="Aller vers inscription">S'INSCRIRE</a>
+        </div>
+    </div>
+<?php } else { ?>
+    <div class="row m-0 mt-1 p-2 justify-content-center">
+        <div class="col p-0 text-center">
+            <p class="textColor1 h3"><?= 'BIENVENU ' . $_SESSION['pseudo'] . ' !' ?></p>
+        </div>
+    </div>
+    <div class="row m-0 mt-1 p-2 justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10 p-0 text-center">
+            <a class="btn buttonColor1 btn-lg btn-block px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Aller vers info utilisateur">PROFIL</a>
+        </div>
+    </div>
+<?php }; ?>
 <div class="row d-flex justify-content-center m-0 heightArea">
     <div class="col-10 text-center mt-5 logoDisplay">
         <img src="assets/img/logoLaPtiteVadrouille.png" alt="Logo La P'tite Vadrouille" title="Logo La P'tite Vadrouille" class="img-fluid" />

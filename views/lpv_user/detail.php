@@ -1,4 +1,12 @@
-<div class="card-columns mx-auto mt-3 p-3">
+<div class="row m-0 mt-1 p-2">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-12 p-0 text-left">
+        <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/" title="Retour vers accueil"><i class="fas fa-reply"></i></a>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-12 text-left">
+        <p class="textColor1 h3 mt-3">DETAILS UTILISATEUR</p>
+    </div>
+</div>
+<div class="card-columns mx-auto mt-2 px-3">
     <?php foreach ($detailUser as $row) { ?>
         <div class="card text-center">
             <div class="row d-flex justify-content-center mx-auto mt-3">

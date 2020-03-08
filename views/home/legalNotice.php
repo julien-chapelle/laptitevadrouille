@@ -1,7 +1,10 @@
 <!-- Contenu mentions légales début -->
-<div class="row justify-content-around mt-5 m-0">
-    <div class="col text-center">
-        <h1 class="font-weight-bold text-center h2">MENTIONS LEGALES</h1>
+<div class="row m-0 mt-1 p-2">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-12 p-0 text-left">
+        <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/index.php?view=accueil" title="Retour vers l'accueil"><i class="fas fa-reply"></i></a>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-12 text-left">
+        <p class="textColor1 h3 mt-3">MENTIONS LEGALES</p>
     </div>
 </div>
 <div class="row justify-content-around m-0">

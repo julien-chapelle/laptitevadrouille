@@ -1,6 +1,9 @@
 <div class="row m-0 mt-1 p-2">
-    <div class="col p-0 text-left">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-12 p-0 text-left">
         <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/index.php?user=detail" title="Retour vers info utilisateur"><i class="fas fa-reply"></i></a>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-12 text-left">
+        <p class="textColor1 h3 mt-3">CREATION D'UNE SORTIE</p>
     </div>
 </div>
 <!-- formulaire début-->

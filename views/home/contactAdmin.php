@@ -1,3 +1,11 @@
+<div class="row m-0 mt-1 p-2">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-12 p-0 text-left">
+        <a class="btn buttonColor2 px-3 shadow" href="http://laptitevadrouille/index.php?view=accueil" title="Retour vers l'accueil"><i class="fas fa-reply"></i></a>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-12 text-left">
+        <p class="textColor1 h3 mt-3">NOUS CONTACTER</p>
+    </div>
+</div>
 <div class="row justify-content-around m-0">
     <div class="col-lg-5 col-md-10 col-sm-10 col-10 text-center borderRadius border-0 shadow card pt-4 mx-3 mt-4">
         <a href="https://www.google.com/maps/place/40+Rue+Eug%C3%A8ne+Boudin,+76290+Montivilliers/@49.5463243,0.1694886,17z/data=!3m1!4b1!4m5!3m4!1s0x47e0254a4f77ad85:0x12614fe99629a794!8m2!3d49.5463243!4d0.1716773"><img src="assets/img_map/contactMap.png" class="img-fluid" /></a>

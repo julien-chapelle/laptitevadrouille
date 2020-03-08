@@ -431,7 +431,7 @@ class Lpv_category extends Lpv_database
         WHERE `title` LIKE :searchTitle";
 
         $searchTitleResult = $this->db->prepare($searchTitleQuery);
-        $searchTitleResult->bindValue(':searchTitle', $this->getTitle() . '%', PDO::PARAM_STR);
+        $searchTitleResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
         if ($searchTitleResult->execute()) {
             $dataSearchWalk = $searchTitleResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataSearchWalk;

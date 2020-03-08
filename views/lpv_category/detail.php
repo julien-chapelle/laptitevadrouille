@@ -1,6 +1,9 @@
 <div class="row m-0 mt-1 p-2">
-    <div class="col p-0 text-left">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-12 p-0 text-left">
         <a class="btn buttonColor2 px-3 shadow" href="<?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'http://laptitevadrouille/index.php?user=detail' : 'http://laptitevadrouille/index.php?list=walk&amp;page=1'?>" title="Retour vers liste des sorties"><i class="fas fa-reply"></i></a>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-12 text-left">
+        <p class="textColor1 h3 mt-3"><?= 'DETAIL ' . $detailWalk[0]['title'] ?></p>
     </div>
 </div>
 <div class="card-columns px-3 mt-2">
