@@ -17,7 +17,7 @@
             }
         ?>
             <img src="assets/img_walk/<?= $row['pics'] ?>" class="img-fluid card" alt="Image illustration <?= strtolower($row['title']) ?>" title="Image illustration <?= strtolower($row['title']) ?>" />
-            <div class="card">
+            <div class="card pt-1">
                 <p class="text-center h4 my-auto textColor1"><?= $row['title'] ?></p>
             </div>
             <div class="card">

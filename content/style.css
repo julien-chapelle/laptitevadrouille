@@ -24,6 +24,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    font-family: 'Spartan', sans-serif;
 }
 /* scrollUp button */
 #scrollUp {
@@ -69,7 +70,7 @@ body{
     background-color: transparent;
     border: 2px solid #a94731;
     color: #a94731;
-    font-size: 15px;
+    font-size: 20px;
 }
 .buttonColor1:hover {
     color: #a94731;
@@ -78,7 +79,7 @@ body{
     background-color: transparent;
     border: 2px solid white;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
 }
 .buttonColor2:hover {
     color: white;

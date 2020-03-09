@@ -27,12 +27,12 @@
                     <div class="modal-body mx-3">
                         <div class="mb-5">
                             <label for="userMail"><i class="fas fa-user prefix colorIcon ml-1"></i></label>
-                            <input type="email" id="userMail" class="form-control validate borderInput" placeholder="Adresse email *" name="userMailConnexion" value="<?= !empty($arrayError) && isset($_POST['userMailConnexion']) || isset($userNoExistError) ? $_POST['userMailConnexion'] : '' ?>" />
+                            <input type="email" id="userMail" class="form-control validate borderInput textColor2" placeholder="Adresse email *" name="userMailConnexion" value="<?= !empty($arrayError) && isset($_POST['userMailConnexion']) || isset($userNoExistError) ? $_POST['userMailConnexion'] : '' ?>" />
                             <p class="error"><?= isset($arrayError['userMailConnexion']) ? $arrayError['userMailConnexion'] : '' ?></p>
                         </div>
                         <div class="mb-4">
                             <label for="password"><i class="fas fa-lock prefix colorIcon ml-1"></i></label>
-                            <input type="password" id="password" class="form-control validate borderInput" placeholder="Mot de passe *" name="passwordConnexion" />
+                            <input type="password" id="password" class="form-control validate borderInput textColor2" placeholder="Mot de passe *" name="passwordConnexion" />
                             <p class="error"><?= isset($arrayError['passwordConnexion']) ? $arrayError['passwordConnexion'] : '' ?></p>
                         </div>
                         <div class="col-12 text-center p-0">
