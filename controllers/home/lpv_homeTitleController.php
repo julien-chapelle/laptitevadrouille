@@ -8,7 +8,7 @@ if (isset($_GET['url']) && $_GET['url'] == '' || isset($_GET['view']) && $_GET['
 } elseif (isset($_GET['list']) && $_GET['list'] == 'user') {
     echo 'Liste des utilisateurs';
     return;
-} elseif (isset($_GET['search'])) {
+} elseif (isset($_GET['search']) && isset($_GET['page'])) {
     echo 'Résultats recherche';
     return;
 } elseif (isset($_SESSION) && empty($_SESSION) && isset($_GET['user']) && $_GET['user'] == 'add') {

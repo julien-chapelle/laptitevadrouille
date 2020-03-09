@@ -9,10 +9,10 @@
 <div class="row d-flex justify-content-end p-3 m-0">
     <div class="col p-0">
         <?php
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && isset($_GET['page']) && !empty($searchWalk)) {
             foreach ($searchWalk as $row) { ?>
                 <div class="card mb-3">
-                    <form method="GET" action="walkIdea.php" class="mb-0">
+                    <form method="GET" action="" class="mb-0">
                         <div class="row no-gutters">
                             <div class="col-md-4 p-2">
                                 <img src="assets/img_walk/<?= $row['pics'] ?>" class="card-img" alt="<?= 'image illustration ' . $row['title'] ?>" title="<?= 'image illustration ' . strtolower($row['title']) ?>">
@@ -40,7 +40,7 @@
                                         Enfant en situation de Handicap : <?= $row['rate_child_disabled'] ?><?= $row['rate_child_disabled'] == 'GRATUIT' ? "" : "€" ?>
                                     </p>
                                     <a class="btn buttonColor2 btn-sm" href="http://laptitevadrouille/index.php?walk=detail&amp;moreInfo=<?= $row['id'] ?>">+ d'info</a>
-                                    <p class="card-text"><small class="textColor2"><?= 'Créé le ' . utf8_encode (strftime('%d %B %Y', strtotime($row['publication_date']))) ?></small></p>
+                                    <p class="card-text"><small class="textColor2"><?= 'Créé le ' . utf8_encode(strftime('%d %B %Y', strtotime($row['publication_date']))) ?></small></p>
                                 </div>
                             </div>
                         </div>
