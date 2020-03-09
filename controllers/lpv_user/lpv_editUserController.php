@@ -92,6 +92,9 @@ if (isset($_POST['currentPassword'])) {
     if (empty($_POST['currentPassword'])) {
         $arrayError['currentPassword'] = 'Veuillez remplir le champ';
     };
+    if(!empty($_POST['currentPassword']) && password_verify($_POST['currentPassword'], $_SESSION['password']) != 'true'){
+        $arrayError['currentPassword'] = 'Le mot de passe est faux !';
+    };
 };
 // ERROR NEW PASSWORD
 $regexNewPassword = '/^[a-z0-9A-Z]{1,15}$/';

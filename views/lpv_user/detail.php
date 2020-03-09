@@ -59,7 +59,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title font-weight-bold textColor1">VOS FAVORIS :</p>
-                    <p class="card-text textColor2">BlaBla</p>
+                    <p class="card-text textColor2">...</p>
                 </div>
             </div>
         <?php }; ?>

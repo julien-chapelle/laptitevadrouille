@@ -36,10 +36,10 @@ if (isset($_POST['userMessage'])) {
 if (count($arrayError) == 0 && isset($_POST['send'])) {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
-    $from = $_POST['mail'];
+    $from = htmlspecialchars($_POST['mail']);
     $to = 'chapellejulien@laposte.net';
-    $subject = 'Message pour admin de ' . $_POST['pseudo'] . ' le ' . date('d-m-Y') . ' - ' . date('G') . 'h' . date('i');
-    $message = $_POST['userMessage'];
+    $subject = 'Message pour admin de ' . htmlspecialchars($_POST['pseudo']) . ' le ' . date('d-m-Y') . ' - ' . date('G') . 'h' . date('i');
+    $message = htmlspecialchars($_POST['userMessage']);
     $headers = 'From:' . $from;
     mail($to, utf8_decode($subject), $message, $headers);
     header('refresh:2;url=http://laptitevadrouille/');
