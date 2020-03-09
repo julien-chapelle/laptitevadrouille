@@ -12,13 +12,6 @@ if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'admin') {
     $user->setId($currentId);
     $detailUser = $user->detailUser();
 };
-if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'user') {
-    if(isset($_GET['user']) && $_GET['user'] == 'delete' && $_GET['id'] != $_SESSION['id']) {
-    header('Location: http://laptitevadrouille/index.php?user=detail');
-    } else {
-        '';
-    };
-};
 $walkDetail = new Lpv_category();
 if (isset($_GET['walk']) && $_GET['walk'] == 'delete') {
     $currentId = intval($_GET['id']);

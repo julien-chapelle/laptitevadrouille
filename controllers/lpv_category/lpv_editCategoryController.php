@@ -13,7 +13,9 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET
     $walkEdit->setId($currentId);
     $detailWalk = $walkEdit->detailWalk();
     $detailPaymentWalk = $walkEdit->detailPaymentWalk();
-    $arrayDateHour = explode('<br />', $detailWalk[0]['openedHours']);
+    if (!empty($detailWalk)) {
+        $arrayDateHour = explode('<br />', $detailWalk[0]['openedHours']);
+    };
 };
 // ERROR SIZE PICS
 if (isset($_FILES['fileUploadPics']['size']) && $_FILES['fileUploadPics']['name'] != '') {

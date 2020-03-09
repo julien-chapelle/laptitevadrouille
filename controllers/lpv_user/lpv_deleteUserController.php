@@ -10,6 +10,22 @@ if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['id'])) {
     $user->setId($currentId);
     $detailDeleteUser = $user->detailUser();
 };
+if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'user') {
+    if (isset($_GET['user']) && $_GET['user'] == 'delete' && $_GET['id'] != $_SESSION['id']) {
+        header('Location: http://laptitevadrouille/index.php?user=detail');
+    } elseif (isset($_GET['user']) && $_GET['user'] == 'editInfo' && $_GET['id'] != $_SESSION['id']) {
+        header('Location: http://laptitevadrouille/index.php?user=detail');
+    } elseif (isset($_GET['user']) && $_GET['user'] == 'editPassword' && $_GET['id'] != $_SESSION['id']) {
+        header('Location: http://laptitevadrouille/index.php?user=detail');
+    } else {
+        '';
+    };
+};
+if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'admin') {
+    if (isset($_GET['user']) && $_GET['user'] == 'editPassword' && $_GET['id'] != $_SESSION['id']) {
+        header('Location: http://laptitevadrouille/index.php?user=detail');
+    };
+};
 // ERROR PSEUDO
 $regexCheckPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ]{1,20}$/';
 
@@ -30,7 +46,7 @@ if (isset($_POST['checkPassword'])) {
     if (empty($_POST['checkPassword'])) {
         $arrayError['checkPassword'] = 'Veuillez remplir le champ';
     };
-    if(!empty($_POST['checkPassword']) && password_verify($_POST['checkPassword'], $_SESSION['password']) != 'true'){
+    if (!empty($_POST['checkPassword']) && password_verify($_POST['checkPassword'], $_SESSION['password']) != 'true') {
         $arrayError['checkPassword'] = 'Le mot de passe est faux !';
     };
 };
@@ -40,9 +56,9 @@ if (isset($_POST['deleteUser']) && empty($arrayError) && isset($_SESSION) && $_S
         //Hydratation
         $user->setId($currentId);
         $user->deleteUser();
-            session_reset();
-            session_destroy();
-            header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
+        session_reset();
+        session_destroy();
+        header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
     };
 } elseif (isset($_POST['deleteUser']) && empty($arrayError) && isset($_SESSION) && $_SESSION['status'] == 'admin') {
     if ($_POST['checkPseudo'] == $detailDeleteUser[0]['pseudo'] && password_verify($_POST['checkPassword'], $_SESSION['password']) == 'true') {

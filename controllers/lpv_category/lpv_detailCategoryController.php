@@ -19,4 +19,4 @@ if (isset($_GET['moreInfo'])) {
     //Hydratation
     $walkPayment->setId($currentId);
     $detailWalkPayment = $walkPayment->detailPaymentWalk();
-}
+};
