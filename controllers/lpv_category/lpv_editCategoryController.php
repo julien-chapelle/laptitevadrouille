@@ -7,7 +7,7 @@ $walkEdit = new Lpv_category();
 $target_dir_pics = 'assets/img_walk';
 $target_dir_map = 'assets/img_map';
 //DETAIL USER
-if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET['id'])) {
+if (isset($_SESSION) && !empty($_SESSION) && isset($_GET['walk']) && isset($_GET['id']) && $_GET['id'] != '') {
     $currentId = intval($_GET['id']);
     //Hydratation
     $walkEdit->setId($currentId);

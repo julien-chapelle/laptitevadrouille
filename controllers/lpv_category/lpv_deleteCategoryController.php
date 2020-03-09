@@ -4,12 +4,20 @@ require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
+
 $user = new Lpv_user();
 if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'admin') {
     $currentId = intval($_SESSION['id']);
     //Hydratation
     $user->setId($currentId);
     $detailUser = $user->detailUser();
+};
+if (isset($_SESSION) && !empty($_SESSION) && $_SESSION['status'] == 'user') {
+    if(isset($_GET['user']) && $_GET['user'] == 'delete' && $_GET['id'] != $_SESSION['id']) {
+    header('Location: http://laptitevadrouille/index.php?user=detail');
+    } else {
+        '';
+    };
 };
 $walkDetail = new Lpv_category();
 if (isset($_GET['walk']) && $_GET['walk'] == 'delete') {
@@ -56,3 +64,4 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'admin' && isset($_POST
         $arrayError['checkPassword'] = 'Le mot de passe actuel saisi est faux';
     };
 };
+
