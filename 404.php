@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <!-- Logo title -->
@@ -10,6 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="content/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
 <body>
     <div class="container-fluid p-0">
         <div class="row text-center m-0 justify-content-center mt-5 mx-4 card">

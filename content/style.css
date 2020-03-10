@@ -1,13 +1,17 @@
+/* MEDIA QUERIES DEBUT */
+/* hide big map home if window < 1000px */
 @media screen and (max-width: 1000px) {
     .mediaDisplay {
         display: none;
     }
 }
+/* hide small map home if window > 1000px */
 @media screen and (min-width: 1000px) {
     .logoDisplay {
         display: none;
     }
 }
+/* MEDIA QUERIES FIN */
 span[type=button] {
     -webkit-appearance: none;
     border-radius: 0;
