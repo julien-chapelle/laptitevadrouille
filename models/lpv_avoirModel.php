@@ -1,4 +1,18 @@
 <?php
+/**
+ * LPV_avoir model
+ * 
+ * Model class
+ * Class method intermediate table "avoir" on Database for delete, create, delete  
+ * 
+ * PHP version 7
+ * @category avoir model
+ * @package  None
+ * @author Chapelle Julien <chapellejulien@laposte.net>
+ * @copyright 2020 Chapelle Julien
+ * @license https://www.php.net/license/3_01.txt  PHP License 3.01
+ * @link http://laptitevadrouille/
+ */
 
 class Lpv_avoir extends Lpv_database
 {
@@ -69,3 +83,4 @@ class Lpv_avoir extends Lpv_database
         $deletePaymentResult->execute();
     }
 }
+?>
