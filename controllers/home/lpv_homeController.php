@@ -1,9 +1,14 @@
 <?php
+//Sets the default time difference for all date / time functions
 date_default_timezone_set('Europe/Paris');
+//Edit location information (used for strftime() function)
 setlocale(LC_ALL, 'fra', 'fr_FR.utf8');
+//Starts a new session
 session_start();
+//Initialising a array of error for form
 $arrayError = [];
 
+//REQUIRE CONTROLLERS
 require_once('controllers/home/lpv_homeUserLoginController.php');
 require_once('controllers/home/lpv_homeContactController.php');
 require_once('controllers/lpv_category/lpv_detailCategoryController.php');

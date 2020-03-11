@@ -1,8 +1,9 @@
 <?php
-
+//REQUIRE MODELS
 require_once('models/lpv_database.php');
 require_once('models/lpv_userModel.php');
 require_once('models/lpv_categoryModel.php');
+//INSTANTIATING AN NEW OBJECT
 $user = new Lpv_user();
 if (isset($_SESSION) && !empty($_SESSION)) {
     $currentId = intval($_SESSION['id']);

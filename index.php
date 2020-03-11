@@ -1,4 +1,7 @@
-<?php require_once('controllers/home/lpv_homeController.php'); ?>
+<?php
+//REQUIRE ALL CONTROLLERS
+require_once('controllers/home/lpv_homeController.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -7,17 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Logo title -->
     <link rel="shortcut icon" href="assets/img/logoLaPtiteVadrouille.png" class="titleSizeLogo" />
+    <!-- include title controller -->
     <title><?= include('controllers/home/lpv_homeTitleController.php') ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Font -->
+    <!-- Google Font CDN -->
     <link href="https://fonts.googleapis.com/css?family=Spartan:300&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-    <!-- Material Design Bootstrap -->
+    <!-- Material Design Bootstrap CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet" />
+    <!-- style.css -->
     <link rel="stylesheet" href="content/style.css" />
+    <!-- Fontawesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <!-- Script Google ReCaptcha CDN -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Script Google ReCaptcha trigger -->
     <script>
         function onSubmit(token) {
             document.getElementById("createUserForm").submit();
@@ -27,12 +34,16 @@
 
 <body>
     <div class="container-fluid p-0">
+        <!-- NavBar start -->
         <nav class="navbar navbar-expand-lg navbar-light sticky-top <?= isset($_SESSION['status']) && $_SESSION['status'] == 'admin' ? 'navBarAdminColor' : 'navBarUserColor' ?>">
+            <!-- Navbar logo -->
             <a class="navbar-brand" href="http://laptitevadrouille/index.php?view=accueil"><img src="assets/img/logoLaPtiteVadrouille.png" class="navBarSizeLogo" alt="Logo La P'tite Vadrouille" title="Retour vers accueil" /></a>
+            <!-- Burger menu -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fas fa-baby-carriage textColor2"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Form navigation start -->
                 <form method="GET" action="" class="my-auto" enctype="multipart/form-data">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
@@ -43,11 +54,17 @@
                         </li>
                     </ul>
                 </form>
+                <!-- Form navigation end -->
+                <!-- Form search walk start -->
                 <form method="POST" action="" class="form-inline my-2 my-lg-0 borderInput row m-0" enctype="multipart/form-data">
                     <input class="form-control mr-1 bg-transparent border-0 col-9 textColor2" type="search" aria-label="Search" name="searchTitle">
                     <button class="btn searchButtonColor my-0 p-0 shadow-none col-2" name="searchSubmit" type="submit" title="Recherche"><i class="fas fa-search p-1"></i></button>
                 </form>
+                <!-- Form search walk end -->
+                <!-- Search button around me start -->
                 <button type="button" class="btn searchButtonColor my-0 shadow-none pl-2" title="Rechercher autour de moi"><i class="fas fa-crosshairs"></i></button>
+                <!-- Search button around me end -->
+                <!-- User account icon for login modal start -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link sizeFontUser avatarNavZone" href="#" data-toggle="modal" data-target="#signIn">
@@ -55,11 +72,16 @@
                         </a>
                     </li>
                 </ul>
+                <!-- User account icon for login modal end -->
             </div>
         </nav>
+        <!-- NavBar end -->
+        <!-- view content start -->
         <div class="container-fluid p-0 pb-5">
             <?= include('controllers/home/lpv_homeBodyController.php') ?>
         </div>
+        <!-- view content end -->
+        <!-- footer start -->
         <footer class="row text-center footerColor px-3 py-2 m-0 footerTextSize justify-content-around shadowTop">
             <div class="col-3 p-0">
                 <p><a href="http://laptitevadrouille/index.php?view=accueil" class="text-white">Accueil</a></p>
@@ -82,20 +104,28 @@
         <footer class="row text-center footerColor text-white px-3 py-2 m-0 footerTextSize border-top border-white">
             <p class="col-12 p-0"><?= 'Tout droits réservés© La P\'tite Vadrouille - 2019 - ' . date('Y') . '.' ?></p>
         </footer>
+        <!-- footer end -->
+        <!-- scrollup button start -->
         <div id="scrollUp">
             <a href="#top" class="scrollUpColor"><i class="far fa-caret-square-up"></i></a>
         </div>
+        <!-- scrollup button end -->
     </div>
+    <!-- Bootstrap script CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+    <!-- Bootstrap script CDN -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
     </script>
+    <!-- Bootstrap script CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
-    <!-- MDB core JavaScript -->
+    <!-- MDB core script CDN -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js">
     </script>
+    <!-- Jquery CDN -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- Script.js -->
     <script type="text/javascript" src="scripts/script.js"></script>
 </body>
 
