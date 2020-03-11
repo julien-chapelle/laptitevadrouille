@@ -28,6 +28,8 @@
  * - "Lpv_practicabilityPicto"
  * - "Lpv_equipementPicto"
  * - "Lpv_user"
+ * - "Lpv_paymentPicto"
+ * - "avoir"
  * 
  * Create method class
  * - Walk + lastInsertId PDO method
@@ -434,7 +436,7 @@ class Lpv_category extends Lpv_database
      * 
      * Table "Lpv_category"
      *
-     * @return string&int
+     * @return void
      */
     public function addWalk()
     {
@@ -680,6 +682,7 @@ class Lpv_category extends Lpv_database
      */
     public function detailWalk()
     {
+        //Details walk query
         $detailWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
@@ -696,16 +699,36 @@ class Lpv_category extends Lpv_database
         ON `LPV_user`.`id` = `LPV_category`.`id_creator`
         WHERE `LPV_category`.`id` = :currentId";
 
+        //Preparation of the "detail" request
         $detailWalkResult = $this->db->prepare($detailWalkQuery);
+        //Recovery of values
         $detailWalkResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        //Execute
         if ($detailWalkResult->execute()) {
+            //PDO method for recuperation of values array
+            /**
+             * all walk details values array
+             * 
+             * @var array $detailWalk
+             */
             $detailWalk = $detailWalkResult->fetchAll(PDO::FETCH_ASSOC);
             return $detailWalk;
         };
     }
     //WALK DETAIL PAYMENT
+    /**
+     * select payment values for display
+     * 
+     * tables using
+     * - "Lpv_category"
+     * - "Lpv_paymentPicto"
+     * - "avoir"
+     *
+     * @return array
+     */
     public function detailPaymentWalk()
     {
+        //Details payment of walk query
         $detailPaymentWalkQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`,`LPV_category`.`walkValidate`, `LPV_paymentPicto`.`paymentPicto`, `LPV_paymentPicto`.`paymentTitle`, `LPV_paymentPicto`.`paymentAlt`
         FROM `LPV_category`
         LEFT JOIN `avoir`
@@ -714,16 +737,35 @@ class Lpv_category extends Lpv_database
         ON `LPV_paymentPicto`.`id` = `avoir`.`id`
         WHERE `LPV_category`.`id` = :currentId";
 
+        //Preparation of the "detail payment" request
         $detailPaymentWalkResult = $this->db->prepare($detailPaymentWalkQuery);
+        //Recovery of values
         $detailPaymentWalkResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
+        //Execute
         if ($detailPaymentWalkResult->execute()) {
+            //PDO method for recuperation of values array
+            /**
+             * all walk payment details values array
+             * 
+             * @var array $detailPaymentWalk
+             */
             $detailPaymentWalk = $detailPaymentWalkResult->fetchAll(PDO::FETCH_ASSOC);
             return $detailPaymentWalk;
         };
     }
     //SEARCH WALK
+    /**
+     * select all search values of "Lpv_walk" for display and limit of display for paging
+     * 
+     * Table "Lpv_category"
+     *
+     * @param int $limite
+     * @param int $debut
+     * @return array
+     */
     public function searchDetailWalk($limite, $debut)
     {
+        //Search result of a walk query
         $searchTitleQuery = "SELECT `LPV_category`.`id`,`LPV_category`.`title`, `LPV_category`.`description`,`LPV_category`.`moreInfoDescription`,`LPV_category`.`rate_0_3`,`LPV_category`.`rate_3_11`,`LPV_category`.`rate_12_plus`,`LPV_category`.`rate_child_disabled`,`LPV_category`.`openedHours`,`LPV_category`.`publication_date`,`LPV_category`.`pics`,`LPV_category`.`map`,`LPV_category`.`googleMapAddress`,`LPV_category`.`likes`,`LPV_category`.`officialSite`,`LPV_category`.`walkValidate`,`LPV_category`.`id_creator`,`LPV_category`.`id_LPV_equipmentPicto`,`LPV_locationPicto`.`locationPicto`,`LPV_locationPicto`.`locationTitle`,`LPV_locationPicto`.`locationAlt`,`LPV_outputTypePicto`.`outputTypePicto`,`LPV_outputTypePicto`.`outputTypeTitle`,`LPV_outputTypePicto`.`outputTypeAlt`,`LPV_ageAdvisePicto`.`ageAdvisePicto`,`LPV_ageAdvisePicto`.`ageAdviseTitle`,`LPV_ageAdvisePicto`.`ageAdviseAlt`,`LPV_practicabilityPicto`.`practicabilityPicto`,`LPV_practicabilityPicto`.`practicabilityTitle`,`LPV_practicabilityPicto`.`practicabilityAlt`,`LPV_equipmentPicto`.`equipmentPicto`,`LPV_equipmentPicto`.`equipmentTitle`,`LPV_equipmentPicto`.`equipmentAlt`,`LPV_user`.`pseudo`
         FROM `LPV_category`
         LEFT JOIN `LPV_locationPicto`
@@ -741,36 +783,72 @@ class Lpv_category extends Lpv_database
         WHERE `title` LIKE :searchTitle AND `LPV_category`.`walkValidate` = 'Validate'
         LIMIT :limite OFFSET :debut";
 
+        //Preparation of the "search walk" request
         $searchTitleResult = $this->db->prepare($searchTitleQuery);
+        //Recovery of values
         $searchTitleResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
         $searchTitleResult->bindValue(':limite', $limite, PDO::PARAM_INT);
         $searchTitleResult->bindValue(':debut', $debut, PDO::PARAM_INT);
+        //Execute
         if ($searchTitleResult->execute()) {
+            //PDO method for recuperation of values array
+            /**
+             * all Search result of a walk values array
+             * 
+             * @var array $dataSearchWalk
+             */
             $dataSearchWalk = $searchTitleResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataSearchWalk;
         };
     }
     //COUNT ID SEARCH DATABASE
+    /**
+     * Counter of search result of a validate walk id on bdd
+     * 
+     * Table "Lpv_category"
+     *
+     * @return array
+     */
     public function countSearchWalk()
     {
+        //counter query
         $countSearchWalkQuery = "SELECT count(`id`) AS `countSearchId` FROM `LPV_category`
         WHERE `title` LIKE :searchTitle AND `walkValidate` = 'Validate'";
 
+        //Preparation of the "counter" request
         $countSearchWalkResult = $this->db->prepare($countSearchWalkQuery);
+        //Recovery of values
         $countSearchWalkResult->bindValue(':searchTitle', '%' . $this->getTitle() . '%', PDO::PARAM_STR);
+        //Execute
         if ($countSearchWalkResult->execute()) {
+            //PDO method for recuperation of values array
+            /**
+             * search result of a validate walk id count values array
+             * 
+             * @var array $dataCountSearchWalk
+             */
             $dataCountSearchWalk = $countSearchWalkResult->fetchAll(PDO::FETCH_ASSOC);
             return $dataCountSearchWalk;
         }
     }
     //EDIT WALK
+    /**
+     * Edit walk info
+     * 
+     * Table "Lpv_category"
+     *
+     * @return void
+     */
     public function editWalk()
     {
+        //Edit walk query
         $editWalkQuery = "UPDATE `LPV_category`
         SET `title` = :walkTitle, `description` = :walkShortDescription,`moreInfoDescription` = :walkCompleteDescription,`rate_0_3` = :walkRate_0_3OfWalk, `rate_3_11` = :walkRate_3_11OfWalk, `rate_12_plus` = :walkRate_12_plusOfWalk, `rate_child_disabled` = :walkRate_child_disabledOfWalk, `openedHours` = :walkOpenedHoursOfWalk, `pics` = :walkPics, `map` = :walkMap, `googleMapAddress` = :walkGoogleMapAddress, `officialSite` = :walkOfficialSiteOfWalk, `walkValidate` = :walkValidate, `id_LPV_locationPicto` = :walkLocationPictoOfWalk, `id_LPV_outputTypePicto` = :walkOutputTypePictoOfWalk, `id_LPV_ageAdvisePicto` = :walkAgeAdvisePictoOfWalk, `id_LPV_practicabilityPicto` = :walkPracticabilityPictoOfWalk, `id_LPV_equipmentPicto` = :walkBabyDiaperPictoOfWalk
         WHERE `id` = :currentId";
 
+        //Preparation of the "edit" request
         $editWalkResult = $this->db->prepare($editWalkQuery);
+        //Recovery of values
         $editWalkResult->bindValue(':currentId', $this->getId(), PDO::PARAM_INT);
         $editWalkResult->bindValue(':walkTitle', $this->getTitle(), PDO::PARAM_STR);
         $editWalkResult->bindValue(':walkShortDescription', $this->getDescription(), PDO::PARAM_STR);
@@ -790,16 +868,28 @@ class Lpv_category extends Lpv_database
         $editWalkResult->bindValue(':walkAgeAdvisePictoOfWalk', $this->getIdLpvAgeAdvisePicto(), PDO::PARAM_INT);
         $editWalkResult->bindValue(':walkPracticabilityPictoOfWalk', $this->getIdLpvPracticabilityPicto(), PDO::PARAM_INT);
         $editWalkResult->bindValue(':walkBabyDiaperPictoOfWalk', $this->getIdLpvEquipmentPicto(), PDO::PARAM_INT);
+        //Execute
         $editWalkResult->execute();
     }
     //DELETE WALK
+    /**
+     * Delete walk
+     * 
+     * Table "Lpv_category"
+     *
+     * @return void
+     */
     public function deleteWalk()
     {
+        //Delete walk query
         $deleteWalkQuery = "DELETE FROM `LPV_category`
         WHERE `id` = :currentId";
 
+        //Preparation of the "delete" request
         $deleteWaltResult = $this->db->prepare($deleteWalkQuery);
+        //Recovery of values
         $deleteWaltResult->bindvalue(':currentId', $this->getId(), PDO::PARAM_INT);
+        //Execute
         $deleteWaltResult->execute();
     }
 }

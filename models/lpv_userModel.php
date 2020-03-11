@@ -175,7 +175,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return string&int
+     * @return int
      */
     public function addUser()
     {
@@ -325,7 +325,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return string&int
+     * @return void
      */
     public function editUserInfo()
     {
@@ -349,7 +349,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return string&int
+     * @return void
      */
     public function editUserPassword()
     {
@@ -372,7 +372,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return int
+     * @return void
      */
     public function deleteUser()
     {
@@ -393,7 +393,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return string&int
+     * @return void
      */
     public function changeStatus()
     {
@@ -416,7 +416,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_avatar"
      *
-     * @return string
+     * @return void
      */
     public function addAvatarOnBdd()
     {
@@ -495,7 +495,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return int
+     * @return void
      */
     public function editAvatar()
     {
@@ -518,7 +518,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_user"
      *
-     * @return int
+     * @return void
      */
     public function deleteAvatar()
     {
@@ -540,7 +540,7 @@ class Lpv_user extends Lpv_database
      * 
      * Table "Lpv_avatar"
      *
-     * @return string
+     * @return void
      */
     public function deleteAvatarOnBdd()
     {
