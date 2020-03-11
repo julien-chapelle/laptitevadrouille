@@ -1,9 +1,13 @@
 <?php
-
+//REQUIRE MODELS
 require_once('models/lpv_database.php');
 require_once('models/lpv_categoryModel.php');
 require_once('models/lpv_avoirModel.php');
+
+//INSTANTIATING AN NEW OBJECT
+//for calling method "create walk"
 $walkCreate = new Lpv_category();
+
 //VERIFY IF OFFICIAL SITE OF WALK EXIST
 $verifyIfExist = $walkCreate->classicListWalk();
 if (isset($_POST['createOfficialSiteOfWalk']) && !empty($_POST['createOfficialSiteOfWalk'])) {
