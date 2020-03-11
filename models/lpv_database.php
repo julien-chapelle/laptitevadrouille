@@ -1,12 +1,13 @@
 <?php
+
 /**
- * LPV_database model
+ * "LPV_database" model
  * 
  * Model class
  * Instantiation PDO object for database connecting
  * 
  * PHP version 7
- * @category database model
+ * @category model
  * @package  None
  * @author Chapelle Julien <chapellejulien@laposte.net>
  * @copyright 2020 Chapelle Julien
@@ -26,27 +27,33 @@
  * @category database model
  * @package  None
  * @author Chapelle Julien <chapellejulien@laposte.net>
- * @license https://www.php.net/license/3_01.txt  PHP License 3.01
- * @link http://laptitevadrouille/
  */
 class Lpv_database
 {
-    /** 
+    //Attributs////////////////////////////////////////
+    /**
+     * PDO database variable
      *
-     * @var mixed $db
+     * @var /PDO $db
      */
     protected $db;
 
+    //Constructor//////////////////////////////////////
     /**
-     * Database connection magic method construct
+     * Construct method
      * 
+     * Database PDO connection
+     * 
+     * @return exit
      */
     public function __construct()
     {
         try {
-            $this->db = new PDO('mysql:host=127.0.0.1;dbname=laptitevadrouille;charset=utf8', 'root', ''); //PDO object creating for database connect
+            //PDO object creating for database connect
+            $this->db = new PDO('mysql:host=127.0.0.1;dbname=laptitevadrouille;charset=utf8', 'root', '');
         } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage()); //Display error message if not connected of server
+            //Display error message if not connected of server
+            die('Erreur : ' . $e->getMessage());
         }
     }
 }
