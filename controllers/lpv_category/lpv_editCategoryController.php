@@ -282,7 +282,7 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     //Variables for storing results of str_replace function for rename pics and images
     $renamePics = strtolower(str_replace(' ', '_', $_POST['titleOfWalk'])) . '_category';
     $renameMap = strtolower(str_replace(' ', '_', $_POST['titleOfWalk'])) . '_map';
-    
+
     //MOVE WALK PICS ON SERVER FIELD
     //Condition for triggering the deletion of photos if it exists in the folder
     if ($detailWalk[0]['pics'] != '' && isset($_FILES) && $_FILES['fileUploadPics']['name'] != '' && file_exists($target_dir_pics . '/' . $detailWalk[0]['pics']) == 'true') {
@@ -300,7 +300,7 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
         //Move file function
         move_uploaded_file($tmp_name_pics, $target_dir_pics . '/' . $renamePics . '.' . $extansionPics[1]);
     };
-    
+
     //MOVE MAP IMAGE ON SERVER FIELD
     //Condition for triggering the deletion of photos if it exists in the folder
     if ($detailWalk[0]['map'] != '' && isset($_FILES) && $_FILES['fileUploadMap']['name'] != '' && file_exists($target_dir_map . '/' . $detailWalk[0]['map']) == 'true') {
@@ -318,7 +318,7 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
         //Move file function
         move_uploaded_file($tmp_name_map, $target_dir_map . '/' . $renameMap . '.' . $extansionMap[1]);
     };
-    //Hydration
+    //Variables for storing results of $_POST
     $walkGoogleMapOfWalk = htmlspecialchars($_POST['googleMapOfWalk']);
     $walkOfficialSiteOfWalk = htmlspecialchars($_POST['officialSiteOfWalk']);
     $walkValidateStatusChoiceOfWalk = htmlspecialchars($_POST['validateStatusChoice']);
@@ -328,7 +328,6 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     $walkPracticabilityPictoOfWalk = htmlspecialchars(intval($_POST['practicabilityPictoOfWalk']));
     //Condition of recovering values if are existing
     if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
-        //Hydration
         $walkBabyDiaperPictoOfWalk = htmlspecialchars(intval($_POST['babyDiaperPictoOfWalk']));
     };
     //Hydration
@@ -341,16 +340,23 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     $walkEdit->setRate12Plus($walkRate_12_plusOfWalk);
     $walkEdit->setRateChildDisabled($walkRate_child_disabledOfWalk);
     $walkEdit->setOpenedHour($walkOpenedHoursOfWalk);
+    //Condition of recovering values if $_files existing and not empty - Or else hydration of a value who exist on the database
     if (isset($_FILES) && $_FILES['fileUploadPics']['name'] != '') {
+        //Hydration
         $walkEdit->setPics($walkFileUploadPicsOfWalk);
     } else {
+        //Hydration
         $walkEdit->setPics($detailWalk[0]['pics']);
     };
+    //Condition of recovering values if $_files existing and not empty - Or else hydration of a value who exist on the database
     if (isset($_FILES) && $_FILES['fileUploadMap']['name'] != '') {
+        //Hydration
         $walkEdit->setMap($walkFileUploadMapOfWalk);
     } else {
+        //Hydration
         $walkEdit->setMap($detailWalk[0]['map']);
     };
+    //Hydration
     $walkEdit->setGoogleMapAddress($walkGoogleMapOfWalk);
     $walkEdit->setOfficialSite($walkOfficialSiteOfWalk);
     $walkEdit->setWalkValidate($walkValidateStatusChoiceOfWalk);
@@ -358,12 +364,17 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
     $walkEdit->setIdLpvOutputTypePicto($walkOutputTypePictoOfWalk);
     $walkEdit->setIdLpvAgeAdvisePicto($walkAgeAdvisePictoOfWalk);
     $walkEdit->setIdLpvPracticabilityPicto($walkPracticabilityPictoOfWalk);
+    //Condition of recovering values if are existing
     if (isset($_POST['babyDiaperPictoOfWalk']) && !empty($_POST['babyDiaperPictoOfWalk'])) {
+        //Hydration
         $walkEdit->setIdLpvEquipmentPicto($walkBabyDiaperPictoOfWalk);
     };
+    //Triggering "edit walk" method
     $walkEdit->editWalk();
 
+    //Condition of recovering values if are existing
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
+        //Variables for storing results of $_POST
         $walkFreePictoOfWalk = htmlspecialchars(intval($_POST['freePictoOfWalk']));
     };
     if (isset($_POST['cardPictoOfWalk']) && !empty($_POST['cardPictoOfWalk'])) {
@@ -379,14 +390,21 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
         $walkVacancyChecksPictoOfWalk = htmlspecialchars(intval($_POST['vacancyChecksPictoOfWalk']));
     };
 
+    //for calling method "delete payment"
     $paymentDelete = new Lpv_avoir();
+    //Hydration
     $paymentDelete->setIdWalk($currentId);
+    //Triggering "delete payment" method
     $paymentDelete->deletePayment();
 
+    //Condition of recovering values if are existing
     if (isset($_POST['freePictoOfWalk']) && !empty($_POST['freePictoOfWalk'])) {
+        //for calling method "create payment"
         $paymentFree = new Lpv_avoir();
+        //Hydration
         $paymentFree->setId($walkFreePictoOfWalk);
         $paymentFree->setIdWalk($currentId);
+        //Triggering "create payment" method
         $paymentFree->addPayment();
     };
 
@@ -418,5 +436,6 @@ if (isset($_POST['editWalk']) && empty($arrayError) && password_verify($_POST['p
         $paymentVacancyChecks->addPayment();
     };
 
+    //If all form is validated, returning to user details page
     header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
 }
