@@ -57,7 +57,7 @@ if (isset($_POST['shortDescriptionOfWalk'])) {
     };
 };
 // ERROR FULL DESCRIPTION
-//Regex complet description
+//Regex full description
 $regexCompleteDescriptionOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð\ò\ó\ô\õ\ö\ù\ú\û\ü\ý\ÿ\,\(\)\.\'\!\:\œ\’\‘\«\»\&\…]{1,}+$/';
 
 //Condition of verification if $_POST['completeDescriptionOfWalk'] exist
