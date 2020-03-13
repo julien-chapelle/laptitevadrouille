@@ -65,7 +65,7 @@ class Lpv_category extends Lpv_database
     /**
      * Autoincrement id variable
      *
-     * @var string|int $_id
+     * @var int $_id
      */
     private $_id;
     /**

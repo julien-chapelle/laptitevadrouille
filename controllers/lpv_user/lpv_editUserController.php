@@ -43,7 +43,7 @@ if (isset($_POST['password'])) {
     if (empty($_POST['password'])) {
         $arrayError['password'] = 'Veuillez remplir le champ';
     };
-    if(!empty($_POST['password']) && password_verify($_POST['password'], $_SESSION['password']) != 'true'){
+    if (!empty($_POST['password']) && password_verify($_POST['password'], $_SESSION['password']) != 'true') {
         $arrayError['password'] = 'Le mot de passe est faux !';
     };
 };
@@ -92,7 +92,7 @@ if (isset($_POST['currentPassword'])) {
     if (empty($_POST['currentPassword'])) {
         $arrayError['currentPassword'] = 'Veuillez remplir le champ';
     };
-    if(!empty($_POST['currentPassword']) && password_verify($_POST['currentPassword'], $_SESSION['password']) != 'true'){
+    if (!empty($_POST['currentPassword']) && password_verify($_POST['currentPassword'], $_SESSION['password']) != 'true') {
         $arrayError['currentPassword'] = 'Le mot de passe est faux !';
     };
 };
@@ -129,8 +129,11 @@ if (isset($_POST['editUserPassword']) && empty($arrayError)) {
         $user->setId($currentId);
         $user->setPassword($password);
         $user->editUserPassword();
-        header('refresh:2;url=http://laptitevadrouille/index.php?user=detail');
+        session_reset();
+        session_destroy();
+        header('refresh:2;url=http://laptitevadrouille/index.php?view=accueil');
     } else {
         $arrayError['currentPassword'] = 'Le mot de passe actuel saisi est faux';
     };
 };
+?>

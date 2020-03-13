@@ -7,6 +7,12 @@
     </div>
 </div>
 <form class="p-4 card mx-4 mt-2" method="POST" action="" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+        <div class="col p-1 text-center">
+            <p class="h6 text-danger text-center"><i class="fas fa-exclamation-triangle"></i> Attention !<br />
+                Après la validation, vous serez automatiquement déconnecté.</p>
+        </div>
+    </div>
     <div class="row text-center m-0 mt-1 justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <label class="font-weight-bold textColor1" for="currentPassword"><i class="fas fa-unlock-alt"></i> MOT

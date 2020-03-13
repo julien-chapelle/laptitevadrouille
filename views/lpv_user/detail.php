@@ -74,11 +74,11 @@
                 <div class="row m-0">
                     <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
                         <form method="POST" action="" class="mb-0">
-                            <button class="btn buttonColor2 btn-sm mx-0" type="submit" name="logout">DECONNEXION</button>
+                            <button class="btn buttonColor2 btn-sm mx-0 px-2" type="submit" name="logout">DECONNEXION</button>
                         </form>
                     </div>
                     <div class="col-lg-6 col-md-10 col-sm-10 col-6 p-0">
-                        <a class="btn buttonColor2 btn-sm btn-block mx-0" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
+                        <a class="btn buttonColor2 btn-sm btn-block mx-0 px-1" href="http://laptitevadrouille/index.php?user=delete&amp;id=<?= $row['id'] ?>" title="suppression compte utilisateur">SUPPRIMER LE COMPTE</a>
                     </div>
                 </div>
             </div>
