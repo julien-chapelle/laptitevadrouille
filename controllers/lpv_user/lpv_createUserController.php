@@ -23,7 +23,7 @@ $regexPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð
 
 if (isset($_POST['pseudoCreate'])) {
     if (preg_match($regexPseudo, $_POST['pseudoCreate']) == 0) {
-        $arrayError['pseudoCreate'] = 'Veuillez respecter le format';
+        $arrayError['pseudoCreate'] = 'Veuillez respecter le format (uniquement lettres Maj/Min, accentuées, espace, tiret et chiffres)';
     };
     if (empty($_POST['pseudoCreate'])) {
         $arrayError['pseudoCreate'] = 'Veuillez remplir le champ';
@@ -34,7 +34,7 @@ $regexMail = '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/
 
 if (isset($_POST['mailCreate'])) {
     if (preg_match($regexMail, $_POST['mailCreate']) == 0) {
-        $arrayError['mailCreate'] = 'Veuillez respecter le format';
+        $arrayError['mailCreate'] = 'Veuillez respecter un format mail';
     };
     if (empty($_POST['mailCreate'])) {
         $arrayError['mailCreate'] = 'Veuillez remplir le champ';
@@ -45,7 +45,7 @@ $regexPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['passwordCreate'])) {
     if (preg_match($regexPassword, $_POST['passwordCreate']) == 0) {
-        $arrayError['passwordCreate'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['passwordCreate'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['passwordCreate'])) {
         $arrayError['passwordCreate'] = 'Veuillez remplir le champ';
@@ -56,7 +56,7 @@ $regexPasswordConfirm = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['passwordConfirmCreate'])) {
     if (preg_match($regexPasswordConfirm, $_POST['passwordConfirmCreate']) == 0) {
-        $arrayError['passwordConfirmCreate'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['passwordConfirmCreate'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['passwordConfirmCreate'])) {
         $arrayError['passwordConfirmCreate'] = 'Veuillez remplir le champ';

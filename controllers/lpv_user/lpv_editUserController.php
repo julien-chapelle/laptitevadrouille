@@ -16,7 +16,7 @@ $regexPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð
 
 if (isset($_POST['pseudo'])) {
     if (preg_match($regexPseudo, $_POST['pseudo']) == 0) {
-        $arrayError['pseudo'] = 'Veuillez respecter le format';
+        $arrayError['pseudo'] = 'Veuillez respecter le format (uniquement lettres Maj/Min, accentuées, espace, tiret et chiffres)';
     };
     if (empty($_POST['pseudo'])) {
         $arrayError['pseudo'] = 'Veuillez remplir le champ';
@@ -27,7 +27,7 @@ $regexMail = '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/
 
 if (isset($_POST['mail'])) {
     if (preg_match($regexMail, $_POST['mail']) == 0) {
-        $arrayError['mail'] = 'Veuillez respecter le format';
+        $arrayError['mail'] = 'Veuillez respecter un format mail';
     };
     if (empty($_POST['mail'])) {
         $arrayError['mail'] = 'Veuillez remplir le champ';
@@ -38,7 +38,7 @@ $regexPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['password'])) {
     if (preg_match($regexPassword, $_POST['password']) == 0) {
-        $arrayError['password'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['password'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['password'])) {
         $arrayError['password'] = 'Veuillez remplir le champ';
@@ -87,7 +87,7 @@ $regexCurrentPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['currentPassword'])) {
     if (preg_match($regexCurrentPassword, $_POST['currentPassword']) == 0) {
-        $arrayError['currentPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['currentPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['currentPassword'])) {
         $arrayError['currentPassword'] = 'Veuillez remplir le champ';
@@ -101,7 +101,7 @@ $regexNewPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['newPassword'])) {
     if (preg_match($regexNewPassword, $_POST['newPassword']) == 0) {
-        $arrayError['newPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['newPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['newPassword'])) {
         $arrayError['newPassword'] = 'Veuillez remplir le champ';
@@ -112,7 +112,7 @@ $regexConfirmeNewPassword = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['confirmNewPassword'])) {
     if (preg_match($regexConfirmeNewPassword, $_POST['confirmNewPassword']) == 0) {
-        $arrayError['confirmNewPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['confirmNewPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['confirmNewPassword'])) {
         $arrayError['confirmNewPassword'] = 'Veuillez remplir le champ';
