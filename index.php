@@ -85,7 +85,7 @@ require_once('controllers/home/lpv_homeController.php');
         <footer class="row text-center footerColor px-3 py-2 m-0 footerTextSize justify-content-around shadowTop">
             <div class="col-3 p-0">
                 <p><a href="http://laptitevadrouille/index.php?view=accueil" class="text-white">Accueil</a></p>
-                <p><a class="text-white" data-toggle="modal" data-target="#about">A propos</a></p>
+                <p><a class="text-white" data-toggle="modal" data-target="#about">À propos</a></p>
                 <p><a href="http://laptitevadrouille/index.php?view=contact" class="text-white">Nous contacter</a></p>
             </div>
             <div class="col-3 p-0">
