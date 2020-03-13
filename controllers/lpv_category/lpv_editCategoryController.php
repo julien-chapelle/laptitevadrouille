@@ -93,7 +93,7 @@ $regexTitleOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\
 if (isset($_POST['titleOfWalk'])) {
     //Condition of verification if value of $_POST is valid
     if (preg_match($regexTitleOfWalk, $_POST['titleOfWalk']) == 0) {
-        $arrayError['titleOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['titleOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
     //Condition of verification if value of $_POST is not empty
     if (empty($_POST['titleOfWalk'])) {
@@ -198,7 +198,7 @@ $regexOpenedHoursOfWalk = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\
 if (isset($_POST['openedHoursOfWalk1'])) {
     //Condition of verification if value of $_POST is valid
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk1']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
     //Condition of verification if value of $_POST is not empty
     if (empty($_POST['openedHoursOfWalk1'])) {
@@ -207,32 +207,32 @@ if (isset($_POST['openedHoursOfWalk1'])) {
 };
 if (isset($_POST['openedHoursOfWalk2']) && !empty($_POST['openedHoursOfWalk2']) && $_POST['openedHoursOfWalk2'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk2']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 if (isset($_POST['openedHoursOfWalk3']) && !empty($_POST['openedHoursOfWalk3']) && $_POST['openedHoursOfWalk3'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk3']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 if (isset($_POST['openedHoursOfWalk4']) && !empty($_POST['openedHoursOfWalk4']) && $_POST['openedHoursOfWalk4'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk4']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 if (isset($_POST['openedHoursOfWalk5']) && !empty($_POST['openedHoursOfWalk5']) && $_POST['openedHoursOfWalk5'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk5']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 if (isset($_POST['openedHoursOfWalk6']) && !empty($_POST['openedHoursOfWalk6']) && $_POST['openedHoursOfWalk6'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk6']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 if (isset($_POST['openedHoursOfWalk7']) && !empty($_POST['openedHoursOfWalk7']) && $_POST['openedHoursOfWalk7'] !== '') {
     if (preg_match($regexOpenedHoursOfWalk, $_POST['openedHoursOfWalk7']) == 0) {
-        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format';
+        $arrayError['openedHoursOfWalk'] = 'Veuillez respecter le format (les symboles ou caratères de ponctuations ne sont pas autorisés)';
     };
 };
 // ERROR OFFICIAL SITE

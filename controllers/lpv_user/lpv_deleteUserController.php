@@ -31,7 +31,7 @@ $regexCheckPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\
 
 if (isset($_POST['checkPseudo'])) {
     if (preg_match($regexCheckPseudo, $_POST['checkPseudo']) == 0) {
-        $arrayError['checkPseudo'] = 'Veuillez respecter le format';
+        $arrayError['checkPseudo'] = 'Veuillez respecter le format (uniquement lettres Maj/Min, accentuées, espace, tiret et chiffres)';
     };
     if (empty($_POST['checkPseudo'])) {
         $arrayError['checkPseudo'] = 'Veuillez remplir le champ';
@@ -41,7 +41,7 @@ if (isset($_POST['checkPseudo'])) {
 $regexChecktPassword = '/^[a-z0-9A-Z]{1,15}$/';
 if (isset($_POST['checkPassword'])) {
     if (preg_match($regexChecktPassword, $_POST['checkPassword']) == 0) {
-        $arrayError['checkPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['checkPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['checkPassword'])) {
         $arrayError['checkPassword'] = 'Veuillez remplir le champ';

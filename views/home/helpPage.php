@@ -96,6 +96,9 @@
                             </ul>
                         </ul>
                     </div>
+                    <div class="col-12 p-0">
+                        <p class="textColor2"><span class="textColor1 h4">4 -</span> Mot de passe oublié : Contacter l'administrateur à l'aide du formulaire de contact.</p>
+                    </div>
                 </div>
             </div>
         </div>

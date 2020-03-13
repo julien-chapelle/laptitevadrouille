@@ -50,7 +50,7 @@ class Lpv_database
     {
         try {
             //PDO object creating for database connect
-            $this->db = new PDO('mysql:host=127.0.0.1;dbname=laptitevadrouille;charset=utf8', 'root', '');
+            $this->db = new PDO('mysql:host=127.0.0.1;dbname=laptitevadrouillev2;charset=utf8', 'root', '');
         } catch (Exception $e) {
             //Display error message if not connected of server
             die('Erreur : ' . $e->getMessage());

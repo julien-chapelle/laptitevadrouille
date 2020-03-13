@@ -9,7 +9,7 @@ $regexUserMailConnexion = '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)
 
 if (isset($_POST['userMailConnexion'])) {
     if (!preg_match($regexUserMailConnexion, $_POST['userMailConnexion'])) {
-        $arrayError['userMailConnexion'] = 'Veuillez respecter le format';
+        $arrayError['userMailConnexion'] = 'Veuillez respecter un format mail';
     };
     if (empty($_POST['userMailConnexion'])) {
         $arrayError['userMailConnexion'] = 'Veuillez remplir le champ';
@@ -20,7 +20,7 @@ $regexPasswordConnexion = '/^[a-z0-9A-Z]{1,15}$/';
 
 if (isset($_POST['passwordConnexion'])) {
     if (!preg_match($regexPasswordConnexion, $_POST['passwordConnexion'])) {
-        $arrayError['passwordConnexion'] = 'Veuillez respecter le format';
+        $arrayError['passwordConnexion'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     if (empty($_POST['passwordConnexion'])) {
         $arrayError['passwordConnexion'] = 'Veuillez remplir le champ';

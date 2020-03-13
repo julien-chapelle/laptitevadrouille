@@ -41,7 +41,7 @@ $regexChecktPassword = '/^[a-z0-9A-Z]{1,15}$/';
 if (isset($_POST['checkPassword'])) {
     //Condition of verification if format of value of $_POST is valid
     if (preg_match($regexChecktPassword, $_POST['checkPassword']) == 0) {
-        $arrayError['checkPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES';
+        $arrayError['checkPassword'] = 'Veuillez respecter le format - MAX 15 CARACTERES (uniquement lettres Maj/Min et chiffres)';
     };
     //Condition of verification if value of $_POST is not empty
     if (empty($_POST['checkPassword'])) {

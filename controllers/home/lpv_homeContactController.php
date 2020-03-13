@@ -4,7 +4,7 @@ $regexPseudo = '/^[A-Za-z0-9\ \-\à\á\â\ã\ä\å\ç\è\é\ê\ë\ì\í\î\ï\ð
 
 if (isset($_POST['pseudo'])) {
     if (!preg_match($regexPseudo, $_POST['pseudo'])) {
-        $arrayError['pseudo'] = 'Veuillez respecter le format';
+        $arrayError['pseudo'] = 'Veuillez respecter le format (uniquement lettres Maj/Min, accentuées, espace, tiret et chiffres)';
     };
     if (empty($_POST['pseudo'])) {
         $arrayError['pseudo'] = 'Veuillez remplir le champ';
@@ -15,7 +15,7 @@ $regexMail = '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/
 
 if (isset($_POST['mail'])) {
     if (!preg_match($regexMail, $_POST['mail'])) {
-        $arrayError['mail'] = 'Veuillez respecter le format';
+        $arrayError['mail'] = 'Veuillez respecter un format mail';
     };
     if (empty($_POST['mail'])) {
         $arrayError['mail'] = 'Veuillez remplir le champ';
