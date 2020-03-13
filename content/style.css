@@ -76,6 +76,9 @@ body{
     color: #a94731;
     font-size: 20px;
 }
+.borderHepl {
+    border: 1px solid #a94731;
+}
 .buttonColor1:hover {
     color: #a94731;
 }
