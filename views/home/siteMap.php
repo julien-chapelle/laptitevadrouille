@@ -9,7 +9,7 @@
 </div>
 <div class="row justify-content-around m-0">
     <div class="col-lg-3 col-md-2 col-sm-6 col-12 text-center">
-        <h2 class="font-weight-bold text-center h4 textColor1">ACCUEIL</h2>
+        <h2 class="font-weight-bold text-center h4"><a href="http://laptitevadrouille/" title="Vers accueil" class="textColor1">ACCUEIL</a></h2>
         <ul>
             <li class="textColor2">Map</li>
             <li class="textColor2">Rechercher autour de moi</li>
@@ -17,21 +17,22 @@
         </ul>
     </div>
     <div class="col-lg-3 col-md-2 col-sm-6 col-12 text-center">
-        <h2 class="font-weight-bold text-center h4 textColor1">LISTE DES SORTIES</h2>
+        <h2 class="font-weight-bold text-center h4"><a href="http://laptitevadrouille/index.php?list=walk&page=1" title="Vers liste des sorties" class="textColor1">LISTE DES SORTIES</a></h2>
         <ul>
-            <li></li>
+            <li class="textColor2">Liste des sorties</li>
+            <li class="textColor2">Détails d'une sorties</li>
         </ul>
     </div>
     <div class="col-lg-3 col-md-2 col-sm-6 col-12 text-center">
         <h2 class="font-weight-bold text-center h4 textColor1">RECHERCHE</h2>
         <ul>
-            <li></li>
+            <li class="textColor2">Résultats de recherche</li>
         </ul>
     </div>
     <div class="col-lg-3 col-md-2 col-sm-6 col-12 text-center">
-        <h2 class="font-weight-bold text-center h4 textColor1">CONNEXION / COMPTE UTILISATEUR</h2>
+        <h2 class="font-weight-bold text-center h4 textColor1"><a <?= isset($_SESSION) && !empty($_SESSION) ? 'href="http://laptitevadrouille/index.php?user=detail"' : 'href="http://laptitevadrouille/index.php?user=add"' ?> title="Vers liste des sorties" class="textColor1"><?= isset($_SESSION) && !empty($_SESSION) ? 'COMPTE UTILISATEUR' : 'CREATION DE COMPTE' ?></a></h2>
         <ul>
-            <li></li>
+            <?= isset($_SESSION) && !empty($_SESSION) ? '<li class="textColor2">Détail du compte</li>' : '<li class="textColor2">Création de compte</li>' ?>
         </ul>
     </div>
 </div>
